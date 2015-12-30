@@ -27,7 +27,7 @@
 \usepackage{graphicx}			% Zum Bilder einfügen benötigt
 \usepackage{pbox}				%Intelligent parbox: \pbox{maximum width}{blabalbalb \\ blabal}
 \usepackage{accents}			% Für eigene Ableitungspunkte benötigt
-\usepackage{undertilde}
+%\usepackage{undertilde}
 \usepackage{trfsigns}			% Laplace und Fourier
 \usepackage{scrtime}
 \usepackage{parskip} 			%Verhindert das einrücken am Zeilenanfang
@@ -80,8 +80,8 @@
 % Befehle sichern
 \let\oldvec = \vec
 \let\olddot = \dot
-\let\oldlaplace = \laplace
-\let\oldfourier = \fourier
+\let\oldlaplace = \LT
+\let\oldfourier = \FT
 
 % Überschreibungen
 \renewcommand{\vec}[1]{\ensuremath{\underline{\boldsymbol {#1}}}}
@@ -107,8 +107,8 @@
 \newcommand{\sgn}{\ensuremath{\mathrm{sgn\,}}}									%Signum
 \newcommand{\heavi}{\ensuremath{\mathrm{u}}}									%Heaviside Funktion
 %\newcommand{\e}{e}																%Eulersche Zahl
-\renewcommand{\laplace}{\ \; \oldlaplace \ \;}
-\renewcommand{\fourier}{\laplace}
+\renewcommand{\LT}{\ \; \oldlaplace \ \;}
+\renewcommand{\FT}{\LT}
 
 	% Für Mengen
 	\newcommand{\N}{\ensuremath{\mathbb N}}
@@ -455,15 +455,15 @@ $\Delta f = \div{\grad{f}}$
 	
 	\subsection{Rechenregeln}
 	\begin{tabularx}{\columnwidth}{lX}
-		Linearität & $\alpha f + \beta g \fourier \alpha c_k + \beta d_k$\\
-		Konjugation & $\ol{f} \fourier \ol{c_{-k}}$\\
-		Zeitumkehr & $f(-t) \fourier c_{-k}$\\
-		Streckung & $f(\gamma t) \fourier c_k; \gamma > 0; \tilde{T} = \frac{T}{\gamma}$\\
-		Verschiebung $t$ & $f(t + a) \fourier e^{\i k \omega a} c_k$\\
-		Verschiebung $\omega$ & $e^{\i n \omega t} f(t) \fourier c_{k - n}$\\
-		Ableitung & $\dot{f}(t) \fourier \i k \omega c_k$\\
-		Stammfunktion & $\int_0^t f(t) \fourier \begin{cases} \frac{c_k}{\i k \omega} & k \neq 0\\ -\frac{1}{T}\int_0^T t f(t) \diff t & k = 0\\ \end{cases}$\linebreak $c_{0_{f(t)}} \stackrel{!}{=} 0$\\
-		Faltung & $f * g \fourier c_k d_k$\\
+		Linearität & $\alpha f + \beta g \FT \alpha c_k + \beta d_k$\\
+		Konjugation & $\ol{f} \FT \ol{c_{-k}}$\\
+		Zeitumkehr & $f(-t) \FT c_{-k}$\\
+		Streckung & $f(\gamma t) \FT c_k; \gamma > 0; \tilde{T} = \frac{T}{\gamma}$\\
+		Verschiebung $t$ & $f(t + a) \FT e^{\i k \omega a} c_k$\\
+		Verschiebung $\omega$ & $e^{\i n \omega t} f(t) \FT c_{k - n}$\\
+		Ableitung & $\dot{f}(t) \FT \i k \omega c_k$\\
+		Stammfunktion & $\int_0^t f(t) \FT \begin{cases} \frac{c_k}{\i k \omega} & k \neq 0\\ -\frac{1}{T}\int_0^T t f(t) \diff t & k = 0\\ \end{cases}$\linebreak $c_{0_{f(t)}} \stackrel{!}{=} 0$\\
+		Faltung & $f * g \FT c_k d_k$\\
 	\end{tabularx}
 	
 	\subsection{Symmetrien}
@@ -530,9 +530,9 @@ $\Delta f = \div{\grad{f}}$
 	Wichtige Fouriertransformationen:\\
 	\begin{tabular}{rl|rl}
 		$f(t)$ & \qquad $F(\omega)$ & $f(t)$ & \qquad $F(\omega)$\\		%Graph mit zwei Farben?
-		$1$ & \!\!\!\!\!\!\!\!\!\! $\laplace 2\pi \delta(\omega)$ & $|t^n|$ & \!\!\!\!\!\!\!\!\!\! $\laplace \frac{2n!}{(\i \omega)^{n+1}}$\\
-		$t^n$ & \!\!\!\!\!\!\!\!\!\! $\laplace 2\pi \i^n \delta^{(n)}(\omega)$ & $\frac{t^{n-1}}{(n-1)!} e^{-at} u(t)$ & \!\!\!\!\!\!\!\!\!\! $\laplace \frac{1}{(a+\i \omega)^n}$\\[0.5em]
-		$\heavi(t)$ & \!\!\!\!\!\!\!\!\!\! $\laplace \frac{1}{\i \omega} + \pi \delta(\omega)$ & $\delta(t-t_0)$ & \!\!\!\!\!\!\!\!\!\! $\laplace e^{-\i \omega t_0}$
+		$1$ & \!\!\!\!\!\!\!\!\!\! $\LT 2\pi \delta(\omega)$ & $|t^n|$ & \!\!\!\!\!\!\!\!\!\! $\LT \frac{2n!}{(\i \omega)^{n+1}}$\\
+		$t^n$ & \!\!\!\!\!\!\!\!\!\! $\LT 2\pi \i^n \delta^{(n)}(\omega)$ & $\frac{t^{n-1}}{(n-1)!} e^{-at} u(t)$ & \!\!\!\!\!\!\!\!\!\! $\LT \frac{1}{(a+\i \omega)^n}$\\[0.5em]
+		$\heavi(t)$ & \!\!\!\!\!\!\!\!\!\! $\LT \frac{1}{\i \omega} + \pi \delta(\omega)$ & $\delta(t-t_0)$ & \!\!\!\!\!\!\!\!\!\! $\LT e^{-\i \omega t_0}$
 	\end{tabular}
 	
 	
@@ -541,7 +541,7 @@ $\Delta f = \div{\grad{f}}$
 	$\delta_\varepsilon(t-t_0) = \frac{1}{\varepsilon}$, für $t_0 \le t \le t_0 + \varepsilon$, sonst $0$\\
 	Für stetiges $g$ gilt: $\int_{-\infty}^\infty g(t) \delta(t-t_0) \diff t = g(t_0)$\\
 	$\Delta_{t_0} (\omega) = \int_{-\infty}^\infty \delta(t-t_0) \exp(-\i \omega t) \diff t = \exp(-\i \omega t_0)$\\
-	$\delta(t-t_0) \laplace \Delta_{t_0} (\omega)$ und $\delta(t) \laplace 1$
+	$\delta(t-t_0) \LT \Delta_{t_0} (\omega)$ und $\delta(t) \LT 1$
 	
 	\subsection{Heaviside-Funktion $\heavi(t)$}
 	$\heavi:\R \ra \C, \heavi(t) = \begin{cases} 1 &, t>0 \\ 0 & ,t<0 \end{cases}$ \qquad $\approx \lim\limits_{a \ra 0} \exp(-at)$\\
@@ -593,53 +593,53 @@ $\Delta f = \div{\grad{f}}$
 	
 	\subsection{Rechenregeln}
 	\begin{tabular}{ll}
-			Linearität & $\alpha f(t) + \beta g(t) \laplace \alpha F(\omega) + \beta G(\omega)$\\
-		Konjugation & $\ol{f(t)} \laplace \ol{F(-\omega)}$\\
-		Skalierung & $f(ct) \laplace \frac{1}{\abs{c}} F\bigl(\frac{\omega}{c}\bigr)$\\
-		Verschiebung $t$ & $f(t-a) \laplace \exp(- \i \omega a) F(\omega)$\\
-		Verschiebung $\omega$ & $\exp(\i \tilde \omega t) f(t) \laplace F(\omega - \tilde \omega)$\\
-		Ableitung $t$ & $f'(t) \laplace \i \omega F(\omega)$\\
-		Ableitung $\omega$ & $t f(t) \laplace \i F'(\omega)$\\
-		Faltung & $(f * g)(t) \laplace F(\omega) \cdot G(\omega)$\\
+			Linearität & $\alpha f(t) + \beta g(t) \LT \alpha F(\omega) + \beta G(\omega)$\\
+		Konjugation & $\ol{f(t)} \LT \ol{F(-\omega)}$\\
+		Skalierung & $f(ct) \LT \frac{1}{\abs{c}} F\bigl(\frac{\omega}{c}\bigr)$\\
+		Verschiebung $t$ & $f(t-a) \LT \exp(- \i \omega a) F(\omega)$\\
+		Verschiebung $\omega$ & $\exp(\i \tilde \omega t) f(t) \LT F(\omega - \tilde \omega)$\\
+		Ableitung $t$ & $f'(t) \LT \i \omega F(\omega)$\\
+		Ableitung $\omega$ & $t f(t) \LT \i F'(\omega)$\\
+		Faltung & $(f * g)(t) \LT F(\omega) \cdot G(\omega)$\\
 	\end{tabular}
 	
 	\subsection{Lineare DGLn}
-	$L[y](t) = P\left(\frac{\diff}{\diff t}\right)y(t) = b(t) \fourier P(\i \omega)Y(\omega) = B(\omega)$\\
-	$Y(\omega) = \underbrace{\frac{1}{P(\i \omega)}}_{H(\omega) \fourier h(t)}B(\omega)$\\
+	$L[y](t) = P\left(\frac{\diff}{\diff t}\right)y(t) = b(t) \FT P(\i \omega)Y(\omega) = B(\omega)$\\
+	$Y(\omega) = \underbrace{\frac{1}{P(\i \omega)}}_{H(\omega) \FT h(t)}B(\omega)$\\
 	$y(t) = h*b(t)$
 
 % ==============================================================================================================		
 \section{Laplacetransformation \quad $\mathcal L\bigl(f(t)\bigr) = F(s)$}
 % ==============================================================================================================	
-	\boxed{f(t) \laplace F(s) := \int\limits_0^\infty f(t) \exp(-st) \diff t}\\
+	\boxed{f(t) \LT F(s) := \int\limits_0^\infty f(t) \exp(-st) \diff t}\\
 	\emph{Voraussetzung:} $\abs{f(t)} \leq M e^{\sigma t} \quad \forall t > 0; \qquad \sigma = Re(s)$\\
 	\\
 	\everymath{\displaystyle}	% Formeln ab hier groß Schreiben
 	\begin{tabular}{rl|rl}
-		$1$ & \!\!\!\!\!\!\!\!\!\!$\laplace \frac{1}{s}$ & $\delta(t-t_0)$ & \!\!\!\!\!\!\!\!\!\!$\laplace e^{-s t_0}$\\[0.2em]
-		$t^n$ & \!\!\!\!\!\!\!\!\!\!$\laplace \frac{n!}{s^{n+1}}$ & $e^{at}$  & \!\!\!\!\!\!\!\!\!\!$\overset{s > a}{ \laplace } \frac{1}{s-a}$\\[0.5em] 
-		$\sin(t)$ & \!\!\!\!\!\!\!\!\!\!$\laplace \frac{1}{s^2 + 1}$ & $\cos(t)$ & \!\!\!\!\!\!\!\!\!\!$\laplace \frac{s}{s^2 + 1}$\\[0.5em]
-		$\sin(\omega t)$ & \!\!\!\!\!\!\!\!\!\!$\laplace \frac{\omega}{s^2 + \omega^2}$ & $\cos(\omega t)$ & \!\!\!\!\!\!\!\!\!\!$\laplace \frac{s}{s^2 + \omega^2}$\\[0.5em]
-		\multicolumn{4}{l}{ $e^{-at} \sin(\omega t) \laplace \frac{\omega}{(s+a)^2+\omega^2}$} \\
-		\multicolumn{4}{l}{ $e^{-at} \cos(\omega t) \laplace \frac{s+a}{(s+a)^2+\omega^2}$}\\ 		
+		$1$ & \!\!\!\!\!\!\!\!\!\!$\LT \frac{1}{s}$ & $\delta(t-t_0)$ & \!\!\!\!\!\!\!\!\!\!$\LT e^{-s t_0}$\\[0.2em]
+		$t^n$ & \!\!\!\!\!\!\!\!\!\!$\LT \frac{n!}{s^{n+1}}$ & $e^{at}$  & \!\!\!\!\!\!\!\!\!\!$\overset{s > a}{ \LT } \frac{1}{s-a}$\\[0.5em] 
+		$\sin(t)$ & \!\!\!\!\!\!\!\!\!\!$\LT \frac{1}{s^2 + 1}$ & $\cos(t)$ & \!\!\!\!\!\!\!\!\!\!$\LT \frac{s}{s^2 + 1}$\\[0.5em]
+		$\sin(\omega t)$ & \!\!\!\!\!\!\!\!\!\!$\LT \frac{\omega}{s^2 + \omega^2}$ & $\cos(\omega t)$ & \!\!\!\!\!\!\!\!\!\!$\LT \frac{s}{s^2 + \omega^2}$\\[0.5em]
+		\multicolumn{4}{l}{ $e^{-at} \sin(\omega t) \LT \frac{\omega}{(s+a)^2+\omega^2}$} \\
+		\multicolumn{4}{l}{ $e^{-at} \cos(\omega t) \LT \frac{s+a}{(s+a)^2+\omega^2}$}\\ 		
 
 	\end{tabular}\\
 	\everymath{\textstyle}
-	Linearität: $\alpha f(t) + \beta g(t) \laplace \alpha F(s) + \beta G(s)$\\
-	Ähnlichkeit: $f(ct) \laplace \frac{1}{c} F\bigl(  \frac{s}{c} \bigr)$\\
-	Ableitung Originalfkt: $f'(t) \laplace s F(s) - f(0)$ \quad $f''(t) \laplace s^2 F(s) - sf(0) - f'(0)$\\
-	$f^{(n)} \laplace s^n F(s) - s^{n-1} f(0) - s^{n-2} f'(0) \ldots - f^{(n-1)}(0)$\\
-	Integral Originalfkt: $\int_0^t f(x) \diff x \laplace \frac{1}{s} F(s)$\\
-	Ableitung Bildfkt: $(-t)^n f(t) \laplace F^{(n)} (s)$\\
-	Verschiebung: $f(t-a)\heavi(t-a) \laplace e^{-as} F(s)$\\
+	Linearität: $\alpha f(t) + \beta g(t) \LT \alpha F(s) + \beta G(s)$\\
+	Ähnlichkeit: $f(ct) \LT \frac{1}{c} F\bigl(  \frac{s}{c} \bigr)$\\
+	Ableitung Originalfkt: $f'(t) \LT s F(s) - f(0)$ \quad $f''(t) \LT s^2 F(s) - sf(0) - f'(0)$\\
+	$f^{(n)} \LT s^n F(s) - s^{n-1} f(0) - s^{n-2} f'(0) \ldots - f^{(n-1)}(0)$\\
+	Integral Originalfkt: $\int_0^t f(x) \diff x \LT \frac{1}{s} F(s)$\\
+	Ableitung Bildfkt: $(-t)^n f(t) \LT F^{(n)} (s)$\\
+	Verschiebung: $f(t-a)\heavi(t-a) \LT e^{-as} F(s)$\\
 	%Integral Bildfkt: 
-	Dämpfung: $e^{-at} f(t) \laplace F(s+a)$\\
-	Faltung: $(f * g)(t) := \int_0^t f( t - \tau) g(\tau) \diff \tau$ $\laplace F(s) \cdot G(s)$\\
+	Dämpfung: $e^{-at} f(t) \LT F(s+a)$\\
+	Faltung: $(f * g)(t) := \int_0^t f( t - \tau) g(\tau) \diff \tau$ $\LT F(s) \cdot G(s)$\\
 	Inverse: $f(t) = \frac{1}{2\pi \i} \int\limits_{\gamma - \i \infty}^{-\gamma + \i \infty} F(s) \exp(st) \diff s$\\
 	Es gibt eine eineindeutige Korespondens zwischen den Originalfkt und Bildfkt.
 	Meist Nennergrad $>$ Zählergrad: Bruch geschickt umformen!
 	%Bsp: $F(s) = \frac{1}{(s+2)^2} \Ra f(t) = te^{-2t}$\\
-	%$F(s) = \frac{1-s}{s^2+2s+2} = \frac{1-s}{(s+1)^2 + 1} = \frac{2}{(s+1)^2 + 1} - \frac{s+1}{(s+1)^2 + 1} \laplace$
+	%$F(s) = \frac{1-s}{s^2+2s+2} = \frac{1-s}{(s+1)^2 + 1} = \frac{2}{(s+1)^2 + 1} - \frac{s+1}{(s+1)^2 + 1} \LT$
 	%Faltung: $(f * g)(t) = \int\limits_{-\infty}^\infty f(t-\tau) \cdot g(\tau) \diff \tau$\\
 	Laplacetransformierte als Summe nie auf gemeinsamen Nenner bringen!!
 
@@ -658,7 +658,7 @@ $a f''(t) + b f'(t) + c f(t) = s(t)$ \quad $f(0) = d, f'(0) = e$ \\
 $\ra$ falls DGL höherer Ordnung $\ra$ Vogel-Strauß-Algorithmus
 
 \subsection{DGL LaPlace-Transformierbar}
-Falls gilt $f(t) \laplace F(s)$ und $s(t) \laplace S(s)$: \\
+Falls gilt $f(t) \LT F(s)$ und $s(t) \LT S(s)$: \\
 Laplacetrafo: $a\bigl(s^2 F(s) - sf(0) - f'(0)\bigr) + b\bigl( s F(s) - f(0) \bigr) + c F(s) = S(s)$\\
 $F(s) = \frac{a(sd + e) + bd}{as^2 + bs +c} + S(s) \frac{1}{as^2 + bs +c}$ \\
 Rücktransformation von $F(s)$ liefert die Lösung $f(t)$
