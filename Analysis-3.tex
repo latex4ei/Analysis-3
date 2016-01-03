@@ -11,19 +11,23 @@
 %				Analysis 3				%
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 
+% TODO: Holomorphie HM739
+
 % Document Class ===============================================================
 \documentclass[german,color]{latex4ei/latex4ei_fs}
 
 % set document information
-\title{Analysis 3}
+\title{Analysis 3 (Beta)}
 \author{Lukas Kompatscher (LaTeX4EI)}	
-\myemail{info@latex4ei.de}	
+\myemail{lukas.kmp@gmail.com}	
 
 
 % DOCUMENT_BEGIN ===============================================================
 \begin{document}
 
 \maketitle
+
+Diese Formelsammlung ist noch in Bearbeitung. Bei Vorschlägen oder Korrekturen bitte melden.
 
 % SECTION ======================================================================
 \section{Nützliches Wissen $e^{\i x} = \cos (x) + \i \cdot \sin(x)$}
@@ -398,6 +402,12 @@ $f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
 	Falls keine Unstetigkeitsstelle innerhalb der Kurve $\cx \gamma$\\ 
 	$\cx f: G \ra \C$ komplex diffbar auf offenem, einfach zusammenhängendem Gebiet $G \subset \C$. $\cx \gamma$ sei einfach geschlossene Kurve in $G$ (keine Doppelpunkte). \\
 	$\oint \limits_{\cx \gamma} \cx f(\cx z) \diff \cx z = 0$
+	
+	\subsection{Existenz einer Stammfunktion und Wegunabhängigkeit}
+	Ist $\cx f: G \ra \C$ holomorph auf dem einfach zsh. Gebiet $G$, so existiert zu $\cx f$ eine Stammfunktion $\cx F$, und es gilt für jede in $G$ verlaufende Kurve $\cx \gamma$ mit Anfangspunkt $\cx \gamma(a)$ und Endpunkt $\cx \gamma(b)$: \\
+	\begin{equation*}
+		\int \limits_{\cx \gamma} \cx f(\cx z) \diff \cx z = \cx F(\cx \gamma (b)) - \cx F(\cx \gamma (a))
+	\end{equation*}
 \end{sectionbox}
 
 \begin{sectionbox}
