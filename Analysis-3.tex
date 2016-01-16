@@ -2,7 +2,7 @@
 % Formelsammlung von LaTeX4EI									
 %
 % @encode: 	UTF-8, tabwidth = 4, newline = LF
-% @author:	Lukas Kompatscher, Emanuel Regnath (orginal HM3 und HM4)
+% @author:	Lukas Kompatscher, Emanuel Regnath (Orginal HM3 und HM4)
 % @date:		
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
@@ -14,7 +14,7 @@
 % TODO: Holomorphie HM739
 
 % Document Class ===============================================================
-\documentclass[german,color]{latex4ei/latex4ei_fs}
+\documentclass[german,color,6pt]{latex4ei/latex4ei_fs}
 
 % set document information
 \title{Analysis 3 (Beta)}
@@ -354,10 +354,8 @@ $f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
 	$u$ bzw. $v$ sind harmonisch, falls gilt:\\
 	$\lpo u = \partial_{xx} u + \partial_{yy} u = 0$ \qquad\quad $\lpo v = \partial_{xx} v + \partial_{yy} v = 0$\\[0.5em]
 	oder falls $f(\cx z) = u + \i v$ holomorph ist; denn mit Satz von Schwarz:\\
-	$\lpo u = \partial_{yx} v - \partial_{xy} v = 0$ \qquad\quad $\lpo v = - \partial_{yx} u + \partial_{xy} u = 0$\\
-	\\
+	$\lpo u = \partial_{yx} v - \partial_{xy} v = 0$ \qquad\quad $\lpo v = - \partial_{yx} u + \partial_{xy} u = 0$
 	\begin{cookbox}{Bestimmung der harmonischen Konjugierten}
-		\begin{itemize}
 			\item geg: harm. Fkt. $u: G \ra \mathbb R, (x,y) \ra u(x,y)$
 			\item ges: harm. Fkt. $v: G \ra \mathbb R, (x,y) \ra v(x,y)$
 			so, dass $f: G \ra \mathbb V, f(z) = u(x,y) + \i v (x,y)$
@@ -366,7 +364,6 @@ $f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
 			\item $g(x) = \int g'(x) \diff x \Ra v$ bis auf Konstante $C$ bestimmt
 			\item zugehörige holomorphe Fkt.
 			$f (z) = u (x,y) + \i v(x,y)$
-		\end{itemize}
 	\end{cookbox}
 \end{sectionbox}
 
@@ -414,25 +411,30 @@ $f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
 	\subsection{Singularitäten}
 	Isolierte Singularität $\cx z_0$: \quad $\cx f :G \setminus \eset{\cx z_0} \ra \C$ \ (einzelne Punkte)\\
 	Hebbare Sing., falls $f$ auf punktierter Umgebung beschränkt ist.\\
-	Pol $m$ter Ordnung: $(\cx z - \cx z_o)^m \cx f(\cx z)$ ist hebbar in $\cx z_0$\\
+	Pol $m$-ter Ordnung: $(\cx z - \cx z_o)^m \cx f(\cx z)$ ist hebbar in $\cx z_0$\\
 	Wesentliche Singularität: Sonst.
 \end{sectionbox}
 
 \begin{sectionbox}
 	\subsection{Taylorreihe und Laurentreihe}
 	\emph{Taylorreihe:} falls $\cx f$ holomorph:\\
-	\boxed{ \cx f(\cx z) = \sum\limits_{k = 0}^{\infty} \frac{\cx f^{(k)} \cx z_0}{k!} (\cx z - \cx z_0)^k }\\
-	\\
+	\begin{equation*}
+		\cx f(\cx z) = \sum\limits_{k = 0}^{\infty} \frac{\cx f^{(k)} \cx z_0}{k!} (\cx z - \cx z_0)^k
+	\end{equation*}
 	\emph{Laurentreihe:} Falls $\cx f$ nicht holomorph ist.\\
-	\boxed{\sum\limits_{k = -\infty}^\infty \cx c_k (\cx z - \cx z_0)^k} \\
+	\begin{equation*}
+		\sum\limits_{k = -\infty}^\infty \cx c_k (\cx z - \cx z_0)^k
+		\end{equation*}
 	zerfällt in $\sum \limits_{k=1}^{\infty} d_k w^k$ mit $d_k = c_{-k}$ und $w = \frac{1}{z - z_0}$ (Hauptteil) und $\sum \limits_{k = 0}^{\infty} c_k (z-z_0)^k$ (Nebenteil) \\
 	Konvergenz falls Hauptteil und Nebenteil konvergiert. \\ 
 	Konvergenzradien: $R = \lim \abs{\frac{c_k}{c_{k+1}}} \in [0, \infty]$ \\ 
 	Resiudensatz: $\mathrm{Res}_{z_0} \cx f = c_{-1} = \frac{1}{2\pi\i} \oint f(z) \diff z$
 	
-	\paragraph{Allgemeiner Residuensatz} $G$ Gebiet: $f:G \setminus \eset{z_1, \ldots, z_n} \ra \mathbb C$ hol. \\ 
-	$\forall $ doppelpunktfrei, geschlossene und pos. orientierte Kurven $\gamma$ mit $z_1, \ldots z_n$ liegen im Inneren von $\gamma$: \\ 
-	$\oint_\gamma f(z) \diff z = 2 \pi \i \sum_{k=1}^{n} Res_{z_k} f$
+	\paragraph{Allgemeiner Residuensatz} $f:G \setminus \eset{z_1, \ldots, z_n} \ra \mathbb C$ holomorph \\ 
+	$\forall $ doppelpunktfrei, geschlossene und pos. orientierte Kurven $\gamma$ mit $z_1, \dots, z_n$ liegen im Inneren von $\gamma$:
+	\begin{equation*}
+		\oint_\gamma f(z) \diff z = 2 \pi \i \sum_{k=1}^{n} Res_{z_k} f
+	\end{equation*}
 	
 	\begin{emphbox}
 		\raggedright
@@ -442,6 +444,55 @@ $f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
 \end{sectionbox}
 
 
+% SECTION ======================================================================
+\section{Partielle Diff'gleichungen 1. Ordnung}
+% ==============================================================================
+
+\begin{sectionbox}
+	\subsection{Lineare pDGLen 1. Ord. mit konstanten Koeffizienten}
+	Geg.: $a u_x+b u_y =f(x,y)$ mit $a \neq 0 \neq b$, ges.: $u=u(x,y)$
+	\begin{cookbox}{Lösung einer lin. pDGL 1. Ord. mit konstanten Koeffizienten}
+		\item Substitution: $r=r(x,y)=bx+ay$ und $s=s(x,y)=bx-ay$
+		\item $U(r,s) = u(\frac{r+s}{2b},\frac{r-s}{2a}) = u(x,y)$  und \\ $F(r,s) = f(\frac{r+s}{2b},\frac{r-s}{2a}) = f(x,y)$
+		\item Einsetzen liefert $U_{r}=\frac{1}{2ab}F(r,s) $
+		\item Lösung U: $\; \; U(r,s)=\int \frac{1}{2ab} F(r,s)dr+G(s)$ mit $G(s)$ beliebig diff'bare Fkt.
+		\item Rücksubstitution liefert $u(x,y)$
+		\item Anfangsbedingung z.B. $u(x,0) = g(x)$ legt $G(s)$ fest
+	\end{cookbox}
+\end{sectionbox}
+
+\begin{sectionbox}
+	\subsection{Lineare pDGL 1. Ordnung}
+	Geg.: $a(x,y)u_x+b(x,y)u_y=0$, ges.: $u=u(x,y)$
+	\begin{cookbox}{Lösung einer linearen homogenen pDGL 1. Ord. (2 Variablen)}
+		\item $\frac{dy}{dx}=\frac{b(x,y)}{a(x,y)}$ (ist gDGL), alternativ $\frac{dx}{dy}=\frac{a(x,y)}{b(x,y)}$ 
+		\item Löse gDGL und erhalte $y=y(x)=F(x,c) $
+		\item Löse die Gleichung $y(x)=F(x,c)$ nach $c = c(x,y)$ auf (falls möglich)
+		\item $u(x,y)=f(c(x,y))$ ist für jede stetig diff'bare Fkt. $f$ eine Lösung der pDGL
+		\item $f$ wird durch evtl. gegebene Anfangsbedingung festgelegt
+	\end{cookbox}
+	\label{subsubsec:linpdgl}
+	Geg.: $a(x,y,z)u_x+b(x,y,z)u_y+c(x,y,z)u_z=0$, ges.: $u=u(x,y,z)$
+	\begin{cookbox}{Lösung einer linearen homogenen pDGL 1. Ord. (3 Variablen)}
+		\item $\frac{dy}{dx}=\frac{b(x,y,z)}{a(x,y,z)}$ und $\frac{dz}{dx}=\frac{c(x,y,z)}{a(x,y,z)}$ (ist ein System von gDGL), \\
+			alternativ $\frac{dx}{dy}$, $\frac{dz}{dy}$ oder $\frac{dx}{dz}$, $\frac{dy}{dz}$
+		\item Löse das System von gDGLen und erhalte \\$y=y(x)=F(c_{1},x) $ und $z=z(x)=G(c_{2},x) $
+		\item Löse das System $y(x)=F(c_{1},x) $ und $z(x)=G(c_{2},x) $ nach $c_{1}=c_{1}(x,y,z) $ und $c_{2}=c_{2}(x,y,z) $ auf (falls möglich)
+		\item $ u(x,y,z)=f(c_{1}(x,y,z),c_{2}(x,y,z))$ ist für jede stetig diff'bare Fkt. $f$ eine Lösung der pDGL
+		\item $f $ wird durch evtl. gegebene Anfangsbedingung festgelegt
+	\end{cookbox}
+\end{sectionbox}
+
+\begin{sectionbox}
+	\subsection{Quasilineare pDGL 1. Ordnung}
+	Geg.: $a(x,y,u)u_x+b(x,y,u)u_y=c(x,y,u)$, ges.: $u=u(x,y)$
+	\begin{cookbox}{Lösung einer quasilinearen pDGL 1. Ordnung}
+		\item Betrachte lineare pDGL in drei Variablen $x,y,u$:
+		\\$a(x,y,u)F_{x}+b(x,y,u)F_{y}+c(x,y,u)F_{u}=0$
+		\item Löse lineare pDGL mit Ansatz aus {\bf\ref{subsubsec:linpdgl}} und erhalte	$F=F(x,y,u) $
+		\item Durch $F(x,y,u)=0 $ ist implizit eine Lösung $u=u(x,y) $ gegeben
+	\end{cookbox}
+\end{sectionbox}
 
 
 % Dokumentende
