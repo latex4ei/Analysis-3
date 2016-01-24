@@ -238,7 +238,7 @@
 		$\heavi(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT \frac{1}{\i \omega} + \pi \delta(\omega)$ & $\delta(t-t_0)$ & \!\!\!\!\!\!\!\!\!\! $\FT e^{-\i \omega t_0}$
 	\end{tabular}
 	\subsection{Die Inverse Fouriertransformation}
-	$f(t) = \frac{1}{2\pi} \int\limits_{-\infty}^\infty F(\omega) \exp(\i \omega t) \diff \omega = \begin{cases} f(t) &, f \text{ stetig in }t \\ \frac{f(t^-) + f(t^+)}{2} &, f\text{ unstetig }t \end{cases}$
+	$\widetilde{f}(t) = \frac{1}{2\pi} \int\limits_{-\infty}^\infty F(\omega) \exp(\i \omega t) \diff \omega = \begin{cases} f(t) &, f \text{ stetig in }t \\ \frac{f(t^-) + f(t^+)}{2} &, f\text{ unstetig }t \end{cases}$
 \end{sectionbox}
 
 \begin{sectionbox}
@@ -328,7 +328,7 @@
 \end{sectionbox}
 
 \begin{sectionbox}
-	\subsection{DGL LaPlace-Transformierbar}
+	\subsection{DGL Laplace-Transformierbar}
 	Falls gilt $f(t) \LT F(s)$ und $s(t) \LT S(s)$: \\
 	Laplacetrafo: $a\bigl(s^2 F(s) - sf(0) - f'(0)\bigr) + b\bigl( s F(s) - f(0) \bigr) + c F(s) = S(s)$\\
 	$F(s) = \frac{a(sd + e) + bd}{as^2 + bs +c} + S(s) \frac{1}{as^2 + bs +c}$ \\
@@ -536,10 +536,43 @@
 	
 	\subsection{Lösungsmethode}
 	\begin{cookbox}{Lösen der pDGL mit dem Separationsansatz}
-		\item Setze \(u(x,y)=f(x)g(y) \) in die pDGL ein und erhalte zwei gDGLen f\"ur \(f\) und \(g\). $u_{xx} = f''(x)g(x)$ und $u_{yy}=f(x)g''(x)$
+		\item Setze \(u(x,y)=f(x)g(y) \) in die pDGL ein und erhalte zwei gDGLen f\"ur \(f\) und \(g\). $u_{xx} = f''(x)g(y)$ und $u_{yy}=f(x)g''(y)$
 		\item L\"ose die zwei gDGLen und erhalte \(f=f(x)\) und \(g=g(y) \)
 		\item Eine L\"osung der pDGL ist \(u(x,y)=f(x)g(y) \)
 	\end{cookbox}
+\end{sectionbox}
+
+% SECTION ======================================================================
+\section{Laplace- und Poissongleichung}
+% ==============================================================================
+\begin{sectionbox}
+	\subsection{Randwertprobleme (RWP) f\"ur Poissongleichung}
+	Gegeben: $-\laplace u = f$ und ein RWP. Ges.: $u=u(x,y)$ oder $u=u(x,y,z)$
+	\begin{tablebox}{p{\textwidth}}
+		\textbf{Dirichlet RWP}\\
+		\(-\laplace u(\vec x)=f(\vec x) \) f\"ur alle \(x \in D \) und \(u(\vec x)=u_{0}(\vec x) \) f\"ur alle \(x \in \partial D \)\\
+		\textbf{Neumann RWP}\\
+		\(-\laplace u(\vec x)=f(\vec x) \) f\"ur alle \(x \in D \) und \(\frac{\partial u}{\partial \vec n}(\vec x)=u_{0}(\vec x) \) f\"ur alle \(x \in \partial D \) \\
+		\textbf{Gemischtes RWP} \\
+		\(-\laplace u(\vec x)=f(\vec x) \) f\"ur alle \(x \in D \) und \(\frac{\partial u}{\partial \vec n}(\vec x)+k(\vec x)u(\vec x)=u_{0}(\vec x) \) f\"ur alle \(x \in \partial D \) \\
+	\end{tablebox}
+	wobei $\vec n$ = Normaleneinheitsvektor, der aus D hinausweist und $k=k(\vec x)$ ist eine stetige Funktion
+	\begin{tablebox}{lp{0.8\textwidth}}
+		inneres RWP & falls \(D \) ein beschr\"anktes Gebiet \\
+		\"au{\ss}eres RWP & falls \(D \) Komplement eines beschr\"ankten Gebietes ist (Dann sind weitere Randwertbedingungen an die L\"osungen zu stellen)
+	\end{tablebox}
+	
+	\subsection{L\"osungen der Laplacegleichung}
+	F\"ur beliebige \(a_{n},b_{n} \in \mathbb{R}\) bzw. \(a,b \in \mathbb{R} \) ist
+	\[
+	u(r,\varphi)=
+	\begin{cases}
+	u_{n}(r,\varphi)=(a_{n}cos(n \varphi)+b_{n}sin(n \varphi))r^{n} & \text{f\"ur } n \in \mathbb{Z}\setminus\{0\}
+	\\
+	a+b \; ln(r) & \text{f\"ur } n=0
+	\end{cases}
+	\]
+	eine L\"osung der Laplacegleichung
 \end{sectionbox}
 
 
