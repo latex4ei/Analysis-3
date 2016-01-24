@@ -152,17 +152,17 @@
 
 \begin{sectionbox}
 	\subsection{Rechenregeln}
-	\begin{tablebox}{ll}%TODOSamuel
-		Linearität & $\alpha f + \beta g \FT \alpha c_k + \beta d_k$\\
-		Konjugation & $\ol{f} \FT \ol{c_{-k}}$\\
-		Zeitumkehr & $f(-t) \FT c_{-k}$\\
-		Streckung & $f(\gamma t) \FT c_k; \gamma > 0; \tilde{T} = \frac{T}{\gamma}$\\
-		Verschiebung $t$ & $f(t + a) \FT e^{\i k \omega a} c_k$\\
-		Verschiebung $\omega$ & $e^{\i n \omega t} f(t) \FT c_{k - n}$\\
-		Ableitung & $\dot{f}(t) \FT \i k \omega c_k$\\
-		Stammfunktion & $\int_0^t f(t) \FT \begin{cases} \frac{c_k}{\i k \omega} & k \neq 0\\ -\frac{1}{T}\int_0^T t f(t) \diff t & k = 0\\ \end{cases}$\\
+	\begin{tablebox}{ll}
+		Linearität & $\alpha f + \beta g \T \alpha c_k + \beta d_k$\\
+		Konjugation & $\ol{f} \T \ol{c_{-k}}$\\
+		Zeitumkehr & $f(-t) \T c_{-k}$\\
+		Streckung & $f(\gamma t) \T c_k; \gamma > 0; \tilde{T} = \frac{T}{\gamma}$\\
+		Verschiebung $t$ & $f(t + a) \T e^{\i k \omega a} c_k$\\
+		Verschiebung $\omega$ & $e^{\i n \omega t} f(t) \T c_{k - n}$\\
+		Ableitung & $\dot{f}(t) \T \i k \omega c_k$\\
+		Stammfunktion & $\int_0^t f(t) \T \begin{cases} \frac{c_k}{\i k \omega} & k \neq 0\\ -\frac{1}{T}\int_0^T t f(t) \diff t & k = 0\\ \end{cases}$\\
 		& $c_{0_{f(t)}} \stackrel{!}{=} 0$\\
-		Faltung & $f * g \FT c_k d_k$\\
+		Faltung & $f * g \T c_k d_k$\\
 	\end{tablebox}
 \end{sectionbox}
 
@@ -275,7 +275,7 @@
 		Ableitung $\omega$ & $t^n f(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT \i^n F^{(n)}(\omega)$\\
 		Integration $t$ & $\int_{-\infty}^{t}x(\tau)\diff \tau$ & \!\!\!\!\!\!\!\!\!\! $\FT  \frac{1}{\i\omega}X(\omega)+\pi X(0)\delta(\omega)$\\
 		Integration $\omega$ & $\frac{\i}{t}x(t) + \pi x(0)\delta(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT \int_{-\infty}^{\omega}X(\Omega)\diff \Omega$\\
-		Faltung & $(f * g)(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT F(\omega) \cdot G(\omega)$\\
+		Faltung: & $(f * g)(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT F(\omega) \cdot G(\omega)$\\
 		Modulation & $f(t)\cdot g(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT \frac{1}{2\pi}X_1(\omega)*X_2(\omega)$
 	\end{tablebox}
 \end{sectionbox}
@@ -296,29 +296,32 @@
 		$t^n$ & \!\!\!\!\!\!\!\!\!\!$\LT \frac{n!}{s^{n+1}}$ & $e^{at}$  & \!\!\!\!\!\!\!\!\!\!$\overset{s > a}{ \LT } \frac{1}{s-a}$\\[0.5em] 
 		$\sin(t)$ & \!\!\!\!\!\!\!\!\!\!$\LT \frac{1}{s^2 + 1}$ & $\cos(t)$ & \!\!\!\!\!\!\!\!\!\!$\LT \frac{s}{s^2 + 1}$\\[0.5em]
 		$\sin(\omega t)$ & \!\!\!\!\!\!\!\!\!\!$\LT \frac{\omega}{s^2 + \omega^2}$ & $\cos(\omega t)$ & \!\!\!\!\!\!\!\!\!\!$\LT \frac{s}{s^2 + \omega^2}$\\[0.5em]
+		$\frac{t^{n-1}}{(n-1)!}$   & \kern-1.7em $\LT \frac{1}{s^n}$ & $\frac{\sin(at)}{t}$ & \kern-1.7em $\LT\arctan(\frac{a}{s})$\\[0.5em]
 		\multicolumn{4}{l}{ $e^{-at} \sin(\omega t) \LT \frac{\omega}{(s+a)^2+\omega^2}$} \\
 		\multicolumn{4}{l}{ $e^{-at} \cos(\omega t) \LT \frac{s+a}{(s+a)^2+\omega^2}$}\\ 		
 		
 	\end{tabular}\\
+	\subsection{Die Inverse Laplacetransformation}
+	$f(t) = \frac{1}{2\pi \i} \int\limits_{\gamma - \i \infty}^{-\gamma + \i \infty} F(s) \exp(st) \diff s$
 \end{sectionbox}
 
 \begin{sectionbox}
 	\subsection{Rechenregeln}
 	\everymath{\textstyle}
-	\begin{tablebox}{ll} %TODOSamuel
-		Linearität: & $\alpha f(t) + \beta g(t) \LT \alpha F(s) + \beta G(s)$\\
-		Ähnlichkeit: & $f(ct) \LT \frac{1}{c} F\bigl(  \frac{s}{c} \bigr)$\\
-		Ableitung: & $f'(t) \LT s F(s) - f(0)$ \\
-		& $f''(t) \LT s^2 F(s) - sf(0) - f'(0)$\\
-		\multicolumn{2}{l}{$f^{(n)} \LT s^n F(s) - s^{n-1} f(0) - s^{n-2} f'(0) \ldots - f^{(n-1)}(0)$}\\
-		Integral: & $\int_0^t f(x) \diff x \LT \frac{1}{s} F(s)$\\
-		Ableitung Bildfkt: & $(-t)^n f(t) \LT F^{(n)} (s)$\\
-		Verschiebung: & $f(t-a)\heavi(t-a) \LT e^{-as} F(s)$\\
-		%Integral Bildfkt: 
-		Dämpfung: & $e^{-at} f(t) \LT F(s+a)$\\
-		Faltung: & $(f * g)(t) := \int_0^t f( t - \tau) g(\tau) \diff \tau$ $\LT F(s) \cdot G(s)$\\
-		Inverse: & $f(t) = \frac{1}{2\pi \i} \int\limits_{\gamma - \i \infty}^{-\gamma + \i \infty} F(s) \exp(st) \diff s$\\
+	\begin{tablebox}{p{0.18\textwidth}p{0.29\textwidth}p{0.53\textwidth}}
+		Linearität & $\alpha f(t) + \beta g(t)$ & $\LT \alpha F(s) + \beta G(s)$\\
+		Skalierung & $f(ct)$  & $\LT \frac{1}{c} F\bigl(  \frac{s}{c} \bigr)$\\
+		Verschiebung $t$ & $f(t-a)\heavi(t-a)$ & $\LT e^{-as} F(s)$\\
+		Verschiebung $s$ & $e^{-at}f(t)$ & $\LT F(s+a)$\\
+		Ableitung $t$ & $f'(t)$  &  $\LT s F(s) - f(0)$ \\
+		& $f''(t)$ &  $\LT s^2 F(s) - sf(0) - f'(0)$\\
+		\multicolumn{3}{l}{$\,\,\,\,f^{(n)} \LT s^n F(s) - s^{n-1} f(0) - s^{n-2} f'(0) \ldots - f^{(n-1)}(0)$}\\
+		Ableitung $s$ & $(-t)^n f(t)$ & $\LT F^{(n)} (s)$\\
+		Integration $t$ & $\int_0^t f(x) \diff x$ & $\LT \frac{1}{s} F(s)$\\
+		Integration $s$ & $\frac{1}{t}f(t)$ & $\LT \int_{s}^{\infty}F(s')ds'$ \\
+		Faltung & $(f*g)(t)$ & $\LT F(s) \cdot G(s)$\\
 	\end{tablebox}
+	Faltung: $(f*g)(t):= \int_0^t f( t - \tau) g(\tau) \diff \tau$ \\
 	Es gibt eine eineindeutige Korespondens zwischen den Originalfkt und Bildfkt.
 	Meist Nennergrad $>$ Zählergrad: Bruch geschickt umformen!\\
 	%Bsp: $F(s) = \frac{1}{(s+2)^2} \Ra f(t) = te^{-2t}$\\
