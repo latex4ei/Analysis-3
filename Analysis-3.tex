@@ -160,6 +160,7 @@
 		Verschiebung $t$ & $f(t + a) \T e^{\i k \omega a} c_k$\\
 		Verschiebung $\omega$ & $e^{\i n \omega t} f(t) \T c_{k - n}$\\
 		Ableitung & $\dot{f}(t) \T \i k \omega c_k$\\
+		Ableitung bei Sprungstellen & $\dot{f}(t) \T \i k\omega c_k - \frac{1}{T}\sum_{j=1}^{N}\Delta_j e^{-k\omega tj}$\\
 		Stammfunktion & $\int_0^t f(t) \T \begin{cases} \frac{c_k}{\i k \omega} & k \neq 0\\ -\frac{1}{T}\int_0^T t f(t) \diff t & k = 0\\ \end{cases}$\\
 		& $c_{0_{f(t)}} \stackrel{!}{=} 0$\\
 		Faltung & $f * g \T c_k d_k$\\
@@ -279,6 +280,24 @@
 		Modulation & $f(t)\cdot g(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT \frac{1}{2\pi}X_1(\omega)*X_2(\omega)$
 	\end{tablebox}
 \end{sectionbox}
+
+\begin{sectionbox}
+	\subsection{Symmetrie}
+	\begin{tablebox}{p{0.4\textwidth}p{0.6\textwidth}}
+		$\pmb{f(t)}$ & $\pmb{F(\omega)}$\\
+		reell & $F(-\omega) = F^*(\omega)$\\
+		gerade/ungerade & gerade/ungerade\\
+		reell u. gerade & reell u. gerade\\
+		reell u. ungerade & imaginär u. ungerade\\
+		imaginär u. gerade & imaginär u. gerade\\
+		imaginär u. ungerade & reell u. gerade\\
+		
+		
+		
+	\end{tablebox}
+	
+\end{sectionbox}
+
 
 
 
