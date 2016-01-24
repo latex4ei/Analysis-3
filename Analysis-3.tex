@@ -14,10 +14,11 @@
 % TODO: Holomorphie HM739
 
 % Document Class ===============================================================
-\documentclass[german,color,6pt]{latex4ei/latex4ei_fs}
+%\documentclass[german,color,5pt]{latex4ei/latex4ei_fs}
+\documentclass[german,color,5pt]{latex4ei/latex4ei_fs}
 
 % set document information
-\title{Analysis 3 (Beta)}
+\title{Analysis 3}
 \author{Lukas Kompatscher und Roberto Gudelj}	
 \myemail{lukas.kmp@gmail.com}	
 
@@ -27,14 +28,12 @@
 
 \maketitle
 
-Diese Formelsammlung ist noch in Bearbeitung. Bei Vorschlägen oder Korrekturen bitte melden.
-
 % SECTION ======================================================================
 \section{Nützliches Wissen $e^{\i x} = \cos (x) + \i \cdot \sin(x)$}
 % ==============================================================================
 \begin{sectionbox}
 	\subsection{Sinus, Cosinus \quad $\sin^2(x) \bs + \cos^2(x) = 1$}
-	%noneed \setlength{\tabcolsep}{4pt}
+	$ \sin x = \frac{1}{2\i}(e^{\i x}-e^{-\i x}) \qquad \quad \cos x = \frac{1}{2}(e^{\i x}+e^{-\i x})$
 	\begin{tablebox}{c|c|c|c|c||c|c|c|c}
 	$x$ & $0$ & $\pi / 6$ & $\pi / 4$ & $\pi / 3$ & $\frac{1}{2}\pi$ & $\pi$ & $1\frac{1}{2}\pi$ & $2 \pi$ \\
 	$\scriptstyle{ \varphi }$ & $\scriptstyle{0^\circ}$ & $\scriptstyle{30^\circ}$ & $\scriptstyle{45^\circ}$ & $\scriptstyle{60^\circ}$ & $\scriptstyle{90^\circ}$ & $\scriptstyle{180^\circ}$ & $\scriptstyle{270^\circ}$ & $\scriptstyle{360^\circ}$ \\ \cmrule
@@ -48,7 +47,10 @@ Diese Formelsammlung ist noch in Bearbeitung. Bei Vorschlägen oder Korrekturen 
 	 	$\sin (x + \frac{\pi}{2}) = \cos x$ & $\int x \sin(x) \diff x = \sin(x) - x \cos(x)$\\
 	 	$\sin 2x = 2 \sin x \cos x $  & $\int \sin^2(x) \diff x = \frac12 \bigl(x - \sin(x)\cos(x) \bigr)$\\ 
 	 	$\cos 2x = 2\cos^2 x - 1$  & $\int \cos^2(x) \diff x = \frac12 \bigl(x + \sin(x)\cos(x) \bigr)$\\
-	 	$\sin(x) = \tan(x)\cos(x)$ & $\int \cos(x)\sin(x) = -\frac12 \cos^2(x)$ \\
+	 	$\tan(x) = \frac{sin(x)}{cos(x)}$ & $\int \cos(x)\sin(x) = -\frac12 \cos^2(x)$ \\
+	 	\multicolumn{2}{l}{\!\!\!\!\!\! $\sin ( x \pm y ) = \sin x \; \cos y \pm \cos x \; \sin y$} \\
+	 	\multicolumn{2}{l}{\!\!\!\!\!\! $\cos ( x \pm y ) = \cos x \; \cos y \mp \sin x \; \sin y$} \\
+	 	
 	\end{tablebox}
 		\textbf{Sinus/Cosinus Hyperbolicus} $\sinh, \cosh$\\ 
 		% \quad \operatorname{arsinh}\ x:= \ln\left(x+\sqrt{x^2+1}\right) \\
@@ -62,7 +64,7 @@ Diese Formelsammlung ist noch in Bearbeitung. Bei Vorschlägen oder Korrekturen 
 \begin{sectionbox}
 	\subsection{Integrale $\int e^x\;\mathrm{d} x = e^x = (e^x)'$}
 	Partielle Integration: $\int uw'=uw-\int u'w$\\
-	Substitution: $\int f(g(x)) g'(x)\,\mathrm dx=\int f(t)\, \mathrm dt$\\
+	Substitution:  $\int f(\underbrace {g(x)}_{t}) \underbrace {g'(x)\,\mathrm dx}_{\mathrm dt}=\int f(t)\, \mathrm dt$
 	\renewcommand{\arraystretch}{1.6} 
 	\begin{tablebox}{ccc}
 		$F(x)$ & $f(x)$ & $f'(x)$ \\ \cmrule
@@ -79,21 +81,22 @@ Diese Formelsammlung ist noch in Bearbeitung. Bei Vorschlägen oder Korrekturen 
 	
 	$\int e^{at} \sin(bt) \diff t = e^{at} \frac{a \sin(bt) + b \cos(bt)}{a^2 + b^2}$\\
 	\begin{tablebox}{ll}
-		$\int \frac{\diff t}{\sqrt{at+b}} = \frac{2 \sqrt{at+b}}{a}$ & $\int t^2 e^{at} \diff t = \frac{(ax-1)^2+1}{a^3} e^{at}$\\
+		$\int \frac{1}{\sqrt{at+b}} \diff t = \frac{2 \sqrt{at+b}}{a}$ & $\int t^2 e^{at} \diff t = \frac{(ax-1)^2+1}{a^3} e^{at}$\\
 		$\int t e^{at} \diff t = \frac{at-1}{a^2} e^{at}$ & $\int x e^{ax^2} \diff x = \frac{1}{2a} e^{ax^2}$\\
 	\end{tablebox}
 \end{sectionbox}
 
 \begin{sectionbox}
-	\subsection{Exponentialfunktion und Logarithmus $e^0=e^{\i2\pi}=1$}
+	\subsection{Exponentialfunktion und Logarithmus $k\in\mathbb{Z}$}
 	\begin{tabular}{lll}
 		$a^x = e^{x \ln a}$ & $\log_a x = \frac{\ln x}{\ln a}$ & $\ln x \le x -1$\\
 		$\ln(x^{a}) = a \ln(x)$ & $\ln(\frac{x}{a}) = \ln x - \ln a$ & $\log(1) = 0$\\
+		$e^0=e^{\i2\pi k}=1$ & $e^{\i\pi k} =(-1)^k$ &  $e^{\frac{\i\pi}{2} k} =\i^k$ 
 	\end{tabular}
 \end{sectionbox}
 
 \begin{sectionbox}
-	\subsection{Imaginäre Einheit}
+	\subsection{Imaginäre Einheit und Betrag komplexer Zahlen}
 	$\i = \sqrt{-1}$ \qquad $|\cx z|^2 = \cx z \cxc z = x^2+y^2$
 \end{sectionbox}
 
@@ -102,35 +105,41 @@ Diese Formelsammlung ist noch in Bearbeitung. Bei Vorschlägen oder Korrekturen 
 	$\underset{\text{Harmonische Reihe}}{\sum\limits_{n=1}^\infty \frac{1}{n} \ra \infty} \qquad   \underset{\text{Geometrische Reihe}}{\sum\limits_{n=0}^\infty q^n \stackrel{|q|<1}= \frac{1}{1-q}}  \qquad \underset{\text{Exponentialreihe}}{\sum\limits_{n = 0}^{\infty} \frac{z^n}{n!} = e^z}$
 \end{sectionbox}
 
-\begin{sectionbox}
-	\subsection{Wichtige Formeln}
-	%noneed \setlength{\tabcolsep}{0pt}
-	
-	\begin{tablebox}{ll}
-			Dreiecksungleichung: &$\big|\! \abs{x}- \abs{y}\!\big| \le \abs{x \pm y} \le \abs{x} + \abs{y}$\\
-			Cauchy-Schwarz-Ungleichung: & $\left| \vec x^\top \bdot \vec y \right| \le \| \vec x\| \cdot \| \vec y\|$ \\
-			Bernoulli-Ungleichung: & $(1+x)^n \ge 1+nx$\\ \cmrule
-			Aritmetrische Summenformel &  $\sum \limits_{k=1}^{n} k = \frac{n (n+1)}{2} $ \\
-			Geometrische Summenformel &  $ \sum \limits_{k=0}^{n} q^k = \frac{1 - q^{n+1}}{1-q}$ \\
-			Binomialkoeffizient & $\binom nk = \binom n{n-k} = \frac{n!}{k! \cdot (n-k)!}$\\
-	\end{tablebox}
-\end{sectionbox}
+%UNWICHTIG
+%\begin{sectionbox}
+%	\subsection{Wichtige Formeln}
+%	%noneed \setlength{\tabcolsep}{0pt}
+%	
+%	\begin{tablebox}{ll}
+%			Dreiecksungleichung: &$\big|\! \abs{x}- \abs{y}\!\big| \le \abs{x \pm y} \le \abs{x} + \abs{y}$\\
+%			Cauchy-Schwarz-Ungleichung: & $\left| \vec x^\top \bdot \vec y \right| \le \| \vec x\| \cdot \| \vec y\|$ \\
+%			Bernoulli-Ungleichung: & $(1+x)^n \ge 1+nx$\\ \cmrule
+%			Aritmetrische Summenformel &  $\sum \limits_{k=1}^{n} k = \frac{n (n+1)}{2} $ \\
+%			Geometrische Summenformel &  $ \sum \limits_{k=0}^{n} q^k = \frac{1 - q^{n+1}}{1-q}$ \\
+%			Binomialkoeffizient & $\binom nk = \binom n{n-k} = \frac{n!}{k! \cdot (n-k)!}$\\
+%	\end{tablebox}
+%\end{sectionbox}
 	
 
 % SECTION ======================================================================
 \section{Fourierreihe}
 % ==============================================================================
 \begin{sectionbox}
-ist die Entwicklung einer Funktion $f\in C(T)$ in eine Reihe aus $\sin$ und $\cos$.\\
-$C(T):$ \emph{$T$-periodisch, stetig fortsetzbar}\\
-$f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
+	ist die Entwicklung einer Funktion $f\in C(T)$ in eine Reihe aus $\sin$ und $\cos$.\\
+	\emph{Voraussetzungen:}
+	\begin{enumerate}
+		\item $f$ ist $T$-periodisch im Intervall $I$, meist $I=[-\frac{T}{2},\frac{T}{2})$ oder $I=[0,T)$
+		\item $I$ aufteilbar in Teilintervalle, in denen $f$ stetig und monoton
+		\item In den endlich viele Unstetigkeitsstellen existieren links- und rechtsseitige Grenzwerte
+	\end{enumerate}
+	$f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
 
 	\begin{cookbox}{Entwicklung in Fourierreihen $f(x) \sim S_f(x)$}
 		\item Bestimme die Fourierkoeffizienten zu $f \in C(T)$:\\
 		$a_k,b_k \in \R$: \quad \boxed{ \Big\{ { ^{\textstyle a_k}_{\textstyle b_k}} = \frac{2}{T} \int\limits_{-\frac{T}{2}}^{\frac{T}{2}} f(x) \Big\{ {}^{\textstyle \cos} _{\textstyle \sin} \left(k \frac{2\pi}{T} x \right) \diff x }\\
 		\emph{$a_0$ immer separat berechnen mit $k = 0$!}\\
 		$c_k \in \C$: \quad \boxed{ c_k = \frac{1}{T} \int\limits_{-\frac{T}{2}}^{\frac{T}{2}} f(x) \exp \left( - \i k \frac{2 \pi}{T} x \right) \diff x } \\
-		\emph{$c_0$ immer separat berechnen mit $k = 0$!}\\
+		\emph{$c_0$ immer separat berechnen mit $k = 0$!}
 		
 		\item Aufstellen der Fourierreihe $S_f$ zu $f$:  \\
 		\boxed{ S_f(x) = \frac{a_0}{2} + \sum\limits_{k=1}^\infty a_k \cos \left(k \frac{2\pi}{T} x \right) + b_k \sin \left( k \frac{2\pi}{T} x \right) } \\
@@ -138,12 +147,12 @@ $f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
 	\end{cookbox}
 	
 	\emph{Konvergenz:} $S_f(x) \sim f(x)$ \ $\Ra$ \ $f$ in $x$ \emph{stetig \& stückweise stetig differenzierbar} $\Ra$ $S_f(x) = f(x)$\\
-	$f$ nicht in $x$ stetig $\Ra$ $x = a_i$ und $S_f(x) = \frac{f(a_i^+) + f(a_i^-)}{2}$\\
+	$f$ in $x$ nicht stetig $\Ra$ $x = a_i$ und $S_f(x) = \frac{f(a_i^+) + f(a_i^-)}{2}$\\
 \end{sectionbox}
 
 \begin{sectionbox}
 	\subsection{Rechenregeln}
-	\begin{tablebox}{ll}
+	\begin{tablebox}{ll}%TODOSamuel
 		Linearität & $\alpha f + \beta g \FT \alpha c_k + \beta d_k$\\
 		Konjugation & $\ol{f} \FT \ol{c_{-k}}$\\
 		Zeitumkehr & $f(-t) \FT c_{-k}$\\
@@ -201,8 +210,8 @@ $f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
 	\subsection{Funktionen}
 	\subsubsection{Sägezahnfunktion}
 	$s(t) = \frac{1}{2}(\pi - t), \quad 0 < t < 2 \pi, \quad T = 2 \pi, \quad \omega = 1$\\
-	$c_0 = 0; \qquad c_k = \frac{1}{2k \i}$\\
-	$S_f(t) = \sum_{k=1}^{\infty}\frac{1}{k}\frac{e^{\i k t} - e^{-\i k t}}{2 \i}$
+	$c_0 = 0 \qquad c_k = \frac{1}{2k \i}$ \quad bzw. \quad $ a_0 = 0 \qquad a_k=0 \qquad b_k=\frac{1}{k}$\\
+	$S_f(t) = \sum_{k=1}^{\infty}\frac{1}{k}\frac{e^{\i k t} - e^{-\i k t}}{2 \i} = \sum_{k=1}^{\infty}\frac{1}{k}(-1)^{k+1}\sin(kt)$
 \end{sectionbox}
 
 
@@ -217,20 +226,19 @@ $f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
 		\item $\int_{-\infty}^{\infty}\abs{f(t)} \diff t < \infty$ ($f$ absolut integrierbar)
 	\end{enumerate}
 	\quad \\
-	$f \ra F$ mit Zeitfunktion $f:\R \ra \C$ und Frequenzfkt./Spektralfkt $F$\\
+	$f \FT F$ mit Zeitfunktion $f:\R \ra \C$ und Frequenzfkt./Spektralfkt $F$\\
 	%Es muss gelten: $\lim\limits_{t \ra \pm \infty} f(t) = 0$ \quad $f$ fourtransbar, falls \\
 	\boxed{ F(\omega) := \int\limits_{-\infty}^\infty f(t) \exp(-\i \omega t) \diff t} \\
 	
 	Wichtige Fouriertransformationen:\\
 	\begin{tabular}{rl|rl}
 		$f(t)$ & \qquad $F(\omega)$ & $f(t)$ & \qquad $F(\omega)$\\		%Graph mit zwei Farben?
-		$1$ & \!\!\!\!\!\!\!\!\!\! $\LT 2\pi \delta(\omega)$ & $|t^n|$ & \!\!\!\!\!\!\!\!\!\! $\LT \frac{2n!}{(\i \omega)^{n+1}}$\\
-		$t^n$ & \!\!\!\!\!\!\!\!\!\! $\LT 2\pi \i^n \delta^{(n)}(\omega)$ & $\frac{t^{n-1}}{(n-1)!} e^{-at} u(t)$ & \!\!\!\!\!\!\!\!\!\! $\LT \frac{1}{(a+\i \omega)^n}$\\
-		$\heavi(t)$ & \!\!\!\!\!\!\!\!\!\! $\LT \frac{1}{\i \omega} + \pi \delta(\omega)$ & $\delta(t-t_0)$ & \!\!\!\!\!\!\!\!\!\! $\LT e^{-\i \omega t_0}$
+		$1$ & \!\!\!\!\!\!\!\!\!\! $\FT 2\pi \delta(\omega)$ & $|t^n|$ & \!\!\!\!\!\!\!\!\!\! $\FT \frac{2n!}{(\i \omega)^{n+1}}$\\
+		$t^n$ & \!\!\!\!\!\!\!\!\!\! $\FT 2\pi \i^n \delta^{(n)}(\omega)$ & $\frac{t^{n-1}}{(n-1)!} e^{-at} u(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT \frac{1}{(a+\i \omega)^n}$\\
+		$\heavi(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT \frac{1}{\i \omega} + \pi \delta(\omega)$ & $\delta(t-t_0)$ & \!\!\!\!\!\!\!\!\!\! $\FT e^{-\i \omega t_0}$
 	\end{tabular}
 	\subsection{Die Inverse Fouriertransformation}
-	$f(t) = \frac{1}{2\pi} \int\limits_{-\infty}^\infty F(\omega) \exp(\i \omega t) \diff \omega$\\
-	$\begin{cases} f(t) & ,f\ \text{ stetig in }t \\ \frac{f(t^-) + f(t^+)}{2} & ,\text{falls } f\text{ unstetig in }t \end{cases}$
+	$f(t) = \frac{1}{2\pi} \int\limits_{-\infty}^\infty F(\omega) \exp(\i \omega t) \diff \omega = \begin{cases} f(t) &, f \text{ stetig in }t \\ \frac{f(t^-) + f(t^+)}{2} &, f\text{ unstetig }t \end{cases}$
 \end{sectionbox}
 
 \begin{sectionbox}
@@ -238,25 +246,14 @@ $f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
 	$\delta_\varepsilon(t-t_0) = \frac{1}{\varepsilon}$, für $t_0 \le t \le t_0 + \varepsilon$, sonst $0$\\
 	Für stetiges $g$ gilt: $\int_{-\infty}^\infty g(t) \delta(t-t_0) \diff t = g(t_0)$\\
 	$\Delta_{t_0} (\omega) = \int_{-\infty}^\infty \delta(t-t_0) \exp(-\i \omega t) \diff t = \exp(-\i \omega t_0)$\\
-	$\delta(t-t_0) \LT \Delta_{t_0} (\omega)$ und $\delta(t) \LT 1$
+	$\delta(t-t_0) \FT \Delta_{t_0} (\omega)$ und $\delta(t) \FT 1$
 	
 	\subsection{Heaviside-Funktion $\heavi(t)$}
-	$\heavi:\R \ra \C, \heavi(t) = \begin{cases} 1 &, t>0 \\ 0 & ,t<0 \end{cases}$ \qquad $\approx \lim\limits_{a \ra 0} \exp(-at)$\\
+	$\heavi:\R \ra \C, \heavi(t) = \begin{cases} 1 &, t>0 \\ 0 & ,t<0 \end{cases}$ \qquad $\approx \lim\limits_{a \ra 0} \exp(-at)$
 	%$U(\omega) = \frac{1}{\i \omega} + \pi \delta(\omega)$
-\end{sectionbox}
-
-\begin{sectionbox}
-	\subsection{Rechenregeln}
-	\begin{tablebox}{lll}
-		Linearität & $\alpha f(t) + \beta g(t)$ & \!\!\!\!\!\!\!\!\!\! $\LT \alpha F(\omega) + \beta G(\omega)$\\
-		Konjugation & $\ol{f(t)}$ & \!\!\!\!\!\!\!\!\!\! $\LT \ol{F(-\omega)}$\\
-		Skalierung & $f(ct)$ & \!\!\!\!\!\!\!\!\!\! $\LT \frac{1}{\abs{c}} F\bigl(\frac{\omega}{c}\bigr)$\\
-		Verschiebung $t$ & $f(t-a)$ & \!\!\!\!\!\!\!\!\!\! $\LT \exp(- \i \omega a) F(\omega)$\\
-		Verschiebung $\omega$ & $\exp(\i \tilde \omega t) f(t)$ & \!\!\!\!\!\!\!\!\!\! $\LT F(\omega - \tilde \omega)$\\
-		Ableitung $t$ & $f'(t)$ & \!\!\!\!\!\!\!\!\!\! $\LT \i \omega F(\omega)$\\
-		Ableitung $\omega$ & $t f(t)$ & \!\!\!\!\!\!\!\!\!\! $\LT \i F'(\omega)$\\
-		Faltung & $(f * g)(t)$ & \!\!\!\!\!\!\!\!\!\! $\LT F(\omega) \cdot G(\omega)$\\
-	\end{tablebox}
+	
+	\subsection{Faltung}
+	$(g*f)(x)=(f*g)(t)=\int_{-\infty}^{\infty}f(\tau)g(t-\tau)\diff \tau$
 \end{sectionbox}
 
 \begin{sectionbox}
@@ -265,6 +262,24 @@ $f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
 	$Y(\omega) = \underbrace{\frac{1}{P(\i \omega)}}_{H(\omega) \FT h(t)}B(\omega)$\\
 	$y(t) = h*b(t)$
 \end{sectionbox}
+
+\begin{sectionbox}
+	\subsection{Rechenregeln}
+	\begin{tablebox}{lll}
+		Linearität & $\alpha f(t) + \beta g(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT \alpha F(\omega) + \beta G(\omega)$\\
+		Konjugation & $\ol{f(t)}$ & \!\!\!\!\!\!\!\!\!\! $\FT \ol{F(-\omega)}$\\
+		Skalierung & $f(ct)$ & \!\!\!\!\!\!\!\!\!\! $\FT \frac{1}{\abs{c}} F\bigl(\frac{\omega}{c}\bigr)$\\
+		Verschiebung $t$ & $f(t-a)$ & \!\!\!\!\!\!\!\!\!\! $\FT \exp(- \i \omega a) F(\omega)$\\
+		Verschiebung $\omega$ & $\exp(\i \tilde \omega t) f(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT F(\omega - \tilde \omega)$\\
+		Ableitung $t$ & $f^{(n)}(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT (\i \omega)^n F(\omega)$\\
+		Ableitung $\omega$ & $t^n f(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT \i^n F^{(n)}(\omega)$\\
+		Integration $t$ & $\int_{-\infty}^{t}x(\tau)\diff \tau$ & \!\!\!\!\!\!\!\!\!\! $\FT  \frac{1}{\i\omega}X(\omega)+\pi X(0)\delta(\omega)$\\
+		Integration $\omega$ & $\frac{\i}{t}x(t) + \pi x(0)\delta(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT \int_{-\infty}^{\omega}X(\Omega)\diff \Omega$\\
+		Faltung & $(f * g)(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT F(\omega) \cdot G(\omega)$\\
+		Modulation & $f(t)\cdot g(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT \frac{1}{2\pi}X_1(\omega)*X_2(\omega)$
+	\end{tablebox}
+\end{sectionbox}
+
 
 
 
@@ -285,20 +300,27 @@ $f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
 		\multicolumn{4}{l}{ $e^{-at} \cos(\omega t) \LT \frac{s+a}{(s+a)^2+\omega^2}$}\\ 		
 		
 	\end{tabular}\\
+\end{sectionbox}
+
+\begin{sectionbox}
+	\subsection{Rechenregeln}
 	\everymath{\textstyle}
-	Linearität: $\alpha f(t) + \beta g(t) \LT \alpha F(s) + \beta G(s)$\\
-	Ähnlichkeit: $f(ct) \LT \frac{1}{c} F\bigl(  \frac{s}{c} \bigr)$\\
-	Ableitung Originalfkt: $f'(t) \LT s F(s) - f(0)$ \quad $f''(t) \LT s^2 F(s) - sf(0) - f'(0)$\\
-	$f^{(n)} \LT s^n F(s) - s^{n-1} f(0) - s^{n-2} f'(0) \ldots - f^{(n-1)}(0)$\\
-	Integral Originalfkt: $\int_0^t f(x) \diff x \LT \frac{1}{s} F(s)$\\
-	Ableitung Bildfkt: $(-t)^n f(t) \LT F^{(n)} (s)$\\
-	Verschiebung: $f(t-a)\heavi(t-a) \LT e^{-as} F(s)$\\
-	%Integral Bildfkt: 
-	Dämpfung: $e^{-at} f(t) \LT F(s+a)$\\
-	Faltung: $(f * g)(t) := \int_0^t f( t - \tau) g(\tau) \diff \tau$ $\LT F(s) \cdot G(s)$\\
-	Inverse: $f(t) = \frac{1}{2\pi \i} \int\limits_{\gamma - \i \infty}^{-\gamma + \i \infty} F(s) \exp(st) \diff s$\\
+	\begin{tablebox}{ll} %TODOSamuel
+		Linearität: & $\alpha f(t) + \beta g(t) \LT \alpha F(s) + \beta G(s)$\\
+		Ähnlichkeit: & $f(ct) \LT \frac{1}{c} F\bigl(  \frac{s}{c} \bigr)$\\
+		Ableitung: & $f'(t) \LT s F(s) - f(0)$ \\
+		& $f''(t) \LT s^2 F(s) - sf(0) - f'(0)$\\
+		\multicolumn{2}{l}{$f^{(n)} \LT s^n F(s) - s^{n-1} f(0) - s^{n-2} f'(0) \ldots - f^{(n-1)}(0)$}\\
+		Integral: & $\int_0^t f(x) \diff x \LT \frac{1}{s} F(s)$\\
+		Ableitung Bildfkt: & $(-t)^n f(t) \LT F^{(n)} (s)$\\
+		Verschiebung: & $f(t-a)\heavi(t-a) \LT e^{-as} F(s)$\\
+		%Integral Bildfkt: 
+		Dämpfung: & $e^{-at} f(t) \LT F(s+a)$\\
+		Faltung: & $(f * g)(t) := \int_0^t f( t - \tau) g(\tau) \diff \tau$ $\LT F(s) \cdot G(s)$\\
+		Inverse: & $f(t) = \frac{1}{2\pi \i} \int\limits_{\gamma - \i \infty}^{-\gamma + \i \infty} F(s) \exp(st) \diff s$\\
+	\end{tablebox}
 	Es gibt eine eineindeutige Korespondens zwischen den Originalfkt und Bildfkt.
-	Meist Nennergrad $>$ Zählergrad: Bruch geschickt umformen!
+	Meist Nennergrad $>$ Zählergrad: Bruch geschickt umformen!\\
 	%Bsp: $F(s) = \frac{1}{(s+2)^2} \Ra f(t) = te^{-2t}$\\
 	%$F(s) = \frac{1-s}{s^2+2s+2} = \frac{1-s}{(s+1)^2 + 1} = \frac{2}{(s+1)^2 + 1} - \frac{s+1}{(s+1)^2 + 1} \LT$
 	%Faltung: $(f * g)(t) = \int\limits_{-\infty}^\infty f(t-\tau) \cdot g(\tau) \diff \tau$\\
@@ -319,8 +341,9 @@ $f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
 \section{Funktionentheorie (Komplexe Funktionen)}
 % ==============================================================================
 \begin{sectionbox}
-	\subsection{Reelifizierung}
 	\parbox{4.7cm}{
+		\subsection{Reelifizierung}
+		\ \\ \ \\
 		$\cx f(\cx z) = \cx f(x+y \i) = u(x,y) + \i v(x,y)$\\
 		\\
 		$\sin(\cx z) = \sin(x)\cosh(y) + \i \cos(x)\sinh(y)$\\
@@ -332,15 +355,15 @@ $f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
 \end{sectionbox}
 
 \begin{sectionbox}
-	\subsection{holomorphe(analytische, reguläre) Funktionen $\cx f$}
-	Eine Funktion $\cx f$ ist \\ 
+	\subsection{Holomorphe (analytische, reguläre) Funktionen $\cx f$}
+	Eine Funktion $\cx f$ ist
 	\begin{tablebox}{ll}
 		holomorph & falls $\cx f$ in $G$ komplex differenzierbar ist.\\
 		ganz & falls $\cx f$ in ganz $\C$ komplex differenzierbar ist.\\
 		konform & falls Kurven Winkel- und Orientierungstreu bleiben.\\
 
 	\end{tablebox}
-	$\cx f$ ist genau dann holomorph, falls $f(x+y\i) = u(x,y) + \i v(x,y)$ und
+	$\cx f$ ist genau dann holomorph, falls $\cx f(x+y\i) = u(x,y) + \i v(x,y)$ und
 	\begin{itemize}\itemsep0pt
 		\item $u,v$ sind stetig partiell diffbar
 		\item Cauchy-Riemann DGLs sind erfüllt:\\
@@ -353,11 +376,11 @@ $f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
 	\subsection{harmonische Funktionen $u,v$}
 	$u$ bzw. $v$ sind harmonisch, falls gilt:\\
 	$\lpo u = \partial_{xx} u + \partial_{yy} u = 0$ \qquad\quad $\lpo v = \partial_{xx} v + \partial_{yy} v = 0$\\[0.5em]
-	oder falls $f(\cx z) = u + \i v$ holomorph ist; denn mit Satz von Schwarz:\\
+	oder falls $\cx f(\cx z) = u + \i v$ holomorph ist; denn mit Satz von Schwarz:\\
 	$\lpo u = \partial_{yx} v - \partial_{xy} v = 0$ \qquad\quad $\lpo v = - \partial_{yx} u + \partial_{xy} u = 0$
 	\begin{cookbox}{Bestimmung der harmonischen Konjugierten}
-			\item geg: harm. Fkt. $u: G \ra \mathbb R, (x,y) \ra u(x,y)$
-			\item ges: harm. Fkt. $v: G \ra \mathbb R, (x,y) \ra v(x,y)$
+			\item Geg: harm. Fkt. $u: G \ra \mathbb R, (x,y) \ra u(x,y)$
+			\item Ges: harm. Fkt. $v: G \ra \mathbb R, (x,y) \ra v(x,y)$
 			so, dass $f: G \ra \mathbb V, f(z) = u(x,y) + \i v (x,y)$
 			\item $v(x,y) = \int u_x \diff y$ mit Integrationskonstante $g(x)$
 			\item $v_x = -u_y \Ra g'(x)$
@@ -445,13 +468,13 @@ $f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
 
 
 % SECTION ======================================================================
-\section{Partielle Diff'gleichungen 1. Ordnung}
+\section{Partielle Differentialgleichungen 1. Ordnung}
 % ==============================================================================
 
 \begin{sectionbox}
-	\subsection{Lineare pDGLen 1. Ord. mit konstanten Koeffizienten}
+	\subsection{Lineare pDGLen 1. Ordnung mit konstanten Koeffizienten}
 	Geg.: $a u_x+b u_y =f(x,y)$ mit $a \neq 0 \neq b$, ges.: $u=u(x,y)$
-	\begin{cookbox}{Lösung einer lin. pDGL 1. Ord. mit konstanten Koeffizienten}
+	\begin{cookbox}{Lösung einer linearen pDGL 1. Ordnung mit konstanten Koeffizienten}
 		\item Substitution: $r=r(x,y)=bx+ay$ und $s=s(x,y)=bx-ay$
 		\item $U(r,s) = u(\frac{r+s}{2b},\frac{r-s}{2a}) = u(x,y)$  und \\ $F(r,s) = f(\frac{r+s}{2b},\frac{r-s}{2a}) = f(x,y)$
 		\item Einsetzen liefert $U_{r}=\frac{1}{2ab}F(r,s) $
@@ -464,7 +487,7 @@ $f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
 \begin{sectionbox}
 	\subsection{Lineare pDGL 1. Ordnung}
 	Geg.: $a(x,y)u_x+b(x,y)u_y=0$, ges.: $u=u(x,y)$
-	\begin{cookbox}{Lösung einer linearen homogenen pDGL 1. Ord. (2 Variablen)}
+	\begin{cookbox}{Lösung einer linearen homogenen pDGL 1. Ordnung (2 Variablen)}
 		\item $\frac{dy}{dx}=\frac{b(x,y)}{a(x,y)}$ (ist gDGL), alternativ $\frac{dx}{dy}=\frac{a(x,y)}{b(x,y)}$ 
 		\item Löse gDGL und erhalte $y=y(x)=F(x,c) $
 		\item Löse die Gleichung $y(x)=F(x,c)$ nach $c = c(x,y)$ auf (falls möglich)
@@ -473,7 +496,7 @@ $f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
 	\end{cookbox}
 	\label{subsubsec:linpdgl}
 	Geg.: $a(x,y,z)u_x+b(x,y,z)u_y+c(x,y,z)u_z=0$, ges.: $u=u(x,y,z)$
-	\begin{cookbox}{Lösung einer linearen homogenen pDGL 1. Ord. (3 Variablen)}
+	\begin{cookbox}{Lösung einer linearen homogenen pDGL 1. Ordnung (3 Variablen)}
 		\item $\frac{dy}{dx}=\frac{b(x,y,z)}{a(x,y,z)}$ und $\frac{dz}{dx}=\frac{c(x,y,z)}{a(x,y,z)}$ (ist ein System von gDGL), \\
 			alternativ $\frac{dx}{dy}$, $\frac{dz}{dy}$ oder $\frac{dx}{dz}$, $\frac{dy}{dz}$
 		\item Löse das System von gDGLen und erhalte \\$y=y(x)=F(c_{1},x) $ und $z=z(x)=G(c_{2},x) $
@@ -491,6 +514,31 @@ $f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
 		\\$a(x,y,u)F_{x}+b(x,y,u)F_{y}+c(x,y,u)F_{u}=0$
 		\item Löse lineare pDGL mit Ansatz aus {\bf\ref{subsubsec:linpdgl}} und erhalte	$F=F(x,y,u) $
 		\item Durch $F(x,y,u)=0 $ ist implizit eine Lösung $u=u(x,y) $ gegeben
+	\end{cookbox}
+\end{sectionbox}
+
+
+% SECTION ======================================================================
+\section{Partielle Differentialgleichungen 2. Ordnung}
+% ==============================================================================
+\begin{sectionbox}
+	\subsection{Typeneinteilung von pDGLen 2. Ordnung mit zwei Variablen}
+	Gesucht: $u=u(x,y)$ \\
+	Gegeben: \(a(x,y)u_{xx}+2b(x,y)u_{xy}+c(x,y)u_{yy}+d(x,y)u_{x}+e(x,y)u_{y}+f(x,y)u=g(x,y)\)\\
+	$\Ra$ Hauptteil: $a(x,y)u_{xx}+2b(x,y)u_{xy}+c(x,y)u_{yy}$ \\ \\
+	Die pDGL ist auf $D\subseteq \mathbb{R}^2$ \dots
+	\begin{tablebox}{ll}
+		elliptisch & falls \(a(x,y)c(x,y)-b(x,y)^2>0 \) f\"ur alle \((x,y) \in D \) \\
+		parabolisch & falls \(a(x,y)c(x,y)-b(x,y)^2=0 \) f\"ur alle \((x,y) \in D \) \\
+		hyperbolisch & falls \(a(x,y)c(x,y)-b(x,y)^2<0 \) f\"ur alle \((x,y) \in D \) \\
+		gemischter Typ & falls verschiedene \((x,y) \in D \), verschiedene	 Eigenschaften aufweisen
+	\end{tablebox}
+	
+	\subsection{Lösungsmethode}
+	\begin{cookbox}{Lösen der pDGL mit dem Separationsansatz}
+		\item Setze \(u(x,y)=f(x)g(y) \) in die pDGL ein und erhalte zwei gDGLen f\"ur \(f\) und \(g\). $u_{xx} = f''(x)g(x)$ und $u_{yy}=f(x)g''(x)$
+		\item L\"ose die zwei gDGLen und erhalte \(f=f(x)\) und \(g=g(y) \)
+		\item Eine L\"osung der pDGL ist \(u(x,y)=f(x)g(y) \)
 	\end{cookbox}
 \end{sectionbox}
 
