@@ -11,14 +11,12 @@
 %				Analysis 3				%
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 
-% TODO: Holomorphie HM739
-
 % Document Class ===============================================================
 %\documentclass[german,color,5pt]{latex4ei/latex4ei_fs}
 \documentclass[german,color,5pt]{latex4ei/latex4ei_fs}
 
 % set document information
-\title{Analysis 3}
+\title{Analysis 3 (Beta)}
 \author{Lukas Kompatscher und Roberto Gudelj}	
 \myemail{lukas.kmp@gmail.com}	
 
@@ -96,13 +94,13 @@
 \end{sectionbox}
 
 \begin{sectionbox}
-	\subsection{Imaginäre Einheit und Betrag komplexer Zahlen}
-	$\i = \sqrt{-1}$ \qquad $|\cx z|^2 = \cx z \cxc z = x^2+y^2$
+	\subsection{Betrag und Wurzel komplexer Zahlen}
+	$\abs{\cx z}^2 = \cx z \cxc z = x^2+y^2$ \qquad $\sqrt[n]{\cx z}=\sqrt[n]{|\cx z|} \exp \left( \frac{\i \varphi}{n} + k\frac{2\pi\mathrm i}{n}\right)$ mit $k=1,\dots,n-1$
 \end{sectionbox}
 
 \begin{sectionbox}
 	\subsection{Reihen}
-	$\underset{\text{Harmonische Reihe}}{\sum\limits_{n=1}^\infty \frac{1}{n} \ra \infty} \qquad   \underset{\text{Geometrische Reihe}}{\sum\limits_{n=0}^\infty q^n \stackrel{|q|<1}= \frac{1}{1-q}}  \qquad \underset{\text{Exponentialreihe}}{\sum\limits_{n = 0}^{\infty} \frac{z^n}{n!} = e^z}$
+	$\underset{\text{Harmonische Reihe}}{\sum\limits_{n=1}^\infty \frac{1}{n} \ra \infty} \qquad   \underset{\text{Geometrische Reihe}}{\sum\limits_{n=0}^\infty z^n \stackrel{|z|<1}= \frac{1}{1-z}}  \qquad \underset{\text{Exponentialreihe}}{\sum\limits_{n = 0}^{\infty} \frac{z^n}{n!} = e^z}$
 \end{sectionbox}
 
 %UNWICHTIG
@@ -265,6 +263,19 @@
 \end{sectionbox}
 
 \begin{sectionbox}
+	\subsection{Symmetrie}
+	\begin{tablebox}{p{0.4\textwidth}p{0.6\textwidth}}
+		$\pmb{f(t)}$ & $\pmb{F(\omega)}$\\ \hline
+		reell & $F(-\omega) = F^*(\omega)$\\
+		gerade/ungerade & gerade/ungerade\\
+		reell u. gerade & reell u. gerade\\
+		reell u. ungerade & imaginär u. ungerade\\
+		imaginär u. gerade & imaginär u. gerade\\
+		imaginär u. ungerade & reell u. gerade\\
+	\end{tablebox}
+\end{sectionbox}
+
+\begin{sectionbox}
 	\subsection{Rechenregeln}
 	\begin{tablebox}{lll}
 		Linearität & $\alpha f(t) + \beta g(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT \alpha F(\omega) + \beta G(\omega)$\\
@@ -279,23 +290,6 @@
 		Faltung: & $(f * g)(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT F(\omega) \cdot G(\omega)$\\
 		Modulation & $f(t)\cdot g(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT \frac{1}{2\pi}X_1(\omega)*X_2(\omega)$
 	\end{tablebox}
-\end{sectionbox}
-
-\begin{sectionbox}
-	\subsection{Symmetrie}
-	\begin{tablebox}{p{0.4\textwidth}p{0.6\textwidth}}
-		$\pmb{f(t)}$ & $\pmb{F(\omega)}$\\
-		reell & $F(-\omega) = F^*(\omega)$\\
-		gerade/ungerade & gerade/ungerade\\
-		reell u. gerade & reell u. gerade\\
-		reell u. ungerade & imaginär u. ungerade\\
-		imaginär u. gerade & imaginär u. gerade\\
-		imaginär u. ungerade & reell u. gerade\\
-		
-		
-		
-	\end{tablebox}
-	
 \end{sectionbox}
 
 
@@ -388,8 +382,8 @@
 	$\cx f$ ist genau dann holomorph, falls $\cx f(x+y\i) = u(x,y) + \i v(x,y)$ und
 	\begin{itemize}\itemsep0pt
 		\item $u,v$ sind stetig partiell diffbar
-		\item Cauchy-Riemann DGLs sind erfüllt:\\
-		$\partial_x u(x,y) = \partial_y v(x,y)$ \qquad $\partial_y u(x,y) = - \partial_x v(x,y)$\\
+		\item Cauchy-Riemann DGLs sind erfüllt auf Gebiet $G$:\\
+		$\partial_x u(x,y) = \partial_y v(x,y)$ \qquad $\partial_y u(x,y) = - \partial_x v(x,y)$
 	\end{itemize}
 	Holomorph: $\exp, \sin, \cosh$, Polynome, $\cx f\pm \cx g, \cx f \cx g, \frac{\cx f}{\cx g}, \cx f(\cx g)$
 \end{sectionbox}
@@ -437,13 +431,15 @@
 	\subsection{Cauchy-Integralformel}
 	Ist $\gamma$ eine geschlossene, doppelpunktfreie und positiv durchlaufene Kurve in einem einfach zusammenhängenden Gebiet $G$ und $f : G \ra \mathbb{C}$ holomorph, so gilt für jedes $z_0$ im Inneren von $\gamma$: \\
 	\boxed{\cx f(\cx z_0) = \frac{1}{2\pi \i} \ointctrclockwise_{\cx \gamma} \frac{\cx f(\cx z)}{\cx z - \cx z_0} \diff \cx z }\\
-	$\cx f^{(k)}(\cx z_0) = \frac{k!}{2\pi \i} \oint_{\cx \gamma} \frac{\cx f(\cx z)}{(\cx z - \cx z_0)^{k+1}} \diff \cx z$ 
+	$\ointctrclockwise_{\cx \gamma} \frac{\cx f(\cx z)}{(\cx z - \cx z_0)^{k+1}} \diff \cx z = \frac{2\pi \i}{k!} \cx f^{(k)}(\cx z_0) $ 
 	
 	\subsection{Integralsatz von Cauchy}
 	Falls keine Unstetigkeitsstelle innerhalb der Kurve $\cx \gamma$\\ 
 	$\cx f: G \ra \C$ komplex diffbar auf offenem, einfach zusammenhängendem Gebiet $G \subset \C$. $\cx \gamma$ sei einfach geschlossene Kurve in $G$ (keine Doppelpunkte). \\
 	$\oint \limits_{\cx \gamma} \cx f(\cx z) \diff \cx z = 0$
-	
+\end{sectionbox}
+
+\begin{sectionbox}
 	\subsection{Existenz einer Stammfunktion und Wegunabhängigkeit}
 	Ist $\cx f: G \ra \C$ holomorph auf dem einfach zsh. Gebiet $G$, so existiert zu $\cx f$ eine Stammfunktion $\cx F$, und es gilt für jede in $G$ verlaufende Kurve $\cx \gamma$ mit Anfangspunkt $\cx \gamma(a)$ und Endpunkt $\cx \gamma(b)$: \\
 	\begin{equation*}
@@ -453,38 +449,72 @@
 
 \begin{sectionbox}
 	\subsection{Singularitäten}
-	Isolierte Singularität $\cx z_0$: \quad $\cx f :G \setminus \eset{\cx z_0} \ra \C$ \ (einzelne Punkte)\\
-	Hebbare Sing., falls $f$ auf punktierter Umgebung beschränkt ist.\\
-	Pol $m$-ter Ordnung: $(\cx z - \cx z_o)^m \cx f(\cx z)$ ist hebbar in $\cx z_0$\\
-	Wesentliche Singularität: Sonst.
+	Isolierte Singularität $\cx z_0\in G$: \quad $\cx f :G \setminus \eset{\cx z_0} \ra \C$ \ (einzelne Punkte, wo $f$ nicht definiert ist)
+	\begin{itemize}
+		\item Hebbare Singularität, falls $f$ auf punktierter Umgebung beschränkt ist.
+		\item Pol $m$-ter Ordnung: $(\cx z - \cx z_0)^m \cx f(\cx z)$ ist hebbar in $\cx z_0$
+		\item Wesentliche Singularität: Sonst.
+	\end{itemize}
 \end{sectionbox}
 
 \begin{sectionbox}
 	\subsection{Taylorreihe und Laurentreihe}
-	\emph{Taylorreihe:} falls $\cx f$ holomorph:\\
+	\emph{Taylorreihe:} Falls $\cx f$ holomorph ist.
 	\begin{equation*}
 		\cx f(\cx z) = \sum\limits_{k = 0}^{\infty} \frac{\cx f^{(k)} \cx z_0}{k!} (\cx z - \cx z_0)^k
 	\end{equation*}
-	\emph{Laurentreihe:} Falls $\cx f$ nicht holomorph ist.\\
+	\emph{Laurentreihe:} Falls $\cx f$ nicht holomorph ist.
 	\begin{equation*}
-		\sum\limits_{k = -\infty}^\infty \cx c_k (\cx z - \cx z_0)^k
-		\end{equation*}
-	zerfällt in $\sum \limits_{k=1}^{\infty} d_k w^k$ mit $d_k = c_{-k}$ und $w = \frac{1}{z - z_0}$ (Hauptteil) und $\sum \limits_{k = 0}^{\infty} c_k (z-z_0)^k$ (Nebenteil) \\
+		\resizebox{\textwidth}{!}{
+			$\cx f(z)=\sum_{k=- \infty}^{\infty} c_k (z-z_0)^{k} = \underbrace{\sum_{k=1}^{\infty} c_{-k} (z-z_0)^{k}}_{\text{Hauptteil}} + \underbrace{\sum_{k=0}^{\infty} c_k (z-z_0)^{k}}_{\text{Nebenteil}}$
+		}
+	\end{equation*} 
 	Konvergenz falls Hauptteil und Nebenteil konvergiert. \\ 
 	Konvergenzradien: $R = \lim \abs{\frac{c_k}{c_{k+1}}} \in [0, \infty]$ \\ 
 	Resiudensatz: $\mathrm{Res}_{z_0} \cx f = c_{-1} = \frac{1}{2\pi\i} \oint f(z) \diff z$
-	
-	\paragraph{Allgemeiner Residuensatz} $f:G \setminus \eset{z_1, \ldots, z_n} \ra \mathbb C$ holomorph \\ 
-	$\forall $ doppelpunktfrei, geschlossene und pos. orientierte Kurven $\gamma$ mit $z_1, \dots, z_n$ liegen im Inneren von $\gamma$:
-	\begin{equation*}
-		\oint_\gamma f(z) \diff z = 2 \pi \i \sum_{k=1}^{n} Res_{z_k} f
-	\end{equation*}
 	
 	\begin{emphbox}
 		\raggedright
 		$\mathrm{Res}_{\cx z_0} \frac{\cx g}{\cx h} = \frac{\cx g(\cx z_0)}{\cx h'(\cx z_0)}$ \qquad $\mathrm{Res}_{\cx z_0} \frac{\cx g(\cx z)}{(\cx z - \cx z_0)^m} = \frac{\cx g^{(m-1)}(\cx z_0)}{(m-1)!}$\\
 		$\mathrm{Res}_{\cx z_0} \cx g \frac{\cx h'}{\cx h} = m \cx g(\cx z_0)$ \qquad $m:$ Ordnung der Polstelle
 	\end{emphbox}
+	\textbf{Allgemeiner Residuensatz} $f:G \setminus \eset{z_1, \ldots, z_n} \ra \mathbb C$ holomorph \\ 
+	$\forall $ doppelpunktfrei, geschlossene und pos. orientierte Kurven $\gamma$ mit $z_1, \dots, z_n$ liegen im Inneren von $\gamma$:
+	\begin{equation*}
+		\oint_\gamma f(z) \diff z = 2 \pi \i \sum_{k=1}^{n} Res_{z_k} f
+	\end{equation*}
+\end{sectionbox}
+
+\begin{sectionbox}
+	\begin{cookbox}{Bestimmen reeller Integrale mit dem Residuenkalkül}
+		\item Reelles Integral $\int_{-\infty}^{\infty}\frac{p(x)}{q(x)}\diff x$
+		\item Bestimme Singularitäten $z_1,\dots,z_n$ der komplexen Funktion $f(\cx z)=\frac{p(\cx z)}{q(\cx z)}$ in der oberen Halbebene, $\Im{ z_i}>0$
+		\item Bestimme Residuen von $f(z)$ in den Singularitäten $z_1,\dots,z_n$
+		\item $\int_{-\infty}^{\infty}\frac{p(x)}{q(x)}\diff x = 2 \pi \i \sum_{k=1}^{n} Res_{z_k} f$
+	\end{cookbox}
+	\begin{cookbox}{Bestimmen reeller trigonometischer Integrale mit dem Residuenkalkül}
+		\item Reelles Integral $\int_{-0}^{2\pi}R(\cos t, \sin t)\diff t$
+		\item Substituiere $\frac{1}{2}(z+1/z)=\cos t$, $\frac{1}{2\i}(z-1/z)=\sin t$, $\frac{1}{\i z}\diff z=\diff t$
+		\item Erhalte komplexe Fkt. $f(z)=R\left(\frac{1}{2}(z+1/z), \frac{1}{2\i}(z-1/z)\right)\frac{1}{\i z}$
+		\item Bestimme Singularitäten $z_1,\dots,z_n$ der komplexen Funktion $f(\cx z)=\frac{p(\cx z)}{q(\cx z)}$ in des Einheitskreises $\abs{z}<1$
+		\item Bestimme Residuen von $f(z)$ in den Singularitäten $z_1,\dots,z_n$
+		\item $\int_{-0}^{2\pi}R(\cos t, \sin t)\diff t = 2 \pi \i \sum_{k=1}^{n} Res_{z_k} f$
+	\end{cookbox}
+\end{sectionbox}
+
+\begin{sectionbox}
+	\subsection{Wichtige Taylorreihen}
+	\begin{tablebox}{lll}
+		$e^z$ & $\sum_{n=0}^\infty \frac{z^n}{n!}$ & $\forall z \in \mathbb{C}$ \\
+		$\ln(z)$ & $\sum_{n=1}^\infty \frac{(-1)^{n+1}}{n}(z-1)^n$ & $0<z\le2$ \\ [0.5em]
+		$\frac{1}{1-z}$ & $\sum^\infty_{n=0} z^n$ & $\abs{z} < 1$ \\
+		$\sin z$ & $\sum^{\infty}_{n=0} \frac{(-1)^n}{(2n+1)!} z^{2n+1}$ & $\forall  z \in \mathbb{C}$ \\[0.7em]
+		$\cos z$ & $\sum^{\infty}_{n=0} \frac{(-1)^n}{(2n)!} z^{2n}$ & $\forall  z \in \mathbb{C}$ \\[0.7em]
+		$\sinh z$ & $\sum^{\infty}_{n=0} \frac{z^{2n+1}}{(2n+1)!}$ & $\forall  z \in \mathbb{C}$ \\[0.7em]
+		$\cosh z$ & $\sum^{\infty}_{n=0} \frac{z^{2n}}{(2n)!}$ & $\forall  z \in \mathbb{C}$ \\
+
+	\end{tablebox}
+	
 \end{sectionbox}
 
 
@@ -529,12 +559,24 @@
 
 \begin{sectionbox}
 	\subsection{Quasilineare pDGL 1. Ordnung}
-	Geg.: $a(x,y,u)u_x+b(x,y,u)u_y=c(x,y,u)$, ges.: $u=u(x,y)$
+	Geg.: $a(x,y,u)u_x+b(x,y,u)u_y=c(x,y,u)$, ges.: $u=u(x,y)$ \\ \vspace{-1em}
 	\begin{cookbox}{Lösung einer quasilinearen pDGL 1. Ordnung}
 		\item Betrachte lineare pDGL in drei Variablen $x,y,u$:
 		\\$a(x,y,u)F_{x}+b(x,y,u)F_{y}+c(x,y,u)F_{u}=0$
 		\item Löse lineare pDGL mit Ansatz aus {\bf\ref{subsubsec:linpdgl}} und erhalte	$F=F(x,y,u) $
 		\item Durch $F(x,y,u)=0 $ ist implizit eine Lösung $u=u(x,y) $ gegeben
+	\end{cookbox}
+	AWP gegeben $u(p(x),q(x))=r(x)$, z.B. $u(x,0)=x$
+	\begin{cookbox}{Lösung einer quasilinearen pDGL 1. Ord. mit dem Charakteristikverfahren}
+		\item Ansatz: $v(s)=u(x(s),y(s))$ \qquad ($u$ hängt nur von einer Variable $s$ ab)
+		\item Ableiten des Ansatzes nach $s$: \quad $\dot v = u_x \dot x + u_y \dot y$
+		\item Vergleichen mit pDGL liefert DGL-System:\\ 
+		 $\dot x =a(x,y,u) \qquad \dot y=b(x,y,u) \qquad \dot v=c(x,y,u)$
+		\item Setze $s=0$ in Ansatz $v(s)$: \quad $v(0)=u(x(0),y(0))$ mit $x=x_0$
+		\item Vergleichen mit AWP der pDGL liefert AWP für DGL-System: \\
+		$x(0)=p(x_0) \qquad y(0)=q(x_0) \qquad v(0)=r(x_0)$ 
+		\item Löse DGL-System und erhalte $v(s)$
+		\item Bestimme $s=f(x,y)$ und $x_0=g(x,y)$ und mit Rücksub. $u(x,y)$
 	\end{cookbox}
 \end{sectionbox}
 
@@ -545,21 +587,21 @@
 \begin{sectionbox}
 	\subsection{Typeneinteilung von pDGLen 2. Ordnung mit zwei Variablen}
 	Gesucht: $u=u(x,y)$ \\
-	Gegeben: \(a(x,y)u_{xx}+2b(x,y)u_{xy}+c(x,y)u_{yy}+d(x,y)u_{x}+e(x,y)u_{y}+f(x,y)u=g(x,y)\)\\
+	Gegeben: $a(x,y)u_{xx}+2b(x,y)u_{xy}+c(x,y)u_{yy}+d(x,y)u_{x}+e(x,y)u_{y}+f(x,y)u=g(x,y)$\\
 	$\Ra$ Hauptteil: $a(x,y)u_{xx}+2b(x,y)u_{xy}+c(x,y)u_{yy}$ \\ \\
 	Die pDGL ist auf $D\subseteq \mathbb{R}^2$ \dots
 	\begin{tablebox}{ll}
-		elliptisch & falls \(a(x,y)c(x,y)-b(x,y)^2>0 \) f\"ur alle \((x,y) \in D \) \\
-		parabolisch & falls \(a(x,y)c(x,y)-b(x,y)^2=0 \) f\"ur alle \((x,y) \in D \) \\
-		hyperbolisch & falls \(a(x,y)c(x,y)-b(x,y)^2<0 \) f\"ur alle \((x,y) \in D \) \\
-		gemischter Typ & falls verschiedene \((x,y) \in D \), verschiedene	 Eigenschaften aufweisen
+		elliptisch & falls $a(x,y)c(x,y)-b(x,y)^2>0 $ für alle $(x,y) \in D $ \\
+		parabolisch & falls $a(x,y)c(x,y)-b(x,y)^2=0 $ für alle $(x,y) \in D $ \\
+		hyperbolisch & falls $a(x,y)c(x,y)-b(x,y)^2<0 $ für alle $(x,y) \in D $ \\
+		gemischter Typ & falls verschiedene $(x,y) \in D $ versch. Eigenschaften aufweisen
 	\end{tablebox}
 	
 	\subsection{Lösungsmethode}
 	\begin{cookbox}{Lösen der pDGL mit dem Separationsansatz}
-		\item Setze \(u(x,y)=f(x)g(y) \) in die pDGL ein und erhalte zwei gDGLen f\"ur \(f\) und \(g\). $u_{xx} = f''(x)g(y)$ und $u_{yy}=f(x)g''(y)$
-		\item L\"ose die zwei gDGLen und erhalte \(f=f(x)\) und \(g=g(y) \)
-		\item Eine L\"osung der pDGL ist \(u(x,y)=f(x)g(y) \)
+		\item Setze $u(x,y)=f(x)g(y) $ in die pDGL ein und erhalte zwei gDGLen für $f$ und $g$. (Faktor $k$ nicht vergessen!)
+		\item Löse die zwei gDGLen und erhalte $f=f(x)$ und $g=g(y) $
+		\item Eine Lösung der pDGL ist $u(x,y)=f(x)g(y) $
 	\end{cookbox}
 \end{sectionbox}
 
@@ -567,33 +609,34 @@
 \section{Laplace- und Poissongleichung}
 % ==============================================================================
 \begin{sectionbox}
-	\subsection{Randwertprobleme (RWP) f\"ur Poissongleichung}
+	\subsection{Randwertprobleme (RWP) für Poissongleichung}
 	Gegeben: $-\laplace u = f$ und ein RWP. Ges.: $u=u(x,y)$ oder $u=u(x,y,z)$
 	\begin{tablebox}{p{\textwidth}}
 		\textbf{Dirichlet RWP}\\
-		\(-\laplace u(\vec x)=f(\vec x) \) f\"ur alle \(x \in D \) und \(u(\vec x)=u_{0}(\vec x) \) f\"ur alle \(x \in \partial D \)\\
+		$-\laplace u(\vec x)=f(\vec x) $ für alle$x \in D $ und$u(\vec x)=u_{0}(\vec x) $ für alle $x \in \partial D$ \\
 		\textbf{Neumann RWP}\\
-		\(-\laplace u(\vec x)=f(\vec x) \) f\"ur alle \(x \in D \) und \(\frac{\partial u}{\partial \vec n}(\vec x)=u_{0}(\vec x) \) f\"ur alle \(x \in \partial D \) \\
+		$-\laplace u(\vec x)=f(\vec x) $ für alle$x \in D $ und$\frac{\partial u}{\partial \vec n}(\vec x)=u_{0}(\vec x) $ für alle$x \in \partial D $ \\
 		\textbf{Gemischtes RWP} \\
-		\(-\laplace u(\vec x)=f(\vec x) \) f\"ur alle \(x \in D \) und \(\frac{\partial u}{\partial \vec n}(\vec x)+k(\vec x)u(\vec x)=u_{0}(\vec x) \) f\"ur alle \(x \in \partial D \) \\
+		$-\laplace u(\vec x)=f(\vec x) $ für alle$x \in D $ und $\frac{\partial u}{\partial \vec n}(\vec x)+k(\vec x)u(\vec x)=u_{0}(\vec x) $ für alle $x \in \partial D $ \\
 	\end{tablebox}
 	wobei $\vec n$ = Normaleneinheitsvektor, der aus D hinausweist und $k=k(\vec x)$ ist eine stetige Funktion
 	\begin{tablebox}{lp{0.8\textwidth}}
-		inneres RWP & falls \(D \) ein beschr\"anktes Gebiet \\
-		\"au{\ss}eres RWP & falls \(D \) Komplement eines beschr\"ankten Gebietes ist (Dann sind weitere Randwertbedingungen an die L\"osungen zu stellen)
+		inneres RWP & falls$D$ ein beschränktes Gebiet \\
+		äußeres RWP & falls$D$ Komplement eines beschränkten Gebietes ist (Dann sind weitere Randwertbedingungen an die Lösungen zu stellen)
 	\end{tablebox}
 	
-	\subsection{L\"osungen der Laplacegleichung}
-	F\"ur beliebige \(a_{n},b_{n} \in \mathbb{R}\) bzw. \(a,b \in \mathbb{R} \) ist
-	\[
-	u(r,\varphi)=
-	\begin{cases}
-	u_{n}(r,\varphi)=(a_{n}cos(n \varphi)+b_{n}sin(n \varphi))r^{n} & \text{f\"ur } n \in \mathbb{Z}\setminus\{0\}
-	\\
-	a+b \; ln(r) & \text{f\"ur } n=0
-	\end{cases}
-	\]
-	eine L\"osung der Laplacegleichung
+	\subsection{Lösungen der Laplacegleichung}
+	
+	Für beliebige $a_{n},b_{n} \in \mathbb{R}$ bzw.$a,b \in \mathbb{R} $ ist
+	\begin{equation*}
+		u(r,\varphi)=
+		\begin{cases}
+		u_{n}(r,\varphi)=(a_{n}cos(n \varphi)+b_{n}sin(n \varphi))r^{n} & \text{für } n \in \mathbb{Z}\setminus\{0\}
+		\\
+		a+b \; ln(r) & \text{für } n=0
+		\end{cases}	
+	\end{equation*}
+	eine Lösung der Laplacegleichung
 \end{sectionbox}
 
 
