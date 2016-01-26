@@ -50,7 +50,7 @@
 	 	\multicolumn{2}{l}{\!\!\!\!\!\! $\cos ( x \pm y ) = \cos x \; \cos y \mp \sin x \; \sin y$} \\
 	 	
 	\end{tablebox}
-		\textbf{Sinus/Cosinus Hyperbolicus} $\sinh, \cosh$\\ 
+		\textbf{Sinus/Cosinus Hyperbolicus}\\ 
 		% \quad \operatorname{arsinh}\ x:= \ln\left(x+\sqrt{x^2+1}\right) \\
 		\begin{tabular*}{\columnwidth}{@{\extracolsep\fill}ll@{}}
 		$\sinh x = \frac{1}{2}(e^x -e^{-x})= - \i \, \sin(\i x)$ & $\cosh^2 x  \bs - \sinh^2 x = 1$\\
@@ -89,13 +89,13 @@
 	\begin{tabular}{lll}
 		$a^x = e^{x \ln a}$ & $\log_a x = \frac{\ln x}{\ln a}$ & $\ln x \le x -1$\\
 		$\ln(x^{a}) = a \ln(x)$ & $\ln(\frac{x}{a}) = \ln x - \ln a$ & $\log(1) = 0$\\
-		$e^0=e^{\i2\pi k}=1$ & $e^{\i\pi k} =(-1)^k$ &  $e^{\frac{\i\pi}{2} k} =\i^k$ 
+		$e^0=e^{\i2\pi k}=1$ & $e^{\i\pi k} =(-1)^k$ &  $e^{\i \frac{\pi}{2} k} =\i^k$ 
 	\end{tabular}
 \end{sectionbox}
 
 \begin{sectionbox}
 	\subsection{Betrag und Wurzel komplexer Zahlen}
-	$\abs{\cx z}^2 = \cx z \cxc z = x^2+y^2$ \qquad $\sqrt[n]{\cx z}=\sqrt[n]{|\cx z|} \exp \left( \frac{\i \varphi}{n} + k\frac{2\pi\mathrm i}{n}\right)$ mit $k=1,\dots,n-1$
+	$\abs{\cx z}^2 = \cx z \cxc z = x^2+y^2$ \qquad $\sqrt[n]{\cx z}=\sqrt[n]{|\cx z|} \exp \left( \frac{\i \varphi}{n} + k\frac{2\pi\i}{n}\right)$ mit $k=1,\dots,n-1$
 \end{sectionbox}
 
 \begin{sectionbox}
@@ -120,7 +120,7 @@
 	
 
 % SECTION ======================================================================
-\section{Fourierreihe}
+\section{Fourierreihe $f(x) \ra F(x)$ \qquad $\omega = \frac{2 \pi}{T}$}
 % ==============================================================================
 \begin{sectionbox}
 	ist die Entwicklung einer Funktion $f\in C(T)$ in eine Reihe aus $\sin$ und $\cos$.\\
@@ -130,22 +130,22 @@
 		\item $I$ aufteilbar in Teilintervalle, in denen $f$ stetig und monoton
 		\item In den endlich viele Unstetigkeitsstellen existieren links- und rechtsseitige Grenzwerte
 	\end{enumerate}
-	$f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\ra$ auch $n \cdot T$ periodisch.
+	$f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\Ra$ auch $n \cdot T$ periodisch.
 
-	\begin{cookbox}{Entwicklung in Fourierreihen $f(x) \sim S_f(x)$}
+	\begin{cookbox}{Entwicklung in Fourierreihen $f(x) \sim F(x)$}
 		\item Bestimme die Fourierkoeffizienten zu $f \in C(T)$:\\
-		$a_k,b_k \in \R$: \quad \boxed{ \Big\{ { ^{\textstyle a_k}_{\textstyle b_k}} = \frac{2}{T} \int\limits_{-\frac{T}{2}}^{\frac{T}{2}} f(x) \Big\{ {}^{\textstyle \cos} _{\textstyle \sin} \left(k \frac{2\pi}{T} x \right) \diff x }\\
+		$a_k,b_k \in \R$: \quad \boxed{ \Big\{ { ^{\textstyle a_k}_{\textstyle b_k}} = \frac{2}{T} \int\limits_{-\frac{T}{2}}^{\frac{T}{2}} f(x) \Big\{ {}^{\textstyle \cos} _{\textstyle \sin} \left(k \omega x \right) \diff x }\\
 		\emph{$a_0$ immer separat berechnen mit $k = 0$!}\\
-		$c_k \in \C$: \quad \boxed{ c_k = \frac{1}{T} \int\limits_{-\frac{T}{2}}^{\frac{T}{2}} f(x) \exp \left( - \i k \frac{2 \pi}{T} x \right) \diff x } \\
+		$c_k \in \C$: \quad \boxed{ c_k = \frac{1}{T} \int\limits_{-\frac{T}{2}}^{\frac{T}{2}} f(x) \exp \left( - \i k \omega x \right) \diff x } \\
 		\emph{$c_0$ immer separat berechnen mit $k = 0$!}
 		
-		\item Aufstellen der Fourierreihe $S_f$ zu $f$:  \\
-		\boxed{ S_f(x) = \frac{a_0}{2} + \sum\limits_{k=1}^\infty a_k \cos \left(k \frac{2\pi}{T} x \right) + b_k \sin \left( k \frac{2\pi}{T} x \right) } \\
-		\boxed{ S_f(x) = \sum\limits_{k=-\infty}^\infty c_k \exp \left( \i k \frac{2 \pi}{T} x \right) }
+		\item Aufstellen der Fourierreihe $F$ zu $f$:  \\
+		\boxed{ F(x) = \frac{a_0}{2} + \sum\limits_{k=1}^\infty a_k \cos \left(k \omega x \right) + b_k \sin \left( k \omega x \right) } \\
+		\boxed{ F(x) = \sum\limits_{k=-\infty}^\infty c_k \exp \left( \i k \omega x \right) }
 	\end{cookbox}
 	
-	\emph{Konvergenz:} $S_f(x) \sim f(x)$ \ $\Ra$ \ $f$ in $x$ \emph{stetig \& stückweise stetig differenzierbar} $\Ra$ $S_f(x) = f(x)$\\
-	$f$ in $x$ nicht stetig $\Ra$ $x = a_i$ und $S_f(x) = \frac{f(a_i^+) + f(a_i^-)}{2}$\\
+	\emph{Konvergenz:} $F(x) \sim f(x)$ \ $\Ra$ \ $f$ in $x$ \emph{stetig \& stückweise stetig differenzierbar} $\Ra$ $F(x) = f(x)$\\
+	$f$ in $x$ nicht stetig $\Ra$ $x = a_i$ und $F(x) = \frac{f(a_i^+) + f(a_i^-)}{2}$\\
 \end{sectionbox}
 
 \begin{sectionbox}
@@ -154,7 +154,7 @@
 		Linearität & $\alpha f + \beta g \T \alpha c_k + \beta d_k$\\
 		Konjugation & $\ol{f} \T \ol{c_{-k}}$\\
 		Zeitumkehr & $f(-t) \T c_{-k}$\\
-		Streckung & $f(\gamma t) \T c_k; \gamma > 0; \tilde{T} = \frac{T}{\gamma}$\\
+		Streckung & $f(\gamma t) \T c_k; \gamma > 0; \tilde{T} = \frac{T}{\gamma} \Leftrightarrow \tilde \omega = \gamma \omega$\\
 		Verschiebung $t$ & $f(t + a) \T e^{\i k \omega a} c_k$\\
 		Verschiebung $\omega$ & $e^{\i n \omega t} f(t) \T c_{k - n}$\\
 		Ableitung & $\dot{f}(t) \T \i k \omega c_k$\\
@@ -170,16 +170,16 @@
 	\begin{itemize}
 		\item $f$ gerade (achsensym.) Funktion: $f(t) = f(-t)$\\
 		$c_k = c_{-k}$\\
-		$b_k = 0$ \qquad $a_k = \frac{4}{T} \int_{0}^{T/2} f(x) \cos \left(k \frac{2\pi}{T} x \right) \diff x$
+		$b_k = 0$ \qquad $a_k = \frac{4}{T} \int_{0}^{T/2} f(x) \cos \left(k \omega x \right) \diff x$
 		\item $f$ ungerade (punktsym.) Funktion: $f(t) = -f(-t)$\\
 		$c_k = -c_{-k}$\\
-		$a_k = 0$ \qquad $ b_k = \frac{4}{T} \int_{0}^{T/2} f(x) \sin \left(k \frac{2\pi}{T} x \right) \diff x$
+		$a_k = 0$ \qquad $ b_k = \frac{4}{T} \int_{0}^{T/2} f(x) \sin \left(k \omega x \right) \diff x$
 		\item $f$ $\frac{T}{2}$-periodisch: $f(\frac{T}{2} + t) = f(t)$\\
 		$c_{2k+1} = a_{2k+1} = b_{2k+1} = 0$\\
 		$\begin{cases} a_{2k}\\ b_{2k} \end{cases} = \frac{1}{T}\int_0^{T/2}f(t)\begin{cases} \cos{(2k \omega t)}\\ \sin{(2k \omega t)} \end{cases} \diff t$
-		\item $f$ ohne $\frac{T}{2}$-periodischen Anteil: $f(\frac{T}{2} + t) = -f(t)$\\
-		$c_{2k} = a_{2k} = b_{2k} = 0$\\
-		$\begin{cases} a_{2k+1}\\ b_{2k+1} \end{cases} = \frac{1}{T}\int_0^{T/2}f(t)\begin{cases} \cos{((2k+1) \omega t)}\\ \sin{((2k+1) \omega t)} \end{cases} \diff t$
+%		\item $f$ ohne $\frac{T}{2}$-periodischen Anteil: $f(\frac{T}{2} + t) = -f(t)$\\
+%		$c_{2k} = a_{2k} = b_{2k} = 0$\\
+%		$\begin{cases} a_{2k+1}\\ b_{2k+1} \end{cases} = \frac{1}{T}\int_0^{T/2}f(t)\begin{cases} \cos{((2k+1) \omega t)}\\ \sin{((2k+1) \omega t)} \end{cases} \diff t$
 	\end{itemize}
 \end{sectionbox}
 
@@ -192,25 +192,32 @@
 \end{sectionbox}
 
 \begin{sectionbox}
-	\subsection{LTI-Systeme}
-	$L[y](t) = a_n y^{(n)}(t) + \cdots + a_1 \dot{y}(t) + a_0 y(t) = x(t)$\\
-	$\frac{\diff^n}{\diff t^n} \ra s^n \ra P(s) = a_n s^n \cdots + a_1 s + a_0$\\
-	$h_T(t) = \sum_{k=-\infty}^{\infty}d_k e^{\i k \omega t}$ mit $d_k = \frac{1}{P(\i k \omega)}$\\
-	$y(t) = h_T(t)*x(t) = \int_0^T h_T(\tau) x(t - \tau) \diff \tau$
-\end{sectionbox}
-
-\begin{sectionbox}
 	\subsection{Umrechnung von $T$ in $S$ periodische Funktionen}
 	$f$ ist $T$ periodisch, $g(x) = f\left( \frac{T}{S} x \right)$, $S$ periodisch, denn
 	$g(x+S) = f\left( \frac{T}{S} (x+S) \right) = f\left( \frac{T}{S} x + T \right) = f\left( \frac{T}{S} x \right) = g(x)$\\
 \end{sectionbox}
 
 \begin{sectionbox}
+	\subsection{LTI-Systeme ($c_k$ sind Fourierkoeffizienten von $x(t)$) }
+	$L[y](t) = a_n y^{(n)}(t) + \cdots + a_1 \dot{y}(t) + a_0 y(t) = x(t)$\\
+	$\frac{\diff^n}{\diff t^n} \ra s^n \Ra P(s) = a_n s^n \cdots + a_1 s + a_0$\\
+	$h_T(t) = \sum_{k=-\infty}^{\infty}d_k e^{\i k \omega t}$ mit $d_k = \frac{1}{P(\i k \omega)}$\\
+	$y(t) = h_T(t)*x(t) = \int_0^T h_T(\tau) x(t - \tau) \diff \tau = \sum c_k d_k e^{\i k\omega t}$
+	
+\end{sectionbox}
+
+\begin{sectionbox}
 	\subsection{Funktionen}
 	\subsubsection{Sägezahnfunktion}
 	$s(t) = \frac{1}{2}(\pi - t), \quad 0 < t < 2 \pi, \quad T = 2 \pi, \quad \omega = 1$\\
-	$c_0 = 0 \qquad c_k = \frac{1}{2k \i}$ \quad bzw. \quad $ a_0 = 0 \qquad a_k=0 \qquad b_k=\frac{1}{k}$\\
-	$S_f(t) = \sum_{k=1}^{\infty}\frac{1}{k}\frac{e^{\i k t} - e^{-\i k t}}{2 \i} = \sum_{k=1}^{\infty}\frac{1}{k}(-1)^{k+1}\sin(kt)$
+	$c_0 = 0 \qquad c_{k\ne 0} = \frac{1}{2k \i}$ \quad bzw. \quad $ a_0 = 0 \qquad a_k=0 \qquad b_k=\frac{1}{k}$\\
+	$S(t) = \sum_{k=1}^{\infty}\frac{1}{k}\frac{e^{\i k t} - e^{-\i k t}}{2 \i} = \sum_{k\ne 0}\frac{1}{2\i k}e^{\i k t}$
+	\subsubsection{Weiterer Sägezahn, Rechteck und Treppenfunktion ($2\pi$-periodisch)}
+	\begin{tablebox}{ll}
+		$f:[-\pi,\pi) \ra \mathbb{R}, (x)=x$ & $a_0=a_k=0, b_k=\frac{2}{k}(-1)^{k+1}$ \\
+		$f:[-\pi,\pi) \ra \mathbb{R}, (x)=\operatorname{sgn}(x)$ & $a_0=a_k=0, b_{2k-1}=\frac{4}{(2k-1)\pi}$ \\
+		Treppe mit Sprungwert $\Delta_n$ an $t_n$ & $c_k=\frac{1}{2k\pi\i}\sum_{n=0}^{m}\Delta_n e^{\i k t_n}$
+	\end{tablebox}
 \end{sectionbox}
 
 
@@ -224,18 +231,19 @@
 		\item $f(t) = \frac{1}{2}\left(f(t^+) + f(t^-)\right)$
 		\item $\int_{-\infty}^{\infty}\abs{f(t)} \diff t < \infty$ ($f$ absolut integrierbar)
 	\end{enumerate}
-	\quad \\
-	$f \FT F$ mit Zeitfunktion $f:\R \ra \C$ und Frequenzfkt./Spektralfkt $F$\\
-	%Es muss gelten: $\lim\limits_{t \ra \pm \infty} f(t) = 0$ \quad $f$ fourtransbar, falls \\
 	\boxed{ F(\omega) := \int\limits_{-\infty}^\infty f(t) \exp(-\i \omega t) \diff t} \\
-	
-	Wichtige Fouriertransformationen:\\
 	\begin{tabular}{rl|rl}
-		$f(t)$ & \qquad $F(\omega)$ & $f(t)$ & \qquad $F(\omega)$\\		%Graph mit zwei Farben?
 		$1$ & \!\!\!\!\!\!\!\!\!\! $\FT 2\pi \delta(\omega)$ & $|t^n|$ & \!\!\!\!\!\!\!\!\!\! $\FT \frac{2n!}{(\i \omega)^{n+1}}$\\
 		$t^n$ & \!\!\!\!\!\!\!\!\!\! $\FT 2\pi \i^n \delta^{(n)}(\omega)$ & $\frac{t^{n-1}}{(n-1)!} e^{-at} u(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT \frac{1}{(a+\i \omega)^n}$\\
-		$\heavi(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT \frac{1}{\i \omega} + \pi \delta(\omega)$ & $\delta(t-t_0)$ & \!\!\!\!\!\!\!\!\!\! $\FT e^{-\i \omega t_0}$
+		$\heavi(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT \frac{1}{\i \omega} + \pi \delta(\omega)$ & $\delta(t-t_0)$ & \!\!\!\!\!\!\!\!\!\! $\FT e^{-\i \omega t_0}$\\
 	\end{tabular}
+	$r(t) = \begin{cases}
+	1/2 & \text{falls} \abs{t}<1 \\
+	0 & \text{falls} \abs{t}>1
+	\end{cases}\FT \sinc(\omega) =  \begin{cases}
+	\sin(\omega)/\omega & \text{falls } \omega\ne 0 \\
+	1 & \text{falls } \omega= 0
+	\end{cases}$
 	\subsection{Die Inverse Fouriertransformation}
 	$\widetilde{f}(t) = \frac{1}{2\pi} \int\limits_{-\infty}^\infty F(\omega) \exp(\i \omega t) \diff \omega = \begin{cases} f(t) &, f \text{ stetig in }t \\ \frac{f(t^-) + f(t^+)}{2} &, f\text{ unstetig }t \end{cases}$
 \end{sectionbox}
@@ -248,7 +256,7 @@
 	$\delta(t-t_0) \FT \Delta_{t_0} (\omega)$ und $\delta(t) \FT 1$
 	
 	\subsection{Heaviside-Funktion $\heavi(t)$}
-	$\heavi:\R \ra \C, \heavi(t) = \begin{cases} 1 &, t>0 \\ 0 & ,t<0 \end{cases}$ \qquad $\approx \lim\limits_{a \ra 0} \exp(-at)$
+	$\:\R \ra \C, \heavi(t) = \begin{cases} 1 &, t>0 \\ 0 & ,t<0 \end{cases}$ \qquad $\approx \lim\limits_{a \ra 0} \exp(-at)$
 	%$U(\omega) = \frac{1}{\i \omega} + \pi \delta(\omega)$
 	
 	\subsection{Faltung}
@@ -259,7 +267,7 @@
 	\subsection{Lineare DGLn}
 	$L[y](t) = P\left(\frac{\diff}{\diff t}\right)y(t) = b(t) \FT P(\i \omega)Y(\omega) = B(\omega)$\\
 	$Y(\omega) = \underbrace{\frac{1}{P(\i \omega)}}_{H(\omega) \FT h(t)}B(\omega)$\\
-	$y(t) = h*b(t)$
+	$y(t) = h*b(t)$ (Partikuläre Lösung)
 \end{sectionbox}
 
 \begin{sectionbox}
@@ -267,7 +275,8 @@
 	\begin{tablebox}{p{0.4\textwidth}p{0.6\textwidth}}
 		$\pmb{f(t)}$ & $\pmb{F(\omega)}$\\ \hline
 		reell & $F(-\omega) = F^*(\omega)$\\
-		gerade/ungerade & gerade/ungerade\\
+		gerade & gerade\\
+		ungerade & ungerade\\
 		reell u. gerade & reell u. gerade\\
 		reell u. ungerade & imaginär u. ungerade\\
 		imaginär u. gerade & imaginär u. gerade\\
@@ -283,7 +292,7 @@
 		Skalierung & $f(ct)$ & \!\!\!\!\!\!\!\!\!\! $\FT \frac{1}{\abs{c}} F\bigl(\frac{\omega}{c}\bigr)$\\
 		Verschiebung $t$ & $f(t-a)$ & \!\!\!\!\!\!\!\!\!\! $\FT \exp(- \i \omega a) F(\omega)$\\
 		Verschiebung $\omega$ & $\exp(\i \tilde \omega t) f(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT F(\omega - \tilde \omega)$\\
-		Ableitung $t$ & $f^{(n)}(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT (\i \omega)^n F(\omega)$\\
+		Ableitung $t$ & $f^{(n)}(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT (\i \omega)^n F(\omega)$ [FT Bedingung]\\
 		Ableitung $\omega$ & $t^n f(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT \i^n F^{(n)}(\omega)$\\
 		Integration $t$ & $\int_{-\infty}^{t}x(\tau)\diff \tau$ & \!\!\!\!\!\!\!\!\!\! $\FT  \frac{1}{\i\omega}X(\omega)+\pi X(0)\delta(\omega)$\\
 		Integration $\omega$ & $\frac{\i}{t}x(t) + \pi x(0)\delta(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT \int_{-\infty}^{\omega}X(\Omega)\diff \Omega$\\
@@ -382,10 +391,12 @@
 	$\cx f$ ist genau dann holomorph, falls $\cx f(x+y\i) = u(x,y) + \i v(x,y)$ und
 	\begin{itemize}\itemsep0pt
 		\item $u,v$ sind stetig partiell diffbar
-		\item Cauchy-Riemann DGLs sind erfüllt auf Gebiet $G$:\\
+		\item Cauchy-Riemann DGLen sind erfüllt auf Gebiet $G$:\\
 		$\partial_x u(x,y) = \partial_y v(x,y)$ \qquad $\partial_y u(x,y) = - \partial_x v(x,y)$
 	\end{itemize}
-	Holomorph: $\exp, \sin, \cosh$, Polynome, $\cx f\pm \cx g, \cx f \cx g, \frac{\cx f}{\cx g}, \cx f(\cx g)$
+	Holomorph: $\exp, \sin, \cosh$, Polynome, $\cx f\pm \cx g, \cx f \cx g, \frac{\cx f}{\cx g}, \cx f(\cx g),\cx f^{(n)}, \forall n\in \mathbb{N}$ \\
+	\textbf{Mittelwerteigenschaft:} Ist $f:G\ra \C$ holomorph so ist der Wert $f(z_0)$ der Mittelwert der Funktionswerte auf dem Rand des Kreises mit dem Mittelpunkt $z_0$: \\
+	$f(z_0)=\frac{1}{2\pi}\int_{0}^{2\pi}\cx f(z_0+r e^{it})\diff t$
 \end{sectionbox}
 
 \begin{sectionbox}
@@ -432,7 +443,9 @@
 	Ist $\gamma$ eine geschlossene, doppelpunktfreie und positiv durchlaufene Kurve in einem einfach zusammenhängenden Gebiet $G$ und $f : G \ra \mathbb{C}$ holomorph, so gilt für jedes $z_0$ im Inneren von $\gamma$: \\
 	\boxed{\cx f(\cx z_0) = \frac{1}{2\pi \i} \ointctrclockwise_{\cx \gamma} \frac{\cx f(\cx z)}{\cx z - \cx z_0} \diff \cx z }\\
 	$\ointctrclockwise_{\cx \gamma} \frac{\cx f(\cx z)}{(\cx z - \cx z_0)^{k+1}} \diff \cx z = \frac{2\pi \i}{k!} \cx f^{(k)}(\cx z_0) $ 
-	
+\end{sectionbox}
+
+\begin{sectionbox}
 	\subsection{Integralsatz von Cauchy}
 	Falls keine Unstetigkeitsstelle innerhalb der Kurve $\cx \gamma$\\ 
 	$\cx f: G \ra \C$ komplex diffbar auf offenem, einfach zusammenhängendem Gebiet $G \subset \C$. $\cx \gamma$ sei einfach geschlossene Kurve in $G$ (keine Doppelpunkte). \\
@@ -634,8 +647,8 @@
 		u_{n}(r,\varphi)=(a_{n}cos(n \varphi)+b_{n}sin(n \varphi))r^{n} & \text{für } n \in \mathbb{Z}\setminus\{0\}
 		\\
 		a+b \; ln(r) & \text{für } n=0
-		\end{cases}	
-	\end{equation*}
+		\end{cases}
+	\end{equation*} 
 	eine Lösung der Laplacegleichung
 \end{sectionbox}
 
