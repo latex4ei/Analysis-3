@@ -77,7 +77,7 @@
 		$-\ln |\cos(x)|$ & $\tan(x)$ & $\frac{1}{\cos^2(x)}$ \\
 	\end{tablebox}
 	
-	$\int e^{at} \sin(bt) \diff t = e^{at} \frac{a \sin(bt) + b \cos(bt)}{a^2 + b^2}$\\
+	$\int e^{at} \sin(bt) \diff t = e^{at} \frac{a \sin(bt) + b \cos(bt)}{a^2 + b^2}$ \qquad $x=\frac{-b\pm \sqrt{b^2-4ac}}{2a}$ \\
 	\begin{tablebox}{ll}
 		$\int \frac{1}{\sqrt{at+b}} \diff t = \frac{2 \sqrt{at+b}}{a}$ & $\int t^2 e^{at} \diff t = \frac{(ax-1)^2+1}{a^3} e^{at}$\\
 		$\int t e^{at} \diff t = \frac{at-1}{a^2} e^{at}$ & $\int x e^{ax^2} \diff x = \frac{1}{2a} e^{ax^2}$\\
@@ -316,12 +316,11 @@
 	\begin{tabular}{rl|rl}
 		$1$ & \!\!\!\!\!\!\!\!\!\!$\LT \frac{1}{s}$ & $\delta(t-t_0)$ & \!\!\!\!\!\!\!\!\!\!$\LT e^{-s t_0}$\\[0.2em]
 		$t^n$ & \!\!\!\!\!\!\!\!\!\!$\LT \frac{n!}{s^{n+1}}$ & $e^{at}$  & \!\!\!\!\!\!\!\!\!\!$\overset{s > a}{ \LT } \frac{1}{s-a}$\\[0.5em] 
-		$\sin(t)$ & \!\!\!\!\!\!\!\!\!\!$\LT \frac{1}{s^2 + 1}$ & $\cos(t)$ & \!\!\!\!\!\!\!\!\!\!$\LT \frac{s}{s^2 + 1}$\\[0.5em]
 		$\sin(\omega t)$ & \!\!\!\!\!\!\!\!\!\!$\LT \frac{\omega}{s^2 + \omega^2}$ & $\cos(\omega t)$ & \!\!\!\!\!\!\!\!\!\!$\LT \frac{s}{s^2 + \omega^2}$\\[0.5em]
 		$\frac{t^{n-1}}{(n-1)!}$   & \kern-1.7em $\LT \frac{1}{s^n}$ & $\frac{\sin(at)}{t}$ & \kern-1.7em $\LT\arctan(\frac{a}{s})$\\[0.5em]
 		\multicolumn{4}{l}{ $e^{-at} \sin(\omega t) \LT \frac{\omega}{(s+a)^2+\omega^2}$} \\
-		\multicolumn{4}{l}{ $e^{-at} \cos(\omega t) \LT \frac{s+a}{(s+a)^2+\omega^2}$}\\ 		
-		
+		\multicolumn{4}{l}{ $e^{-at} \cos(\omega t) \LT \frac{s+a}{(s+a)^2+\omega^2}$}\\
+		\multicolumn{4}{l}{$\frac{ae^{-at}-be^{-bt}}{a-b} \LT \frac{s}{(s+a)(s+b)}$}
 	\end{tabular}\\
 	\subsection{Die Inverse Laplacetransformation}
 	$f(t) = \frac{1}{2\pi \i} \int\limits_{\gamma - \i \infty}^{-\gamma + \i \infty} F(s) \exp(st) \diff s$
@@ -354,6 +353,7 @@
 
 \begin{sectionbox}
 	\subsection{DGL Laplace-Transformierbar}
+	Geg.: $a f''(t) + b f'(t) + c f(t) = s(t)$ \\
 	Falls gilt $f(t) \LT F(s)$ und $s(t) \LT S(s)$: \\
 	Laplacetrafo: $a\bigl(s^2 F(s) - sf(0) - f'(0)\bigr) + b\bigl( s F(s) - f(0) \bigr) + c F(s) = S(s)$\\
 	$F(s) = \frac{a(sd + e) + bd}{as^2 + bs +c} + S(s) \frac{1}{as^2 + bs +c}$ \\
@@ -426,7 +426,7 @@
 
 \begin{sectionbox}
 	\subsection{Komplexes Kurvenintegral}
-	für $D \subset \mathbb C$ Gebiet, $f: D \ra \mathbb C$ stetig, $\cx \gamma: [t_1, t_2] \ra $ stetig diffbar orientierte Kurve. \\ 
+	für $D \subset \mathbb C$ Gebiet, $f: D \ra \mathbb C$ stetig, $\cx \gamma: [t_1, t_2] \ra $ stetig diffbar Kurve
 	\begin{cookbox}{So brechnet man ein komplexes Kurvenintegral}
 		\item Bestimme Parametrisierung von $\cx \gamma$ \\
 		$\cx \gamma = \cx \gamma_1 + \ldots + \cx \gamma_2$, $\cx \gamma_i : [a_i, b_i] \ra \C$
