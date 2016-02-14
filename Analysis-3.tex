@@ -475,12 +475,14 @@
 	\begin{equation*}
 		\cx f(\cx z) = \sum\limits_{k = 0}^{\infty} \frac{\cx f^{(k)} \cx z_0}{k!} (\cx z - \cx z_0)^k
 	\end{equation*}
-	\emph{Laurentreihe:} Falls $\cx f$ nicht holomorph ist.
-	\begin{equation*}
-		\resizebox{\textwidth}{!}{
-			$\cx f(z)=\sum_{k=- \infty}^{\infty} c_k (z-z_0)^{k} = \underbrace{\sum_{k=1}^{\infty} c_{-k} (z-z_0)^{k}}_{\text{Hauptteil}} + \underbrace{\sum_{k=0}^{\infty} c_k (z-z_0)^{k}}_{\text{Nebenteil}}$
-		}
-	\end{equation*} 
+	\emph{Laurentreihe:} Falls $\cx f$ nicht holomorph ist.\\
+	\resizebox{\textwidth}{!}{
+		% Nicht besonders schön, aber nur so lässt sich die Formel eigenständig und nicht inline darstellen.
+		% Das Problem ist, dass die erste Summe in der Resize-Box im Inline-Modus dargestellt wird.
+		\begin{minipage}{1.05\textwidth} 
+		$$\cx f(z)=\sum_{k=- \infty}^{\infty} c_k (z-z_0)^{k} = \underbrace{\sum_{k=1}^{\infty} c_{-k} (z-z_0)^{-k}}_{\text{Hauptteil}} + \underbrace{\sum_{k=0}^{\infty} c_k (z-z_0)^{k}}_{\text{Nebenteil}}$$
+		\end{minipage}
+	}
 	Konvergenz falls Hauptteil und Nebenteil konvergiert. \\ 
 	Konvergenzradien: $R = \lim \abs{\frac{c_k}{c_{k+1}}} \in [0, \infty]$ \\ 
 	Resiudensatz: $\mathrm{Res}_{z_0} \cx f = c_{-1} = \frac{1}{2\pi\i} \oint f(z) \diff z$
