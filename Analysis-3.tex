@@ -19,6 +19,7 @@
 \author{Lukas Kompatscher und Roberto Gudelj}	
 \myemail{lukas.kompatscher@tum.de}	
 
+\DeclareTextFontCommand{\emph}{\bfseries}
 
 % DOCUMENT_BEGIN ===============================================================
 \begin{document}
@@ -122,29 +123,29 @@
 \section{Fourierreihe $f(x) \ra F(\omega)$ \qquad $\omega = \frac{2 \pi}{T}$}
 % ==============================================================================
 \begin{sectionbox}
-	ist die Entwicklung einer Funktion $f\in C(T)$ in eine Reihe aus $\sin$ und $\cos$.\\
 	\emph{Voraussetzungen:}
 	\begin{enumerate}
 		\item $f$ ist $T$-periodisch im Intervall $I$, meist $I=[-\frac{T}{2},\frac{T}{2})$ oder $I=[0,T)$
 		\item $I$ aufteilbar in Teilintervalle, in denen $f$ stetig und monoton
 		\item In den endlich viele Unstetigkeitsstellen existieren links- und rechtsseitige Grenzwerte
 	\end{enumerate}
-	$f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\Ra$ auch $n \cdot T$ periodisch.
-
-	\begin{cookbox}{Entwicklung in Fourierreihen $f(x) \sim F(x)$}
-		\item Bestimme die Fourierkoeffizienten zu $f \in C(T)$:\\
-		$a_k,b_k \in \R$: \quad \boxed{ \Big\{ { ^{\textstyle a_k}_{\textstyle b_k}} = \frac{2}{T} \int\limits_{-\frac{T}{2}}^{\frac{T}{2}} f(x) \Big\{ {}^{\textstyle \cos} _{\textstyle \sin} \left(k \omega x \right) \diff x }\\
-		\emph{$a_0$ immer separat berechnen mit $k = 0$!}\\
-		$c_k \in \C$: \quad \boxed{ c_k = \frac{1}{T} \int\limits_{-\frac{T}{2}}^{\frac{T}{2}} f(x) \exp \left( - \i k \omega x \right) \diff x } \\
-		\emph{$c_0$ immer separat berechnen mit $k = 0$!}
-		
-		\item Aufstellen der Fourierreihe $F$ zu $f$:  \\
-		\boxed{ F(x) = \frac{a_0}{2} + \sum\limits_{k=1}^\infty a_k \cos \left(k \omega x \right) + b_k \sin \left( k \omega x \right) } \\
-		\boxed{ F(x) = \sum\limits_{k=-\infty}^\infty c_k \exp \left( \i k \omega x \right) }
-	\end{cookbox}
+	$f$ ist $T$-periodisch, falls $f(x+T) = f(x)$ $\Ra$ auch $n \cdot T$ periodisch.\\\\
+	\textbf{Reelle Fourierreihe:}
+	\begin{emphbox}\vspace{-5pt}
+		\[F(x) = \frac{a_0}{2} + \sum\limits_{k=1}^\infty a_k \cos \left(k \omega x \right) + b_k \sin \left( k \omega x \right)\]
+		\[\text{mit } a_k,b_k \in \R:\Big\{ { ^{\textstyle a_k}_{\textstyle b_k}} = \frac{2}{T} \int\limits_{-\frac{T}{2}}^{\frac{T}{2}} f(x) \Big\{ {}^{\textstyle \cos} _{\textstyle \sin} \left(k \omega x \right) \diff x\]
+	\end{emphbox}
+	\textbf{Komplexe Fourierreihe:}
+	\begin{emphbox}\vspace{-5pt}
+		\[F(x) = \sum\limits_{k=-\infty}^\infty c_k \exp \left( \i k \omega x \right)\]
+		\[\text{mit } c_k \in \C: c_k = \frac{1}{T} \int\limits_{-\frac{T}{2}}^{\frac{T}{2}} f(x) \exp \left( - \i k \omega x \right) \diff x\]
+	\end{emphbox}	
+	\emph{Konvergenz:} $F(x) \sim f(x)$
 	
-	\emph{Konvergenz:} $F(x) \sim f(x)$ \ $\Ra$ \ $f$ in $x$ \emph{stetig \& stückweise stetig differenzierbar} $\Ra$ $F(x) = f(x)$\\
-	$f$ in $x$ nicht stetig $\Ra$ $x = a_i$ und $F(x) = \frac{f(a_i^+) + f(a_i^-)}{2}$\\
+	\begin{itemize}
+		\item $f$ in $x$ \emph{stetig \& stückweise stetig differenzierbar} $\Ra$ $F(x) = f(x)$
+		\item $f$ in $x$ nicht stetig $\Ra$ $x = a_i$ und $F(x) = \frac{f(a_i^+) + f(a_i^-)}{2}$
+	\end{itemize}
 \end{sectionbox}
 
 \begin{sectionbox}
@@ -176,9 +177,9 @@
 		\item $f$ $\frac{T}{2}$-periodisch: $f(\frac{T}{2} + t) = f(t)$\\
 		$c_{2k+1} = a_{2k+1} = b_{2k+1} = 0$\\
 		$\begin{cases} a_{2k}\\ b_{2k} \end{cases} = \frac{1}{T}\int_0^{T/2}f(t)\begin{cases} \cos{(2k \omega t)}\\ \sin{(2k \omega t)} \end{cases} \diff t$
-%		\item $f$ ohne $\frac{T}{2}$-periodischen Anteil: $f(\frac{T}{2} + t) = -f(t)$\\
-%		$c_{2k} = a_{2k} = b_{2k} = 0$\\
-%		$\begin{cases} a_{2k+1}\\ b_{2k+1} \end{cases} = \frac{1}{T}\int_0^{T/2}f(t)\begin{cases} \cos{((2k+1) \omega t)}\\ \sin{((2k+1) \omega t)} \end{cases} \diff t$
+		\item $f$ ohne $\frac{T}{2}$-periodischen Anteil: $f(\frac{T}{2} + t) = -f(t)$\\
+		$c_{2k} = a_{2k} = b_{2k} = 0$\\
+		$\begin{cases} a_{2k+1}\\ b_{2k+1} \end{cases} = \frac{1}{T}\int_0^{T/2}f(t)\begin{cases} \cos{((2k+1) \omega t)}\\ \sin{((2k+1) \omega t)} \end{cases} \diff t$
 	\end{itemize}
 \end{sectionbox}
 
@@ -213,8 +214,8 @@
 	$S(t) = \sum_{k=1}^{\infty}\frac{1}{k}\frac{e^{\i k t} - e^{-\i k t}}{2 \i} = \sum_{k\ne 0}\frac{1}{2\i k}e^{\i k t}$
 	\subsubsection{Weiterer Sägezahn, Rechteck und Treppenfunktion ($2\pi$-periodisch)}
 	\begin{tablebox}{ll}
-		$f:[-\pi,\pi) \ra \mathbb{R}, (x)=x$ & $a_0=a_k=0, b_k=\frac{2}{k}(-1)^{k+1}$ \\
-		$f:[-\pi,\pi) \ra \mathbb{R}, (x)=\operatorname{sgn}(x)$ & $a_0=a_k=0, b_{2k-1}=\frac{4}{(2k-1)\pi}$ \\
+		$f:[-\pi,\pi) \ra \mathbb{R}, f(x)=x$ & $a_k=0, b_k=\frac{2}{k}(-1)^{k+1}$ \\
+		$f:[-\pi,\pi) \ra \mathbb{R}, f(x)=\operatorname{sgn}(x)$ & $a_k=0, b_{2k-1}=\frac{4}{(2k-1)\pi}$ \\
 		Treppe mit Sprungwert $\Delta_n$ an $t_n$ & $c_k=\frac{1}{2k\pi\i}\sum_{n=0}^{m}\Delta_n e^{\i k t_n}$
 	\end{tablebox}
 \end{sectionbox}
@@ -230,7 +231,9 @@
 		\item $f(t) = \frac{1}{2}\left(f(t^+) + f(t^-)\right)$
 		\item $\int_{-\infty}^{\infty}\abs{f(t)} \diff t < \infty$ ($f$ absolut integrierbar)
 	\end{enumerate}
-	\boxed{ F(\omega) := \int\limits_{-\infty}^\infty f(t) \exp(-\i \omega t) \diff t} \\
+	\begin{emphbox}\vspace{-5pt}
+		\[F(\omega) := \int\limits_{-\infty}^\infty f(t) \exp(-\i \omega t) \diff t\]
+	\end{emphbox}
 	\begin{tabular}{rl|rl}
 		$1$ & \!\!\!\!\!\!\!\!\!\! $\FT 2\pi \delta(\omega)$ & $|t^n|$ & \!\!\!\!\!\!\!\!\!\! $\FT \frac{2n!}{(\i \omega)^{n+1}}$\\
 		$t^n$ & \!\!\!\!\!\!\!\!\!\! $\FT 2\pi \i^n \delta^{(n)}(\omega)$ & $\frac{t^{n-1}}{(n-1)!} e^{-at} u(t)$ & \!\!\!\!\!\!\!\!\!\! $\FT \frac{1}{(a+\i \omega)^n}$\\
@@ -308,7 +311,9 @@
 \section{Laplacetransformation \quad $\mathcal L\bigl(f(t)\bigr) = F(s)$}
 % ==============================================================================
 \begin{sectionbox}
-		\boxed{f(t) \LT F(s) := \int\limits_0^\infty f(t) \exp(-st) \diff t}\\
+	\begin{emphbox}\vspace{-5pt}
+		\[f(t) \LT F(s) := \int\limits_0^\infty f(t) \exp(-st) \diff t\]
+	\end{emphbox}
 	\emph{Voraussetzung:} $\abs{f(t)} \leq M e^{\sigma t} \quad \forall t > 0; \qquad \sigma = Re(s)$\\
 	\\
 	\everymath{\displaystyle}	% Formeln ab hier groß Schreiben
@@ -323,11 +328,11 @@
 	\end{tabular}\\
 	\subsection{Die Inverse Laplacetransformation}
 	$f(t) = \frac{1}{2\pi \i} \int\limits_{\gamma - \i \infty}^{-\gamma + \i \infty} F(s) \exp(st) \diff s$
+	\everymath{\textstyle}
 \end{sectionbox}
 
 \begin{sectionbox}
 	\subsection{Rechenregeln}
-	\everymath{\textstyle}
 	\begin{tablebox}{p{0.18\textwidth}p{0.29\textwidth}p{0.53\textwidth}}
 		Linearität & $\alpha f(t) + \beta g(t)$ & $\LT \alpha F(s) + \beta G(s)$\\
 		Skalierung & $f(ct)$  & $\LT \frac{1}{c} F\bigl(  \frac{s}{c} \bigr)$\\
@@ -370,17 +375,18 @@
 		\ \\ \ \\
 		$\cx f(\cx z) = \cx f(x+y \i) = u(x,y) + \i v(x,y)$\\
 		\\
+		\emph{Trigonometrische Funktionen}\\\\
 		$\sin(\cx z) = \sin(x)\cosh(y) + \i \cos(x)\sinh(y)$\\
 		$\cos(\cx z) = \cos(x)\cosh(y) - \i \sin(x)\sinh(y)$\\
 		\\
 		$\sinh(\cx z) = \cos(y) \sinh(x) + \i \sin(y) \cosh(x)$\\
-		$\cosh(\cx z) = \cos(y) \cosh(x) + \i \sin(y) \sinh(x)$ }\ 
+		$\cosh(\cx z) = \cos(y) \cosh(x) + \i \sin(y) \sinh(x)$\\ }\ 
 	\parbox{2cm}{\includegraphics[width = 2cm]{./hyperbolis.pdf} }
 \end{sectionbox}
 
 \begin{sectionbox}
 	\subsection{Holomorphe (analytische, reguläre) Funktionen $\cx f$}
-	Eine Funktion $\cx f$ ist
+	Eine Funktion $\cx f$ ist \dots
 	\begin{tablebox}{ll}
 		holomorph & falls $\cx f$ in $G$ komplex differenzierbar ist.\\
 		ganz & falls $\cx f$ in ganz $\C$ komplex differenzierbar ist.\\
@@ -624,33 +630,31 @@
 % ==============================================================================
 \begin{sectionbox}
 	\subsection{Randwertprobleme (RWP) für Poissongleichung}
-	Gegeben: $-\laplace u = f$ und ein RWP. Ges.: $u=u(x,y)$ oder $u=u(x,y,z)$
+	\begin{flushleft}
+	Geg.: $-\laplace u = f$ und ein RWP. Ges.: $u=u(x,y)$ oder $u=u(x,y,z)$
+	\end{flushleft}
 	\begin{tablebox}{p{\textwidth}}
 		\textbf{Dirichlet RWP}\\
-		$-\laplace u(\vec x)=f(\vec x) $ für alle$x \in D $ und$u(\vec x)=u_{0}(\vec x) $ für alle $x \in \partial D$ \\
+		$-\laplace u(\vec x)=f(\vec x) $ für alle $x \in D $ und $u(\vec x)=u_{0}(\vec x) $ für alle $x \in \partial D$ \\
 		\textbf{Neumann RWP}\\
-		$-\laplace u(\vec x)=f(\vec x) $ für alle$x \in D $ und$\frac{\partial u}{\partial \vec n}(\vec x)=u_{0}(\vec x) $ für alle$x \in \partial D $ \\
+		$-\laplace u(\vec x)=f(\vec x) $ für alle $x \in D $ und $\frac{\partial u}{\partial \vec n}(\vec x)=u_{0}(\vec x) $ für alle $x \in \partial D $ \\
 		\textbf{Gemischtes RWP} \\
-		$-\laplace u(\vec x)=f(\vec x) $ für alle$x \in D $ und $\frac{\partial u}{\partial \vec n}(\vec x)+k(\vec x)u(\vec x)=u_{0}(\vec x) $ für alle $x \in \partial D $ \\
+		$-\laplace u(\vec x)=f(\vec x) $ für alle $x \in D $ und $\frac{\partial u}{\partial \vec n}(\vec x)+k(\vec x)u(\vec x)=u_{0}(\vec x) $ für alle $x \in \partial D $ \\
 	\end{tablebox}
-	wobei $\vec n$ = Normaleneinheitsvektor, der aus D hinausweist und $k=k(\vec x)$ ist eine stetige Funktion
+	wobei $\vec n$ = Normaleneinheitsvektor, der aus D hinausweist und $k=k(\vec x)$ ist eine stetige Funktion.
 	\begin{tablebox}{lp{0.8\textwidth}}
-		inneres RWP & falls$D$ ein beschränktes Gebiet \\
-		äußeres RWP & falls$D$ Komplement eines beschränkten Gebietes ist (Dann sind weitere Randwertbedingungen an die Lösungen zu stellen)
+		Inneres RWP & falls $D$ ein beschränktes Gebiet \\
+		Äußeres RWP & falls $D$ Komplement eines beschränkten Gebietes ist (Dann sind weitere Randwertbedingungen an die Lösungen zu stellen)
 	\end{tablebox}
 	
-	\subsection{Lösungen der Laplacegleichung}
-	
-	Für beliebige $a_{n},b_{n} \in \mathbb{R}$ bzw.$a,b \in \mathbb{R} $ ist
-	\begin{equation*}
-		u(r,\varphi)=
-		\begin{cases}
+	\subsection{Lösungen der Laplacegleichung $-\laplace u = 0$}
+	$u(r,\varphi)=
+	\begin{cases}
 		u_{n}(r,\varphi)=(a_{n}cos(n \varphi)+b_{n}sin(n \varphi))r^{n} & \text{für } n \in \mathbb{Z}\setminus\{0\}
 		\\
 		a+b \; ln(r) & \text{für } n=0
-		\end{cases}
-	\end{equation*} 
-	eine Lösung der Laplacegleichung
+	\end{cases}$\\
+	für beliebige $a_{n},b_{n} \in \mathbb{R}$ bzw. $a,b \in \mathbb{R}$.
 \end{sectionbox}
 
 

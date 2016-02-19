@@ -193,7 +193,7 @@
 	\colorlet{col_emphbox}{tum_red}
 	\colorlet{col_topicbox}{tum_blue_dark}
 	\colorlet{col_symbolbox}{tum_orange}
-	\colorlet{col_cookbox}{tum_blue_dark}
+	\colorlet{col_cookbox}{tum_green_leaf}
 
 	\colorlet{col_table}{tum_blue_dark}
 \else
