@@ -74,7 +74,7 @@
 % Geometry
 % ----------------------------------------------------------------------
 	\RequirePackage{geometry}
-	\geometry{a4paper,landscape, left=6mm,right=6mm, top=6mm, bottom=5mm,includefoot, footskip=1.7em}
+	\geometry{a4paper,landscape, left=6mm,right=6mm, top=5mm, bottom=4mm,includefoot, footskip=1.7em}
 
 
 % Multicolumn
