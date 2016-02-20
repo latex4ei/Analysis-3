@@ -702,6 +702,21 @@
 	\end{cookbox}
 \end{sectionbox}
 
+% Roberto Anfang
+\section{Wellengleichung \qquad \(u_{tt}=c^{2} \laplace{u} \)}
+\begin{sectionbox}
+\(u_{tt}-c^{2} u_{xx}=0\) \\
+Geg: l = L\"ange der Saite und \(u(x,0)=g(x), u_{t}(x,0)=v(x), u(0,t)=u(l,t)=0 \)
+\begin{cookbox}{L\"osung des Anfangs-Randwertproblems f\"ur eine schwingende Saite}
+\item Bestimme Koeffizienten \(a_{n}\) von \(g(x)\) und \(b_{n}\) von \(v(x)\): \\ \\
+\(a_{n}=\frac{2}{l}\int_0^l  g(x)sin(n\frac{\pi}{l}x)dx\) \qquad f\"ur \(n=1,2,3,4,... \)
+\\ \\
+\(b_{n}=\frac{2}{n\pi c} \int_0^l  g(x)sin(n\frac{\pi}{l}x)dx\) \qquad f\"ur \(n=1,2,3,4,... \)
+\item L\"osung \(u(x,t)\) als Reihendarstellung \\ \\
+\(u(x,t)= \sum_{n=1}^{\infty} sin(\frac{n \pi}{l}x)[a_{n}cos(c\frac{n\pi}{l}t)+b_{n}sin(c\frac{n\pi}{l}t)]\)
+\end{cookbox}
+\end{sectionbox}
+% Roberto Ende
 
 % Dokumentende
 % ======================================================================
