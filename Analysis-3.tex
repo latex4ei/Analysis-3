@@ -27,7 +27,7 @@
 \maketitle
 
 % SECTION ======================================================================
-\section{Nützliches Wissen $e^{\i x} = \cos (x) + \i \cdot \sin(x)$}
+\section{Nützliches Wissen \quad $e^{\i x} = \cos (x) + \i \cdot \sin(x)$}
 % ==============================================================================
 \begin{sectionbox}
 	\subsection{Sinus, Cosinus \quad $\sin^2(x) \bs + \cos^2(x) = 1$}
@@ -242,7 +242,7 @@
 		\item $\int_{-\infty}^{\infty}\abs{f(t)} \diff t < \infty$ ($f$ absolut integrierbar)
 	\end{enumerate}
 	\begin{emphbox}\vspace{-5pt}
-		\[F(\omega) := \int\limits_{-\infty}^\infty f(t) \exp(-\i \omega t) \diff t\]
+		\[f(t)\FT F(\omega) := \int\limits_{-\infty}^\infty f(t) \exp(-\i \omega t) \diff t\]
 	\end{emphbox}
 	\begin{tabular}{rl|rl}
 		$1$ & \!\!\!\!\!\!\!\!\!\! $\FT 2\pi \delta(\omega)$ & $|t^n|$ & \!\!\!\!\!\!\!\!\!\! $\FT \frac{2n!}{(\i \omega)^{n+1}}$\\
@@ -640,8 +640,11 @@
 \end{sectionbox}
 
 % SECTION ======================================================================
-\section{Laplace- und Poissongleichung \qquad $-\laplace u = f$}
+\section{Laplace- und Poissongleichung \quad $-\laplace u = f$}
 % ==============================================================================
+
+%Folgender Abschnitt wurde aufgrund von Platzmangel weggelassen
+
 %\begin{sectionbox}
 %	\subsection{Randwertprobleme (RWP) für Poissongleichung}
 %	\begin{flushleft}
@@ -663,7 +666,7 @@
 %\end{sectionbox}
 	
 \begin{sectionbox}
-	\subsection{Laplacegleichung $-\laplace u=0$}
+	\subsection{Laplacegleichung \quad $-\laplace u=0$}
 	\subsubsection{Allgemeine Lösung der Laplacegleichung}
 	\resizebox{\textwidth}{!}{
 		$u(r,\varphi)=
@@ -704,34 +707,39 @@
 	\end{cookbox}
 \end{sectionbox}
 
-% Roberto Anfang
-\section{Wellengleichung \qquad \(u_{tt}=c^{2} \laplace{u} \)}
+% SECTION ======================================================================
+\section{Wärmeleitungsgleichung \quad \(u_{t}=c^{2} \laplace{u}\)}
+% ==============================================================================
+
 \begin{sectionbox}
-\(u_{tt}-c^{2} u_{xx}=0\) \\
-Geg: \(l\) = L\"ange der Saite und \(u(x,0)=g(x), u_{t}(x,0)=v(x), u(0,t)=u(l,t)=0\) und \(c=const.>0 \)
-\begin{cookbox}{L\"osung eines Anfangs-Randwertproblems f\"ur eine schwingende Saite}
-\item Bestimme Koeffizienten \(a_{n}\) von \(g(x)\) und \(b_{n}\) von \(v(x)\): \\ \\
-\(a_{n}=\frac{2}{l}\int_0^l  g(x)sin(n\frac{\pi}{l}x)dx\) \qquad f\"ur \(n=1,2,3,4,... \)
-\\ \\
-\(b_{n}=\frac{2}{n\pi c} \int_0^l  g(x)sin(n\frac{\pi}{l}x)dx\) \qquad f\"ur \(n=1,2,3,4,... \)
-\item L\"osung \(u(x,t)\) als Reihendarstellung: \\ \\
-\(u(x,t)= \sum_{n=1}^{\infty} sin(\frac{n \pi}{l}x)[a_{n}cos(c\frac{n\pi}{l}t)+b_{n}sin(c\frac{n\pi}{l}t)]\)
-\end{cookbox}
+	\(u_{t}=c^{2}u_{xx}\) für \(x \in (0,l), t\geq 0\) \\
+	Geg: \(u(x,0)=g(x)\) und \(u(0,t)=u(l,t)=0\) und Länge \(l\) und \(c=\mathrm{const}>0\)
+	\begin{cookbox}{Lösen eines Nullrandproblems für einen Stab}
+		\item Bestimme Koeffizienten \(b_{n}\) von \(g(x)\): \\
+		\(b_{n}=\frac{2}{l} \int_{0}^{l} g(x)\sin(n\frac{\pi}{l}x)dx\) \qquad für \(n=1,2,3,4,... \)
+		\\
+		\item Lösung \(u(x,t)\) als Reihendarstellung: %\vspace{-5pt}		 % Platz sparen wo nur geht
+		\[u(x,t)=\sum_{n=1}^{\infty} b_{n} \exp\left(-c^{2}\left(\frac{n\pi}{l}\right)^{2}t\right)\sin\left(n\frac{\pi}{l}x\right)\]
+	\end{cookbox}
 \end{sectionbox}
 
-\section{W\"armeleitungsgleichung \qquad \(u_{t}=c^{2} \laplace{u}\)}
+% SECTION ======================================================================
+\section{Wellengleichung \quad \(u_{tt}=c^{2} \laplace{u} \)}
+% ==============================================================================
 \begin{sectionbox}
-\(u_{t}=c^{2}u_{xx}\) f\"ur \(x \in (0,l), t\geq 0\) \\
-Geg: \(u(x,0)=g(x)\) und \(u(0,t)=u(l,t)=0\) und L\"ange \(l\) und \(c=const.>0\)
-\begin{cookbox}{L\"osen eines Nullrandproblems f\"ur einen Stab}
-\item Bestimme Koeffizienten \(b_{n}\) von \(g(x)\): \\
-\(b_{n}=\frac{2}{l} \int_{0}^{l} g(x)sin(n\frac{\pi}{l}x)dx\) \qquad f\"ur \(n=1,2,3,4,... \)
-\\
-\item L\"osung \(u(x,t)\) als Reihendarstellung: \\
-\(u(x,t)=\sum_{n=1}^{\infty} b_{n} exp(-c^{2}(\frac{n\pi}{l})^{2}t)sin(n\frac{\pi}{l}x)\)
+\(u_{tt}-c^{2} u_{xx}=0\) \\
+Geg: \(l\) = Länge der Saite und \(u(x,0)=g(x), u_{t}(x,0)=v(x), u(0,t)=u(l,t)=0\) und \(c=\mathrm{const}>0 \)
+\begin{cookbox}{Lösung eines Anfangs-Randwertproblems für eine schwingende Saite}
+\item Bestimme Koeffizienten \(a_{n}\) von \(g(x)\) und \(b_{n}\) von \(v(x)\): \\
+\(a_{n}=\frac{2}{l}\int_0^l  g(x)\sin(n\frac{\pi}{l}x)dx\) \qquad für \(n=1,2,3,4,... \)\\
+\(b_{n}=\frac{2}{n\pi c} \int_0^l  v(x)\sin(n\frac{\pi}{l}x)dx\) \qquad für \(n=1,2,3,4,... \)
+\item Lösung \(u(x,t)\) als Reihendarstellung: %\vspace{-5pt}		 								% Platz sparen wo nur geht
+\[u\left(x,t\right)= \sum_{n=1}^{\infty} \sin\left(\frac{n \pi}{l}x\right)\left(a_{n}\cos\left(c\frac{n\pi}{l}t\right)+b_{n}\sin\left(c\frac{n\pi}{l}t\right)\right)\]
 \end{cookbox}
 \end{sectionbox}
 % Roberto Ende
+
+\vspace{-1cm} 							% Löst Problem mit Seitenzahlen in der Fußzeile
 
 % Dokumentende
 % ======================================================================
