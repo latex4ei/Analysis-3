@@ -502,17 +502,17 @@
 	}
 	Konvergenz falls Hauptteil und Nebenteil konvergiert. \\ 
 	Konvergenzradien: $R = \lim \abs{\frac{c_k}{c_{k+1}}} \in [0, \infty]$ \\ 
-	Resiudensatz: $\mathrm{Res}_{z_0} \cx f = c_{-1} = \frac{1}{2\pi\i} \oint f(z) \diff z$
+	Resiudensatz: $\Res_{z_0} \cx f = c_{-1} = \frac{1}{2\pi\i} \oint f(z) \diff z$
 	
 	\begin{emphbox}
 		\raggedright
-		$\mathrm{Res}_{\cx z_0} \frac{\cx g}{\cx h} = \frac{\cx g(\cx z_0)}{\cx h'(\cx z_0)}$ \qquad $\mathrm{Res}_{\cx z_0} \frac{\cx g(\cx z)}{(\cx z - \cx z_0)^m} = \frac{\cx g^{(m-1)}(\cx z_0)}{(m-1)!}$\\
-		$\mathrm{Res}_{\cx z_0} \cx g \frac{\cx h'}{\cx h} = m \cx g(\cx z_0)$ \qquad $m:$ Ordnung der Polstelle
+		$\Res_{\cx z_0} \frac{\cx g}{\cx h} = \frac{\cx g(\cx z_0)}{\cx h'(\cx z_0)}$ \qquad $\Res_{\cx z_0} \frac{\cx g(\cx z)}{(\cx z - \cx z_0)^m} = \frac{\cx g^{(m-1)}(\cx z_0)}{(m-1)!}$\\
+		$\Res_{\cx z_0} \cx g \frac{\cx h'}{\cx h} = m \cx g(\cx z_0)$ \qquad $m:$ Ordnung der Polstelle
 	\end{emphbox}
 	\textbf{Allgemeiner Residuensatz} $f:G \setminus \eset{z_1, \ldots, z_n} \ra \mathbb C$ holomorph \\ 
 	$\forall $ doppelpunktfrei, geschlossene und pos. orientierte Kurven $\gamma$ mit $z_1, \dots, z_n$ liegen im Inneren von $\gamma$:
 	\begin{equation*}
-		\oint_\gamma f(z) \diff z = 2 \pi \i \sum_{k=1}^{n} Res_{z_k} f
+		\oint_\gamma f(z) \diff z = 2 \pi \i \sum_{k=1}^{n} \Res_{z_k} f
 	\end{equation*}
 \end{sectionbox}
 
@@ -521,7 +521,7 @@
 		\item Reelles Integral $\int_{-\infty}^{\infty}\frac{p(x)}{q(x)}\diff x$
 		\item Bestimme Singularitäten $z_1,\dots,z_n$ der komplexen Funktion $f(\cx z)=\frac{p(\cx z)}{q(\cx z)}$ in der oberen Halbebene, $\Im{ z_i}>0$
 		\item Bestimme Residuen von $f(z)$ in den Singularitäten $z_1,\dots,z_n$
-		\item $\int_{-\infty}^{\infty}\frac{p(x)}{q(x)}\diff x = 2 \pi \i \sum_{k=1}^{n} Res_{z_k} f$
+		\item $\int_{-\infty}^{\infty}\frac{p(x)}{q(x)}\diff x = 2 \pi \i \sum_{k=1}^{n} \Res_{z_k} f$
 	\end{cookbox}
 	\begin{cookbox}{Bestimmen reeller trigonometischer Integrale mit dem Residuenkalkül}
 		\item Reelles Integral $\int_{-0}^{2\pi}R(\cos t, \sin t)\diff t$
@@ -529,7 +529,7 @@
 		\item Erhalte komplexe Fkt. $f(z)=R\left(\frac{1}{2}(z+1/z), \frac{1}{2\i}(z-1/z)\right)\frac{1}{\i z}$
 		\item Bestimme Singularitäten $z_1,\dots,z_n$ der komplexen Funktion $f(\cx z)=\frac{p(\cx z)}{q(\cx z)}$ in des Einheitskreises $\abs{z}<1$
 		\item Bestimme Residuen von $f(z)$ in den Singularitäten $z_1,\dots,z_n$
-		\item $\int_{-0}^{2\pi}R(\cos t, \sin t)\diff t = 2 \pi \i \sum_{k=1}^{n} Res_{z_k} f$
+		\item $\int_{-0}^{2\pi}R(\cos t, \sin t)\diff t = 2 \pi \i \sum_{k=1}^{n} \Res_{z_k} f$
 	\end{cookbox}
 \end{sectionbox}
 
@@ -560,7 +560,7 @@
 		\item Substitution: $r=r(x,y)=bx+ay$ und $s=s(x,y)=bx-ay$
 		\item $U(r,s) = u(\frac{r+s}{2b},\frac{r-s}{2a}) = u(x,y)$  und \\ $F(r,s) = f(\frac{r+s}{2b},\frac{r-s}{2a}) = f(x,y)$
 		\item Einsetzen liefert $U_{r}=\frac{1}{2ab}F(r,s) $
-		\item Lösung U: $\; \; U(r,s)=\int \frac{1}{2ab} F(r,s)dr+G(s)$ mit $G(s)$ beliebig diff'bare Fkt.
+		\item Lösung U: $\; \; U(r,s)=\int \frac{1}{2ab} F(r,s)dr+G(s)$ mit diff'barem $G(s)$
 		\item Rücksubstitution liefert $u(x,y)$
 		\item Anfangsbedingung z.B. $u(x,0) = g(x)$ legt $G(s)$ fest
 	\end{cookbox}
@@ -627,7 +627,9 @@
 		hyperbolisch & falls $a(x,y)c(x,y)-b(x,y)^2<0 $ für alle $(x,y) \in D $ \\
 		gemischter Typ & falls verschiedene $(x,y) \in D $ versch. Eigenschaften aufweisen
 	\end{tablebox}
-	
+\end{sectionbox}
+
+\begin{sectionbox}
 	\subsection{Lösungsmethode}
 	\label{subsubsec:separationsansatz}
 	\begin{cookbox}{Lösen der pDGL mit dem Separationsansatz}
@@ -640,25 +642,25 @@
 % SECTION ======================================================================
 \section{Laplace- und Poissongleichung \qquad $-\laplace u = f$}
 % ==============================================================================
-\begin{sectionbox}
-	\subsection{Randwertprobleme (RWP) für Poissongleichung}
-	\begin{flushleft}
-	Geg.: $-\laplace u = f$ und ein RWP. Ges.: $u=u(x,y)$ oder $u=u(x,y,z)$
-	\end{flushleft}
-	\begin{tablebox}{p{\textwidth}}
-		\textbf{Dirichlet RWP}\\
-		$-\laplace u(\vec x)=f(\vec x) $ für alle $x \in D $ und $u(\vec x)=u_{0}(\vec x) $ für alle $x \in \partial D$ \\
-		\textbf{Neumann RWP}\\
-		$-\laplace u(\vec x)=f(\vec x) $ für alle $x \in D $ und $\frac{\partial u}{\partial \vec n}(\vec x)=u_{0}(\vec x) $ für alle $x \in \partial D $ \\
-		\textbf{Gemischtes RWP} \\
-		$-\laplace u(\vec x)=f(\vec x) $ für alle $x \in D $ und $\frac{\partial u}{\partial \vec n}(\vec x)+k(\vec x)u(\vec x)=u_{0}(\vec x) $ für alle $x \in \partial D $ \\
-	\end{tablebox}
-	wobei $\vec n$ = Normaleneinheitsvektor, der aus D hinausweist und $k=k(\vec x)$ ist eine stetige Funktion.
-	\begin{tablebox}{lp{0.8\textwidth}}
-		Inneres RWP & falls $D$ ein beschränktes Gebiet \\
-		Äußeres RWP & falls $D$ Komplement eines beschränkten Gebietes ist (Dann sind weitere Randwertbedingungen an die Lösungen zu stellen)
-	\end{tablebox}
-\end{sectionbox}
+%\begin{sectionbox}
+%	\subsection{Randwertprobleme (RWP) für Poissongleichung}
+%	\begin{flushleft}
+%	Geg.: $-\laplace u = f$ und ein RWP. Ges.: $u=u(x,y)$ oder $u=u(x,y,z)$
+%	\end{flushleft}
+%	\begin{tablebox}{p{\textwidth}}
+%		\textbf{Dirichlet RWP}\\
+%		$-\laplace u(\vec x)=f(\vec x) $ für alle $x \in D $ und $u(\vec x)=u_{0}(\vec x) $ für alle $x \in \partial D$ \\
+%		\textbf{Neumann RWP}\\
+%		$-\laplace u(\vec x)=f(\vec x) $ für alle $x \in D $ und $\frac{\partial u}{\partial \vec n}(\vec x)=u_{0}(\vec x) $ für alle $x \in \partial D $ \\
+%		\textbf{Gemischtes RWP} \\
+%		$-\laplace u(\vec x)=f(\vec x) $ für alle $x \in D $ und $\frac{\partial u}{\partial \vec n}(\vec x)+k(\vec x)u(\vec x)=u_{0}(\vec x) $ für alle $x \in \partial D $ \\
+%	\end{tablebox}
+%	wobei $\vec n$ = Normaleneinheitsvektor, der aus D hinausweist und $k=k(\vec x)$ ist eine stetige Funktion.
+%	\begin{tablebox}{lp{0.8\textwidth}}
+%		Inneres RWP & falls $D$ ein beschränktes Gebiet \\
+%		Äußeres RWP & falls $D$ Komplement eines beschränkten Gebietes ist (Dann sind weitere Randwertbedingungen an die Lösungen zu stellen)
+%	\end{tablebox}
+%\end{sectionbox}
 	
 \begin{sectionbox}
 	\subsection{Laplacegleichung $-\laplace u=0$}
