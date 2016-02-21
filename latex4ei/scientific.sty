@@ -173,11 +173,18 @@
 	% Define symbol for Transformations. Source: trfsigns.sty
 	\newcommand{\ftsymbol}{\mbox{\setlength{\unitlength}{0.1em}
 								\begin{picture}(25,4)
-								  \put(3,3){\circle{4}}				% empty
-								  \put(5,3){\line(1,0){13}}			
-								  \put(19,3){\circle*{4}}			% filled
+									  \put(3,3){\circle{4}}				% empty
+									  \put(5,3){\line(1,0){13}}			
+									  \put(19,3){\circle*{4}}			% filled
 								\end{picture}}}
 
+	\newcommand{\iftsymbol}{\mbox{\setlength{\unitlength}{0.1em}
+								\begin{picture}(25,4)
+									\put(3,3){\circle*{4}}				% filled
+									\put(4,3){\line(1,0){13}}			
+									\put(19,3){\circle{4}}				% empty
+								\end{picture}}}
+	
 	% Define Transformations
 	\DeclareMathOperator{\T}{\overset{\scriptscriptstyle\mathcal{}}{\ftsymbol}}						% General Transform
 	\DeclareMathOperator{\FT}{\overset{\scriptscriptstyle\mathcal{F}}{\ftsymbol}}					% Fourier Transform
@@ -185,6 +192,16 @@
 	\DeclareMathOperator{\DFT}{\overset{\scriptscriptstyle\mathcal{DF}}{\ftsymbol}}					% Discrete Fourier Transform
 	\DeclareMathOperator{\DTFT}{\overset{\scriptscriptstyle\mathcal{DTF}}{\ftsymbol}}				% Discrete Time Fourier Transform
 	\DeclareMathOperator{\ZT}{\overset{\scriptscriptstyle\mathcal{Z}}{\ftsymbol}}					% Z-Transform
+
+
+	% Define inverse Transformations
+	\DeclareMathOperator{\IT}{\overset{\scriptscriptstyle\mathcal{}}{\iftsymbol}}					% General Transform
+	\DeclareMathOperator{\IFT}{\overset{\scriptscriptstyle\mathcal{F}}{\iftsymbol}}					% Fourier Transform
+	\DeclareMathOperator{\ILT}{\overset{\scriptscriptstyle\mathcal{L}}{\iftsymbol}}					% Laplace Transform
+	\DeclareMathOperator{\IDFT}{\overset{\scriptscriptstyle\mathcal{DF}}{\iftsymbol}}				% Discrete Fourier Transform
+	\DeclareMathOperator{\IDTFT}{\overset{\scriptscriptstyle\mathcal{DTF}}{\iftsymbol}}				% Discrete Time Fourier Transform
+	\DeclareMathOperator{\IZT}{\overset{\scriptscriptstyle\mathcal{Z}}{\iftsymbol}}					% Z-Transform
+
 
 % ======================================================================
 % Differential Geometry 
