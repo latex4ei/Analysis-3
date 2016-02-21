@@ -458,7 +458,7 @@
 	\begin{cookbox}{Berechnen eines komplexen Kurvenintegrals}
 		\item Bestimme Parametrisierung von $\cx \gamma$ \\
 		$\cx \gamma = \cx \gamma_1 + \ldots + \cx \gamma_2$, $\cx \gamma_i : [a_i, b_i] \ra \C$
-		\item Stelle Inegrale auf \\
+		\item Stelle Integrale auf \\
 		$\int_{\cx \gamma_i} \cx f(\cx z) \diff \cx z = \int \limits_{a_i}^{b_i} \cx f\big(\cx \gamma_i(t)\big) \cdot \dot{\cx \gamma}_i (t) \diff t$\\
 		Falls $\cx f$ holomorph: $\int_{\cx \gamma} \cx f(\cx z) \diff \cx z = \cx F\big(\cx \gamma(b)\big) - \cx F\big(\cx \gamma(a)\big)$
 		\item Berechne die Integrale und addiere: \\
@@ -711,9 +711,9 @@
 		c_1\cos\sqrt{-k}x+c_2\sin\sqrt{-k}x & \text{für } k<0
 		\end{cases}$ \qquad und \\
 		$g(y)=\begin{cases}
-		d_1\cos\sqrt{-k}y+d_2\sin\sqrt{-k}y & \text{für } k>0\\
+		d_1\cos\sqrt{k}y+d_2\sin\sqrt{k}y & \text{für } k>0\\
 		d_1+d_2y & \text{für }  k=0\\
-		d_1e^{\sqrt{k}y}+d_2e^{-\sqrt{k}y} & \text{für } k<0
+		d_1e^{\sqrt{-k}y}+d_2e^{-\sqrt{-k}y} & \text{für } k<0
 		\end{cases}$
 		\item Vorgegebene Randwerte definieren die Lösung des RWP $u(x,y)=f(x)g(y)$ durch die Konstanten $k,c_1,c_2,d_1,d_2\in\R$
 	\end{cookbox}
