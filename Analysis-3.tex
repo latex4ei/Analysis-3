@@ -27,25 +27,33 @@
 \maketitle
 
 % SECTION ======================================================================
-\section{Nützliches Wissen $e^{\i x} = \cos (x) + \i \cdot \sin(x)$}
+\section{Nützliches Wissen \quad $e^{\i x} = \cos (x) + \i \cdot \sin(x)$}
 % ==============================================================================
 \begin{sectionbox}
 	\subsection{Sinus, Cosinus \quad $\sin^2(x) \bs + \cos^2(x) = 1$}
 	$ \sin x = \frac{1}{2\i}(e^{\i x}-e^{-\i x}) \qquad \quad \cos x = \frac{1}{2}(e^{\i x}+e^{-\i x})$
 	\begin{tablebox}{c|c|c|c|c||c|c|c|c}
 	$x$ & $0$ & $\pi / 6$ & $\pi / 4$ & $\pi / 3$ & $\frac{1}{2}\pi$ & $\pi$ & $1\frac{1}{2}\pi$ & $2 \pi$ \\
-	$\scriptstyle{ \varphi }$ & $\scriptstyle{0^\circ}$ & $\scriptstyle{30^\circ}$ & $\scriptstyle{45^\circ}$ & $\scriptstyle{60^\circ}$ & $\scriptstyle{90^\circ}$ & $\scriptstyle{180^\circ}$ & $\scriptstyle{270^\circ}$ & $\scriptstyle{360^\circ}$ \\ \cmrule
+	%$\scriptstyle{ \varphi }$ & $\scriptstyle{0^\circ}$ & $\scriptstyle{30^\circ}$ & $\scriptstyle{45^\circ}$ & $\scriptstyle{60^\circ}$ & $\scriptstyle{90^\circ}$ & $\scriptstyle{180^\circ}$ & $\scriptstyle{270^\circ}$ & $\scriptstyle{360^\circ}$ \\
+	\cmrule
 	$\sin$ & $0$ & $\frac{1}{2}$ & $\frac{1}{\sqrt{2}}$ & $\frac{\sqrt 3}{2}$ & $1$ & $0$ & $-1$ & $0$ \\
 	$\cos$ & $1$ & $\frac{\sqrt 3}{2}$ & $\frac{1}{\sqrt 2}$ & $\frac{1}{2}$ & $0$ & $-1$ & $0$ & $1$ \\     
 	$\tan$ & $0$ & $\frac{\sqrt{3}}{3}$ &	$1$	&	$\sqrt{3}$ & $\pm \infty$ & $0$ & $\mp \infty$ & $0$\\ 
 	\end{tablebox}
 	\begin{tablebox}{ll}
 		Additionstheoreme &  Stammfunktionen\\
-	 	$\cos (x - \frac{\pi}{2}) = \sin x$ & $\int x \cos(x) \diff x = \cos(x) + x \sin(x)$\\
-	 	$\sin (x + \frac{\pi}{2}) = \cos x$ & $\int x \sin(x) \diff x = \sin(x) - x \cos(x)$\\
-	 	$\sin 2x = 2 \sin x \cos x $  & $\int \sin^2(x) \diff x = \frac12 \bigl(x - \sin(x)\cos(x) \bigr)$\\ 
-	 	$\cos 2x = 2\cos^2 x - 1$  & $\int \cos^2(x) \diff x = \frac12 \bigl(x + \sin(x)\cos(x) \bigr)$\\
-	 	$\tan(x) = \frac{sin(x)}{cos(x)}$ & $\int \cos(x)\sin(x) = -\frac12 \cos^2(x)$ \\
+	 	$\cos (x - \frac{\pi}{2}) = \sin x$ & $\int x \cos(a x) \diff x = \frac{a x \sin(a x)+\cos(a x)}{a^2}$\\
+	 	$\sin (x + \frac{\pi}{2}) = \cos x$ & $\int x \sin(a x) \diff x = \frac{\sin(a x)-ax\cos(a x)}{a^2}$\\
+	 	$\sin 2x = 2 \sin x \cos x $  & $\int \sin^2(ax) \diff x = \frac{x}{2}-\frac{\sin(2ax)}{4a}$\\ 
+	 	$\cos 2x = 2\cos^2 x - 1$  & $\int \cos^2(ax) \diff x = \frac{x}{2}+\frac{\sin(2ax)}{4a}$\\
+	 	$\tan(x) = \frac{\sin(x)}{\cos(x)}$ & $\int \cos(x)\sin(x) = -\frac12 \cos^2(x)$ \\
+	 	
+	 	%Spezialfälle
+	 	% $\int x \cos(x) \diff x = \cos(x) + x \sin(x)$\\
+		% $\int x \sin(x) \diff x = \sin(x) - x \cos(x)$
+		% $\int \sin^2(x) \diff x = \frac12 \bigl(x - \sin(x)\cos(x) \bigr)$
+		% $\int \cos^2(x) \diff x = \frac12 \bigl(x + \sin(x)\cos(x) \bigr)$
+	 	
 	 	\multicolumn{2}{l}{\!\!\!\!\!\! $\sin ( x \pm y ) = \sin x \; \cos y \pm \cos x \; \sin y$} \\
 	 	\multicolumn{2}{l}{\!\!\!\!\!\! $\cos ( x \pm y ) = \cos x \; \cos y \mp \sin x \; \sin y$} \\
 	 	
@@ -95,7 +103,8 @@
 
 \begin{sectionbox}
 	\subsection{Betrag und Wurzel komplexer Zahlen}
-	$\abs{\cx z}^2 = \cx z \cxc z = x^2+y^2$ \qquad $\sqrt[n]{\cx z}=\sqrt[n]{|\cx z|} \exp \left( \frac{\i \varphi}{n} + k\frac{2\pi\i}{n}\right)$ mit $k=1,\dots,n-1$
+	$\abs{\cx z}^2 = \cx z \cxc z = x^2+y^2$ \\
+	 $\sqrt[n]{\cx z}=\sqrt[n]{|\cx z|} \exp \left( \frac{\i \varphi}{n} + k\frac{2\pi\i}{n}\right)$ mit $k=1,\dots,n-1$
 \end{sectionbox}
 
 \begin{sectionbox}
@@ -120,7 +129,7 @@
 	
 
 % SECTION ======================================================================
-\section{Fourierreihe $f(x) \ra F(\omega)$ \qquad $\omega = \frac{2 \pi}{T}$}
+\section{Fourierreihe \quad $f(x) \sim F(x)$ \qquad $\omega = \frac{2 \pi}{T}$}
 % ==============================================================================
 \begin{sectionbox}
 	\emph{Voraussetzungen:}
@@ -135,16 +144,17 @@
 		\[F(x) = \frac{a_0}{2} + \sum\limits_{k=1}^\infty a_k \cos \left(k \omega x \right) + b_k \sin \left( k \omega x \right)\]
 		\[\text{mit } a_k,b_k \in \R:\Big\{ { ^{\textstyle a_k}_{\textstyle b_k}} = \frac{2}{T} \int\limits_{-\frac{T}{2}}^{\frac{T}{2}} f(x) \Big\{ {}^{\textstyle \cos} _{\textstyle \sin} \left(k \omega x \right) \diff x\]
 	\end{emphbox}
+	$a_0$ immer separat berechnen mit $k=0$\\
 	\textbf{Komplexe Fourierreihe:}
 	\begin{emphbox}\vspace{-5pt}
 		\[F(x) = \sum\limits_{k=-\infty}^\infty c_k \exp \left( \i k \omega x \right)\]
 		\[\text{mit } c_k \in \C: c_k = \frac{1}{T} \int\limits_{-\frac{T}{2}}^{\frac{T}{2}} f(x) \exp \left( - \i k \omega x \right) \diff x\]
 	\end{emphbox}	
+	$c_0$ immer separat berechnen mit $k=0$\\
 	\emph{Konvergenz:} $F(x) \sim f(x)$
-	
 	\begin{itemize}
 		\item $f$ in $x$ \emph{stetig \& stückweise stetig differenzierbar} $\Ra$ $F(x) = f(x)$
-		\item $f$ in $x$ nicht stetig $\Ra$ $x = a_i$ und $F(x) = \frac{f(a_i^+) + f(a_i^-)}{2}$
+		\item $f$ in $x$ \emph{nicht stetig} $\Ra$ $x = a_i$ und $F(x) = \frac{f(a_i^+) + f(a_i^-)}{2}$
 	\end{itemize}
 \end{sectionbox}
 
@@ -222,7 +232,7 @@
 
 
 % SECTION ======================================================================
-\section{Fouriertransformation $f(t) \ra F(\omega)$}
+\section{Fouriertransformation \quad $f(t) \ra F(\omega)$}
 % ==============================================================================
 \begin{sectionbox}
 	\emph{Voraussetzungen:}
@@ -232,7 +242,7 @@
 		\item $\int_{-\infty}^{\infty}\abs{f(t)} \diff t < \infty$ ($f$ absolut integrierbar)
 	\end{enumerate}
 	\begin{emphbox}\vspace{-5pt}
-		\[F(\omega) := \int\limits_{-\infty}^\infty f(t) \exp(-\i \omega t) \diff t\]
+		\[f(t)\FT F(\omega) := \int\limits_{-\infty}^\infty f(t) \exp(-\i \omega t) \diff t\]
 	\end{emphbox}
 	\begin{tabular}{rl|rl}
 		$1$ & \!\!\!\!\!\!\!\!\!\! $\FT 2\pi \delta(\omega)$ & $|t^n|$ & \!\!\!\!\!\!\!\!\!\! $\FT \frac{2n!}{(\i \omega)^{n+1}}$\\
@@ -370,18 +380,19 @@
 \section{Funktionentheorie (Komplexe Funktionen)}
 % ==============================================================================
 \begin{sectionbox}
-	\parbox{4.7cm}{
+	\parbox{5cm}{
 		\subsection{Reelifizierung}
-		\ \\ \ \\
-		$\cx f(\cx z) = \cx f(x+y \i) = u(x,y) + \i v(x,y)$\\
+		$\cx f(\cx z) = \cx f(x+\i y) = u(x,y) + \i v(x,y)$\\
 		\\
-		\emph{Trigonometrische Funktionen}\\\\
+		\emph{Trigonometrische Funktionen}\\
 		$\sin(\cx z) = \sin(x)\cosh(y) + \i \cos(x)\sinh(y)$\\
 		$\cos(\cx z) = \cos(x)\cosh(y) - \i \sin(x)\sinh(y)$\\
-		\\
 		$\sinh(\cx z) = \cos(y) \sinh(x) + \i \sin(y) \cosh(x)$\\
-		$\cosh(\cx z) = \cos(y) \cosh(x) + \i \sin(y) \sinh(x)$\\ }\ 
-	\parbox{2cm}{\includegraphics[width = 2cm]{./hyperbolis.pdf} }
+		$\cosh(\cx z) = \cos(y) \cosh(x) + \i \sin(y) \sinh(x)$
+	}
+	\parbox{1.5cm}{
+		\includegraphics[width = 1.5cm]{./hyperbolis.pdf} 
+	}
 \end{sectionbox}
 
 \begin{sectionbox}
@@ -410,7 +421,7 @@
 	$\lpo u = \partial_{xx} u + \partial_{yy} u = 0$ \qquad\quad $\lpo v = \partial_{xx} v + \partial_{yy} v = 0$\\[0.5em]
 	oder falls $\cx f(\cx z) = u + \i v$ holomorph ist; denn mit Satz von Schwarz:\\
 	$\lpo u = \partial_{yx} v - \partial_{xy} v = 0$ \qquad\quad $\lpo v = - \partial_{yx} u + \partial_{xy} u = 0$
-	\begin{cookbox}{Bestimmung der harmonischen Konjugierten}
+	\begin{cookbox}{Bestimmen der harmonischen Konjugierten}
 			\item Geg: harm. Fkt. $u: G \ra \mathbb R, (x,y) \ra u(x,y)$
 			\item Ges: harm. Fkt. $v: G \ra \mathbb R, (x,y) \ra v(x,y)$
 			so, dass $f: G \ra \mathbb V, f(z) = u(x,y) + \i v (x,y)$
@@ -432,7 +443,7 @@
 \begin{sectionbox}
 	\subsection{Komplexes Kurvenintegral}
 	für $D \subset \mathbb C$ Gebiet, $f: D \ra \mathbb C$ stetig, $\cx \gamma: [t_1, t_2] \ra $ stetig diffbar Kurve
-	\begin{cookbox}{So brechnet man ein komplexes Kurvenintegral}
+	\begin{cookbox}{Berechnen eines komplexen Kurvenintegrals}
 		\item Bestimme Parametrisierung von $\cx \gamma$ \\
 		$\cx \gamma = \cx \gamma_1 + \ldots + \cx \gamma_2$, $\cx \gamma_i : [a_i, b_i] \ra \C$
 		\item Stelle Integrale auf \\
@@ -491,17 +502,17 @@
 	}
 	Konvergenz falls Hauptteil und Nebenteil konvergiert. \\ 
 	Konvergenzradien: $R = \lim \abs{\frac{c_k}{c_{k+1}}} \in [0, \infty]$ \\ 
-	Resiudensatz: $\mathrm{Res}_{z_0} \cx f = c_{-1} = \frac{1}{2\pi\i} \oint f(z) \diff z$
+	Resiudensatz: $\Res_{z_0} \cx f = c_{-1} = \frac{1}{2\pi\i} \oint f(z) \diff z$
 	
 	\begin{emphbox}
 		\raggedright
-		$\mathrm{Res}_{\cx z_0} \frac{\cx g}{\cx h} = \frac{\cx g(\cx z_0)}{\cx h'(\cx z_0)}$ \qquad $\mathrm{Res}_{\cx z_0} \frac{\cx g(\cx z)}{(\cx z - \cx z_0)^m} = \frac{\cx g^{(m-1)}(\cx z_0)}{(m-1)!}$\\
-		$\mathrm{Res}_{\cx z_0} \cx g \frac{\cx h'}{\cx h} = m \cx g(\cx z_0)$ \qquad $m:$ Ordnung der Polstelle
+		$\Res_{\cx z_0} \frac{\cx g}{\cx h} = \frac{\cx g(\cx z_0)}{\cx h'(\cx z_0)}$ \qquad $\Res_{\cx z_0} \frac{\cx g(\cx z)}{(\cx z - \cx z_0)^m} = \frac{\cx g^{(m-1)}(\cx z_0)}{(m-1)!}$\\
+		$\Res_{\cx z_0} \cx g \frac{\cx h'}{\cx h} = m \cx g(\cx z_0)$ \qquad $m:$ Ordnung der Polstelle
 	\end{emphbox}
 	\textbf{Allgemeiner Residuensatz} $f:G \setminus \eset{z_1, \ldots, z_n} \ra \mathbb C$ holomorph \\ 
 	$\forall $ doppelpunktfrei, geschlossene und pos. orientierte Kurven $\gamma$ mit $z_1, \dots, z_n$ liegen im Inneren von $\gamma$:
 	\begin{equation*}
-		\oint_\gamma f(z) \diff z = 2 \pi \i \sum_{k=1}^{n} Res_{z_k} f
+		\oint_\gamma f(z) \diff z = 2 \pi \i \sum_{k=1}^{n} \Res_{z_k} f
 	\end{equation*}
 \end{sectionbox}
 
@@ -510,7 +521,7 @@
 		\item Reelles Integral $\int_{-\infty}^{\infty}\frac{p(x)}{q(x)}\diff x$
 		\item Bestimme Singularitäten $z_1,\dots,z_n$ der komplexen Funktion $f(\cx z)=\frac{p(\cx z)}{q(\cx z)}$ in der oberen Halbebene, $\Im{ z_i}>0$
 		\item Bestimme Residuen von $f(z)$ in den Singularitäten $z_1,\dots,z_n$
-		\item $\int_{-\infty}^{\infty}\frac{p(x)}{q(x)}\diff x = 2 \pi \i \sum_{k=1}^{n} Res_{z_k} f$
+		\item $\int_{-\infty}^{\infty}\frac{p(x)}{q(x)}\diff x = 2 \pi \i \sum_{k=1}^{n} \Res_{z_k} f$
 	\end{cookbox}
 	\begin{cookbox}{Bestimmen reeller trigonometischer Integrale mit dem Residuenkalkül}
 		\item Reelles Integral $\int_{-0}^{2\pi}R(\cos t, \sin t)\diff t$
@@ -518,7 +529,7 @@
 		\item Erhalte komplexe Fkt. $f(z)=R\left(\frac{1}{2}(z+1/z), \frac{1}{2\i}(z-1/z)\right)\frac{1}{\i z}$
 		\item Bestimme Singularitäten $z_1,\dots,z_n$ der komplexen Funktion $f(\cx z)=\frac{p(\cx z)}{q(\cx z)}$ in des Einheitskreises $\abs{z}<1$
 		\item Bestimme Residuen von $f(z)$ in den Singularitäten $z_1,\dots,z_n$
-		\item $\int_{-0}^{2\pi}R(\cos t, \sin t)\diff t = 2 \pi \i \sum_{k=1}^{n} Res_{z_k} f$
+		\item $\int_{-0}^{2\pi}R(\cos t, \sin t)\diff t = 2 \pi \i \sum_{k=1}^{n} \Res_{z_k} f$
 	\end{cookbox}
 \end{sectionbox}
 
@@ -545,11 +556,11 @@
 \begin{sectionbox}
 	\subsection{Lineare pDGLen 1. Ordnung mit konstanten Koeffizienten}
 	Geg.: $a u_x+b u_y =f(x,y)$ mit $a \neq 0 \neq b$, ges.: $u=u(x,y)$
-	\begin{cookbox}{Lösung einer linearen pDGL 1. Ordnung mit konstanten Koeffizienten}
+	\begin{cookbox}{Lösen einer linearen pDGL 1. Ordnung mit konstanten Koeffizienten}
 		\item Substitution: $r=r(x,y)=bx+ay$ und $s=s(x,y)=bx-ay$
 		\item $U(r,s) = u(\frac{r+s}{2b},\frac{r-s}{2a}) = u(x,y)$  und \\ $F(r,s) = f(\frac{r+s}{2b},\frac{r-s}{2a}) = f(x,y)$
 		\item Einsetzen liefert $U_{r}=\frac{1}{2ab}F(r,s) $
-		\item Lösung U: $\; \; U(r,s)=\int \frac{1}{2ab} F(r,s)dr+G(s)$ mit $G(s)$ beliebig diff'bare Fkt.
+		\item Lösung U: $\; \; U(r,s)=\int \frac{1}{2ab} F(r,s)dr+G(s)$ mit diff'barem $G(s)$
 		\item Rücksubstitution liefert $u(x,y)$
 		\item Anfangsbedingung z.B. $u(x,0) = g(x)$ legt $G(s)$ fest
 	\end{cookbox}
@@ -558,7 +569,7 @@
 \begin{sectionbox}
 	\subsection{Lineare pDGL 1. Ordnung}
 	Geg.: $a(x,y)u_x+b(x,y)u_y=0$, ges.: $u=u(x,y)$
-	\begin{cookbox}{Lösung einer linearen homogenen pDGL 1. Ordnung (2 Variablen)}
+	\begin{cookbox}{Lösen einer linearen homogenen pDGL 1. Ordnung (2 Variablen)}
 		\item $\frac{dy}{dx}=\frac{b(x,y)}{a(x,y)}$ (ist gDGL), alternativ $\frac{dx}{dy}=\frac{a(x,y)}{b(x,y)}$ 
 		\item Löse gDGL und erhalte $y=y(x)=F(x,c) $
 		\item Löse die Gleichung $y(x)=F(x,c)$ nach $c = c(x,y)$ auf (falls möglich)
@@ -567,7 +578,7 @@
 	\end{cookbox}
 	\label{subsubsec:linpdgl}
 	Geg.: $a(x,y,z)u_x+b(x,y,z)u_y+c(x,y,z)u_z=0$, ges.: $u=u(x,y,z)$
-	\begin{cookbox}{Lösung einer linearen homogenen pDGL 1. Ordnung (3 Variablen)}
+	\begin{cookbox}{Lösen einer linearen homogenen pDGL 1. Ordnung (3 Variablen)}
 		\item $\frac{dy}{dx}=\frac{b(x,y,z)}{a(x,y,z)}$ und $\frac{dz}{dx}=\frac{c(x,y,z)}{a(x,y,z)}$ (ist ein System von gDGL), \\
 			alternativ $\frac{dx}{dy}$, $\frac{dz}{dy}$ oder $\frac{dx}{dz}$, $\frac{dy}{dz}$
 		\item Löse das System von gDGLen und erhalte \\$y=y(x)=F(c_{1},x) $ und $z=z(x)=G(c_{2},x) $
@@ -580,16 +591,16 @@
 \begin{sectionbox}
 	\subsection{Quasilineare pDGL 1. Ordnung}
 	Geg.: $a(x,y,u)u_x+b(x,y,u)u_y=c(x,y,u)$, ges.: $u=u(x,y)$ \\ \vspace{-1em}
-	\begin{cookbox}{Lösung einer quasilinearen pDGL 1. Ordnung}
+	\begin{cookbox}{Lösen einer quasilinearen pDGL 1. Ordnung}
 		\item Betrachte lineare pDGL in drei Variablen $x,y,u$:
 		\\$a(x,y,u)F_{x}+b(x,y,u)F_{y}+c(x,y,u)F_{u}=0$
 		\item Löse lineare pDGL mit Ansatz aus {\bf\ref{subsubsec:linpdgl}} und erhalte	$F=F(x,y,u) $
 		\item Durch $F(x,y,u)=0 $ ist implizit eine Lösung $u=u(x,y) $ gegeben
 	\end{cookbox}
 	AWP gegeben $u(p(x),q(x))=r(x)$, z.B. $u(x,0)=x$
-	\begin{cookbox}{Lösung einer quasilinearen pDGL 1. Ord. mit dem Charakteristikverfahren}
+	\begin{cookbox}{Lösen einer quasilinearen pDGL 1. Ord. mit dem Charakteristikverfahren}
 		\item Ansatz: $v(s)=u(x(s),y(s))$ \qquad ($u$ hängt nur von einer Variable $s$ ab)
-		\item Ableiten des Ansatzes nach $s$: \quad $\dot v = u_x \dot x + u_y \dot y$
+		\item Ableiten des Ansatzes nach $s$ (Kettenregel): \quad $\dot v = u_x \dot x + u_y \dot y$
 		\item Vergleichen mit pDGL liefert DGL-System:\\ 
 		 $\dot x =a(x,y,u) \qquad \dot y=b(x,y,u) \qquad \dot v=c(x,y,u)$
 		\item Setze $s=0$ in Ansatz $v(s)$: \quad $v(0)=u(x(0),y(0))$ mit $x=x_0$
@@ -606,7 +617,7 @@
 % ==============================================================================
 \begin{sectionbox}
 	\subsection{Typeneinteilung von pDGLen 2. Ordnung mit zwei Variablen}
-	Gesucht: $u=u(x,y)$ \\
+%	Gesucht: $u=u(x,y)$ \\
 	Gegeben: $a(x,y)u_{xx}+2b(x,y)u_{xy}+c(x,y)u_{yy}+d(x,y)u_{x}+e(x,y)u_{y}+f(x,y)u=g(x,y)$\\
 	$\Ra$ Hauptteil: $a(x,y)u_{xx}+2b(x,y)u_{xy}+c(x,y)u_{yy}$ \\ \\
 	Die pDGL ist auf $D\subseteq \mathbb{R}^2$ \dots
@@ -616,8 +627,11 @@
 		hyperbolisch & falls $a(x,y)c(x,y)-b(x,y)^2<0 $ für alle $(x,y) \in D $ \\
 		gemischter Typ & falls verschiedene $(x,y) \in D $ versch. Eigenschaften aufweisen
 	\end{tablebox}
-	
+\end{sectionbox}
+
+\begin{sectionbox}
 	\subsection{Lösungsmethode}
+	\label{subsubsec:separationsansatz}
 	\begin{cookbox}{Lösen der pDGL mit dem Separationsansatz}
 		\item Setze $u(x,y)=f(x)g(y) $ in die pDGL ein und erhalte zwei gDGLen für $f$ und $g$. (Faktor $k$ nicht vergessen!)
 		\item Löse die zwei gDGLen und erhalte $f=f(x)$ und $g=g(y) $
@@ -626,37 +640,106 @@
 \end{sectionbox}
 
 % SECTION ======================================================================
-\section{Laplace- und Poissongleichung}
+\section{Laplace- und Poissongleichung \quad $-\laplace u = f$}
 % ==============================================================================
-\begin{sectionbox}
-	\subsection{Randwertprobleme (RWP) für Poissongleichung}
-	\begin{flushleft}
-	Geg.: $-\laplace u = f$ und ein RWP. Ges.: $u=u(x,y)$ oder $u=u(x,y,z)$
-	\end{flushleft}
-	\begin{tablebox}{p{\textwidth}}
-		\textbf{Dirichlet RWP}\\
-		$-\laplace u(\vec x)=f(\vec x) $ für alle $x \in D $ und $u(\vec x)=u_{0}(\vec x) $ für alle $x \in \partial D$ \\
-		\textbf{Neumann RWP}\\
-		$-\laplace u(\vec x)=f(\vec x) $ für alle $x \in D $ und $\frac{\partial u}{\partial \vec n}(\vec x)=u_{0}(\vec x) $ für alle $x \in \partial D $ \\
-		\textbf{Gemischtes RWP} \\
-		$-\laplace u(\vec x)=f(\vec x) $ für alle $x \in D $ und $\frac{\partial u}{\partial \vec n}(\vec x)+k(\vec x)u(\vec x)=u_{0}(\vec x) $ für alle $x \in \partial D $ \\
-	\end{tablebox}
-	wobei $\vec n$ = Normaleneinheitsvektor, der aus D hinausweist und $k=k(\vec x)$ ist eine stetige Funktion.
-	\begin{tablebox}{lp{0.8\textwidth}}
-		Inneres RWP & falls $D$ ein beschränktes Gebiet \\
-		Äußeres RWP & falls $D$ Komplement eines beschränkten Gebietes ist (Dann sind weitere Randwertbedingungen an die Lösungen zu stellen)
-	\end{tablebox}
+
+%Folgender Abschnitt wurde aufgrund von Platzmangel weggelassen
+
+%\begin{sectionbox}
+%	\subsection{Randwertprobleme (RWP) für Poissongleichung}
+%	\begin{flushleft}
+%	Geg.: $-\laplace u = f$ und ein RWP. Ges.: $u=u(x,y)$ oder $u=u(x,y,z)$
+%	\end{flushleft}
+%	\begin{tablebox}{p{\textwidth}}
+%		\textbf{Dirichlet RWP}\\
+%		$-\laplace u(\vec x)=f(\vec x) $ für alle $x \in D $ und $u(\vec x)=u_{0}(\vec x) $ für alle $x \in \partial D$ \\
+%		\textbf{Neumann RWP}\\
+%		$-\laplace u(\vec x)=f(\vec x) $ für alle $x \in D $ und $\frac{\partial u}{\partial \vec n}(\vec x)=u_{0}(\vec x) $ für alle $x \in \partial D $ \\
+%		\textbf{Gemischtes RWP} \\
+%		$-\laplace u(\vec x)=f(\vec x) $ für alle $x \in D $ und $\frac{\partial u}{\partial \vec n}(\vec x)+k(\vec x)u(\vec x)=u_{0}(\vec x) $ für alle $x \in \partial D $ \\
+%	\end{tablebox}
+%	wobei $\vec n$ = Normaleneinheitsvektor, der aus D hinausweist und $k=k(\vec x)$ ist eine stetige Funktion.
+%	\begin{tablebox}{lp{0.8\textwidth}}
+%		Inneres RWP & falls $D$ ein beschränktes Gebiet \\
+%		Äußeres RWP & falls $D$ Komplement eines beschränkten Gebietes ist (Dann sind weitere Randwertbedingungen an die Lösungen zu stellen)
+%	\end{tablebox}
+%\end{sectionbox}
 	
-	\subsection{Lösungen der Laplacegleichung $-\laplace u = 0$}
-	$u(r,\varphi)=
-	\begin{cases}
-		u_{n}(r,\varphi)=(a_{n}cos(n \varphi)+b_{n}sin(n \varphi))r^{n} & \text{für } n \in \mathbb{Z}\setminus\{0\}
+\begin{sectionbox}
+	\subsection{Laplacegleichung \quad $-\laplace u=0$}
+	\subsubsection{Allgemeine Lösung der Laplacegleichung}
+	\resizebox{\textwidth}{!}{
+		$u(r,\varphi)=
+		\begin{cases}
+		u_{n}(r,\varphi)=(a_{n}\cos(n \varphi)+b_{n}\sin(n \varphi))r^{n} & \text{für } n \in \mathbb{Z}\setminus\{0\}
 		\\
-		a+b \; ln(r) & \text{für } n=0
-	\end{cases}$\\
+		a+b \; \ln(r) & \text{für } n=0
+		\end{cases}$
+	}
 	für beliebige $a_{n},b_{n} \in \mathbb{R}$ bzw. $a,b \in \mathbb{R}$.
+	\subsubsection{Dirichlet'sches RWP für einen Kreis}
+	Geg.: $-\laplace u(x,y)=0$ für $x^2+y^2<R^2$ und $u(x,y)=u_0(x,y)$ für $x^2+y^2=R^2$
+	\begin{cookbox}{Lösen eines Dirichlet'schen RWP für einen Kreis}
+		\item Bestimme die Koeffizienten $a_n$ und $b_n$ der Fourierreihe der $2\pi$-periodischen Funktion $u_0(\varphi):[0,2\pi)\ra \R$
+		\item Erhalte die Lösung $u=u(r,\varphi)$ als Reihendarstellung in Polarkoordinaten:\\
+		$u(r,\varphi)=\frac{a_0}{2}+\sum_{k=1}^{\infty}\bigl(a_k \cos(k\varphi)+b_k \sin(k\varphi)\bigr)\big(\frac{r}{R}\big)^k$
+		\item Falls AWP gegeben als $x^2+y^2>R^2$, wird $r$ und $R$ vertauscht:\\
+		$u(r,\varphi)=\frac{a_0}{2}+\sum_{k=1}^{\infty}\bigl(a_k \cos(k\varphi)+b_k \sin(k\varphi)\bigr)\big(\frac{R}{r}\big)^k$
+		\item Umformen von $u(r,\varphi)$ mit $x=r\cos\varphi$, $y=r\sin\varphi$ ergibt $u(x,y)$
+	\end{cookbox}
+	\subsubsection{Dirichlet'sches RWP für ein Quadrat}
+	Geg.: $-\laplace u(x,y)=0$ auf dem Quadrat $D=[0,a]^2$ mit definierten Randwerten $u(x,0)$, $u(x,a)$, $u(0,y)$ und $u(a,y)$ für $x,y\in [0,a]$
+	% Geg.: $-\laplace u(x,y)=0$ auf dem Quadrat $D=[0,a]^2$ mit den Randwerten $u(x,0)=f_1(x)$, $u(x,1)=f_2(x)$, $u(0,y)=f_3(y)$ und $u(1,y)=f_4(y)$ für $x,y\in [0,a]$
+	\begin{cookbox}{Lösen eines Dirichlet'schen RWP mit dem Separationsansatz}
+		\item Ansatz $u(x,y)=f(x)g(y)$ aus {\bf\ref{subsubsec:separationsansatz}} liefert: $\frac{f''}{f}=k$ und $\frac{g''}{g}=-k$
+		\item Lösen der gDGL 2. Ordnung liefert:\\
+		$f(x)=\begin{cases}
+		c_1e^{\sqrt{k}x}+c_2e^{-\sqrt{k}x} & \text{für } k>0\\
+		c_1+c_2x & \text{für }  k=0\\
+		c_1\cos\sqrt{-k}x+c_2\sin\sqrt{-k}x & \text{für } k<0
+		\end{cases}$ \qquad und \\
+		$g(y)=\begin{cases}
+		d_1\cos\sqrt{-k}y+d_2\sin\sqrt{-k}y & \text{für } k<0\\
+		d_1+d_2y & \text{für }  k=0\\
+		d_1e^{\sqrt{k}y}+d_2e^{-\sqrt{k}y} & \text{für } k>0
+		\end{cases}$
+		\item Vorgegebene Randwerte definieren die Lösung des RWP $u(x,y)=f(x)g(y)$ durch die Konstanten $k,c_1,c_2,d_1,d_2\in\R$
+	\end{cookbox}
 \end{sectionbox}
 
+% SECTION ======================================================================
+\section{Wärmeleitungsgleichung \quad \(u_{t}=c^{2} \laplace{u}\)}
+% ==============================================================================
+
+\begin{sectionbox}
+	\(u_{t}=c^{2}u_{xx}\) für \(x \in (0,l), t\geq 0\) \\
+	Geg: \(u(x,0)=g(x)\) und \(u(0,t)=u(l,t)=0\) und Länge \(l\) und \(c=\mathrm{const}>0\)
+	\begin{cookbox}{Lösen eines Nullrandproblems für einen Stab}
+		\item Bestimme Koeffizienten \(b_{n}\) von \(g(x)\): \\
+		\(b_{n}=\frac{2}{l} \int_{0}^{l} g(x)\sin(n\frac{\pi}{l}x)dx\) \qquad für \(n=1,2,3,4,... \)
+		\\
+		\item Lösung \(u(x,t)\) als Reihendarstellung: %\vspace{-5pt}		 % Platz sparen wo nur geht
+		\[u(x,t)=\sum_{n=1}^{\infty} b_{n} \exp\left(-c^{2}\left(\frac{n\pi}{l}\right)^{2}t\right)\sin\left(n\frac{\pi}{l}x\right)\]
+	\end{cookbox}
+\end{sectionbox}
+
+% SECTION ======================================================================
+\section{Wellengleichung \quad \(u_{tt}=c^{2} \laplace{u} \)}
+% ==============================================================================
+\begin{sectionbox}
+\(u_{tt}-c^{2} u_{xx}=0\) \\
+Geg: \(l\) = Länge der Saite und \(u(x,0)=g(x), u_{t}(x,0)=v(x), u(0,t)=u(l,t)=0\) und \(c=\mathrm{const}>0 \)
+\begin{cookbox}{Lösung eines Anfangs-Randwertproblems für eine schwingende Saite}
+\item Bestimme Koeffizienten \(a_{n}\) von \(g(x)\) und \(b_{n}\) von \(v(x)\): \\
+\(a_{n}=\frac{2}{l}\int_0^l  g(x)\sin(n\frac{\pi}{l}x)dx\) \qquad für \(n=1,2,3,4,... \)\\
+\(b_{n}=\frac{2}{n\pi c} \int_0^l  v(x)\sin(n\frac{\pi}{l}x)dx\) \qquad für \(n=1,2,3,4,... \)
+\item Lösung \(u(x,t)\) als Reihendarstellung: %\vspace{-5pt}		 								% Platz sparen wo nur geht
+\[u\left(x,t\right)= \sum_{n=1}^{\infty} \sin\left(\frac{n \pi}{l}x\right)\left(a_{n}\cos\left(c\frac{n\pi}{l}t\right)+b_{n}\sin\left(c\frac{n\pi}{l}t\right)\right)\]
+\end{cookbox}
+\end{sectionbox}
+% Roberto Ende
+
+\vspace{-1cm} 							% Löst Problem mit Seitenzahlen in der Fußzeile
 
 % Dokumentende
 % ======================================================================
