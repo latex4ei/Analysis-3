@@ -87,7 +87,7 @@
 	
 	$\int e^{at} \sin(bt) \diff t = e^{at} \frac{a \sin(bt) - b \cos(bt)}{a^2 + b^2}$ \qquad $x=\frac{-b\pm \sqrt{b^2-4ac}}{2a}$ \\
 	\begin{tablebox}{ll}
-		$\int \frac{1}{\sqrt{at+b}} \diff t = \frac{2 \sqrt{at+b}}{a}$ & $\int t^2 e^{at} \diff t = \frac{(ax-1)^2+1}{a^3} e^{at}$\\
+		$\int \frac{1}{\sqrt{at+b}} \diff t = \frac{2 \sqrt{at+b}}{a}$ & $\int t^2 e^{at} \diff t = \frac{(at-1)^2+1}{a^3} e^{at}$\\
 		$\int t e^{at} \diff t = \frac{at-1}{a^2} e^{at}$ & $\int x e^{ax^2} \diff x = \frac{1}{2a} e^{ax^2}$\\
 	\end{tablebox}
 \end{sectionbox}
@@ -254,7 +254,7 @@
 	$\begin{cases}
 	A, & \abs{t-a}\le T \\
 	0, & \abs{t-a} >  T
-	\end{cases}$ & \multicolumn{3}{l}{\kern-2em $\FT 2ATe^{-\i\omega a} \si(\omega T)$}
+	\end{cases}$ & \multicolumn{3}{l}{\kern-2em $\FT 2ATe^{-\i\omega a} \mathrm{si}(\omega T)$}
 	\end{tabular}
 %	Special case of the following function
 %	$r(t) = \begin{cases}
@@ -266,7 +266,7 @@
 %	\end{cases}$\\
 	\subsection{Die Inverse Fouriertransformation}
 	$\widetilde{f}(t) = \frac{1}{2\pi} \int\limits_{-\infty}^\infty F(\omega) \exp(\i \omega t) \diff \omega = \begin{cases} f(t) &, f \text{ stetig in }t \\ \frac{f(t^-) + f(t^+)}{2} &, f\text{ unstetig }t \end{cases}$
-\end{sectionbox}
++\end{sectionbox}
 
 \begin{sectionbox}
 %	\subsection{Die Dirac'sche Deltafunktion $\delta(t)$}
@@ -286,7 +286,7 @@
 \begin{sectionbox}
 	\subsection{Lineare DGLn}
 	$L[y](t) = P\left(\frac{\diff}{\diff t}\right)y(t) = b(t) \FT P(\i \omega)Y(\omega) = B(\omega)$\\
-	$Y(\omega) = \frac{1}{P(\i \omega)}B(\omega)$ \qquad  $\Ra\frac{1}{R(\i\omega)} = H(\omega) \FT h(t)$\\
+	$Y(\omega) = \frac{1}{P(\i \omega)}B(\omega)$ \qquad  $\Ra\frac{1}{P(\i\omega)} = H(\omega) \FT h(t)$\\
 	$y(t) = h*b(t)$ (Partikuläre Lösung)
 \end{sectionbox}
 
