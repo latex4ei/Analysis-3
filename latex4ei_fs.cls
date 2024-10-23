@@ -62,9 +62,9 @@
 % Packages
 % ======================================================================
 	% load latex4ei packages
-	\RequirePackage{latex4ei/scientific}  		% scientific macros for LaTeX4EI
-	\RequirePackage{latex4ei/latex4ei}  		% base definitions for LaTeX4EI
-	\RequirePackage{latex4ei/latex4ei_boxes}	% section boxes
+	\RequirePackage{scientific}  		% scientific macros for LaTeX4EI
+	\RequirePackage{latex4ei}  		% base definitions for LaTeX4EI
+	\RequirePackage{latex4ei_boxes}	% section boxes
 
 
 % ======================================================================
