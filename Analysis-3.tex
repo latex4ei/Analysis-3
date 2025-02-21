@@ -261,6 +261,11 @@
 	0, & \abs{t-a} >  T
 	\end{cases}$ & \multicolumn{3}{l}{\kern-2em $\FT 2ATe^{-\i\omega a} \mathrm{si}(\omega T)$}
 	\end{tabular}
+	\textbf{Spezialfälle:}
+	\begin{itemize}
+	\item $f$ gerade $\Leftrightarrow \hat{f}(\omega)=2\int_0^\infty f(t)\cos(\omega t)\diff t$
+	\item $f$ ungerade $\Leftrightarrow \hat{f}(\omega)=-2i\int_0^\infty f(t)\sin(\omega t)\diff t$
+	\end{itemize}
 %	Special case of the following function
 %	$r(t) = \begin{cases}
 %	1/2 & \text{falls} \abs{t}<1 \\
@@ -341,7 +346,8 @@
 		$\sin(a t)$ & \kern-2em $\LT \frac{a}{s^2 + a^2}$ & $\cos(a t)$ & \kern-2em $\LT \frac{s}{s^2 + a^2}$\\[0.5em]
 		$\sinh(a t)$ & \kern-2em $\LT \frac{a}{s^2 - a^2}$ & $\cosh(a t)$ & \kern-2em $\LT \frac{s}{s^2 - a^2}$\\[0.5em]
 		$\frac{\sin(at)}{t}$ & \kern-2em $\LT\arctan\left(\frac{a}{s}\right)$	& $\frac{t^{n-1}}{(n-1)!}$   & \kern-2em $\LT \frac{1}{s^n}$ \\[0.5em]
-		$e^{-at} \sin(b t)$ & \kern-2em $\LT \frac{b}{(s+a)^2+b^2}$ \\
+		$e^{-at} \sin(b t)$ & \kern-2em $\LT \frac{b}{(s+a)^2+b^2}$
+		&$t^ne^{at}$ & \kern-2em $\LT \frac{n!}{(s-a)^{n+1}}$\\
 		$e^{-at} \cos(b t)$ & \kern-2em $\LT \frac{s+a}{(s+a)^2+b^2}$\\
 		$\frac{ae^{-at}-be^{-bt}}{a-b}$ & $\kern-2em \LT \frac{s}{(s+a)(s+b)}$
 	\end{tabular}\\
@@ -491,7 +497,7 @@
 	\subsection{Existenz einer Stammfunktion und Wegunabhängigkeit}
 	Ist $\cx f: G \ra \C$ holomorph auf dem einfach zsh. Gebiet $G$, so existiert zu $\cx f$ eine Stammfunktion $\cx F$, und es gilt für jede in $G$ verlaufende Kurve $\cx \gamma$ mit Anfangspunkt $\cx \gamma(a)$ und Endpunkt $\cx \gamma(b)$: \\
 	\begin{equation*}
-		\int \limits_{\cx \gamma} \cx f(\cx z) \diff \cx z = \cx F(\cx \gamma (b)) - \cx F(\cx \gamma (a))
+		\int \limits_{\cx \gamma} \cx f(\cx z) \diff \cx z = \cx F(\cx \gamma (b)) - \cx F(\cx \gamma (a)) = \int\limits_a^bf(\gamma(t)) \cdot \dot{\gamma}(t) \diff t
 	\end{equation*}
 \end{sectionbox}
 

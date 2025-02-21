@@ -51,6 +51,7 @@ jobs:
 
       # Run latexdiff on each document by retrieving the original .tex file from the default branch.
       - name: Run latexdiff on documents
+        continue-on-error: true
         run: |
           # Install latexdiff if not present
           apt-get install -y latexdiff
