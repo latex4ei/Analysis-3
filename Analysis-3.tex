@@ -12,7 +12,7 @@
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 
 % Document Class ===============================================================
-\documentclass[german,color,5pt]{latex4ei/latex4ei_fs}
+\documentclass[german,color,5pt]{latex4ei_fs}
 
 % set document information
 \title{Analysis 3}
@@ -21,6 +21,10 @@
 
 \DeclareTextFontCommand{\emph}{\bfseries}
 \titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection.\ }{0pt}{}
+
+% Redefine \i to produce an upright imaginary unit
+\renewcommand{\i}{\mathrm{i}}
+
 
 % DOCUMENT_BEGIN ===============================================================
 \begin{document}
